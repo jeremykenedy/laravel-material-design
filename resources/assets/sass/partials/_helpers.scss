@@ -1,0 +1,221 @@
+// TABLET UP MARGIN TOP
+@media(min-width: $phone) {
+  .margin-top-1-tablet {
+    margin-top: 1em;
+  }
+  .margin-top-2-tablet {
+    margin-top: 2em;
+  }
+  .margin-top-3-tablet {
+    margin-top: 3em;
+  }
+}
+
+// BOTTOM MARGIN CLASSES
+.margin-bottom-1 {
+  margin-bottom: 1em;
+}
+.margin-bottom-2 {
+  margin-bottom: 2em;
+}
+.margin-bottom-3 {
+  margin-bottom: 3em;
+}
+
+// VISIBILITY CLASSES
+.block {
+  display: block
+}
+.inline-block {
+  display: inline-block;
+}
+.start-hidden,
+.hidden {
+  display: none;
+}
+
+// ALIGNMENT CLASSES
+.text-center-only {
+  text-align: center;
+}
+.text-center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.full-span {
+  width: 100%;
+}
+
+.text-white {
+  color: $theme_color1;
+}
+.bg-white{
+  background: $theme_color1;
+}
+
+// GENERATE MARGIN HELPER CLASSES
+@mixin generate-margin-helper-classes {
+  @for $i from 0 through $num-of-helper-classes {
+    .margin-top-#{$i} {
+      margin-top: (#{$i}em);
+    }
+    .margin-bottom-#{$i} {
+      margin-bottom: (#{$i}em);
+    }
+    .margin-left-#{$i} {
+      margin-left: (#{$i}em);
+    }
+    .margin-right-#{$i} {
+      margin-right: (#{$i}em);
+    }
+    .margin-top-#{$i}-important {
+      margin-top: (#{$i}em) !important;;
+    }
+    .margin-bottom-#{$i}-important {
+      margin-bottom: (#{$i}em) !important;;
+    }
+    .margin-left-#{$i}-important {
+      margin-left: (#{$i}em) !important;;
+    }
+    .margin-right-#{$i}-important {
+      margin-right: (#{$i}em) !important;;
+    }
+  }
+  @media(min-width: $phone){
+    @for $i from 0 through $num-of-helper-classes {
+      .margin-top-#{$i}-tablet {
+        margin-top: (#{$i}em);
+      }
+      .margin-bottom-#{$i}-tablet {
+        margin-bottom: (#{$i}em);
+      }
+      .margin-left-#{$i}-tablet {
+        margin-left: (#{$i}em);
+      }
+      .margin-right-#{$i}-tablet {
+        margin-right: (#{$i}em);
+      }
+    }
+  }
+  @media(min-width: $tablet){
+    @for $i from 0 through $num-of-helper-classes {
+      .margin-top-#{$i}-desktop {
+        margin-top: (#{$i}em);
+      }
+      .margin-bottom-#{$i}-desktop {
+        margin-bottom: (#{$i}em);
+      }
+      .margin-left-#{$i}-desktop {
+        margin-left: (#{$i}em);
+      }
+      .margin-right-#{$i}-desktop {
+        margin-right: (#{$i}em);
+      }
+    }
+    .margin-top-1-7-desktop {
+      margin-top: 1.7em;
+    }
+  }
+}
+@include generate-margin-helper-classes();
+
+// GENERATE PADDING HELPER CLASSES
+@mixin generate-padding-helper-classes {
+  @for $i from 0 through $num-of-helper-classes {
+    .padding-#{$i} {
+      padding: (#{$i}em);
+    }
+    .padding-top-#{$i} {
+      padding-top: (#{$i}em);
+    }
+    .padding-bottom-#{$i} {
+      padding-bottom: (#{$i}em);
+    }
+    .padding-left-#{$i} {
+      padding-left: (#{$i}em);
+    }
+    .padding-right-#{$i} {
+      padding-right: (#{$i}em);
+    }
+    .padding-top-#{$i}-important {
+      padding-top: (#{$i}em) !important;;
+    }
+    .padding-bottom-#{$i}-important {
+      padding-bottom: (#{$i}em) !important;;
+    }
+    .padding-left-#{$i}-important {
+      padding-left: (#{$i}em) !important;;
+    }
+    .padding-right-#{$i}-important {
+      padding-right: (#{$i}em) !important;;
+    }
+  }
+  @media(min-width: $phone){
+    @for $i from 0 through $num-of-helper-classes {
+      .padding-top-#{$i}-tablet {
+        padding-top: (#{$i}em);
+      }
+      .padding-bottom-#{$i}-tablet {
+        padding-bottom: (#{$i}em);
+      }
+      .padding-left-#{$i}-tablet {
+        padding-left: (#{$i}em);
+      }
+      .padding-right-#{$i}-tablet {
+        padding-right: (#{$i}em);
+      }
+    }
+  }
+}
+@include generate-padding-helper-classes();
+
+.padding-0 {
+  padding: 0;
+}
+.padding-half-1 {
+  padding: .5em;
+}
+.padding-1-half {
+  padding: 1.5em;
+}
+.padding-right-half-1 {
+  padding-right: .5em;
+}
+
+// VENDOR PREFIXING MIXIN
+@mixin vendor($property, $value) {
+  #{$property}: $value;
+  -o-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -webkit-#{$property}: $value;
+}
+// MAKE IMAGES NOT DRAGGABLE
+@mixin draggless() {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  @include vendor(user-drag, none);
+  @include vendor(user-select, none);
+}
+// SMOOTH THEM FONTS OUT
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

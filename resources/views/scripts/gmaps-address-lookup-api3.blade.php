@@ -7,6 +7,8 @@
             var input = document.getElementById('location');
             var options; // = {componentRestrictions: {country: 'us'}};
             var autocomplete = new google.maps.places.Autocomplete(input, options);
+            // OVERRIDE GOOGLE PLACEHOLDER
+            input.placeholder = "";
         }
      }//]]>
 </script>

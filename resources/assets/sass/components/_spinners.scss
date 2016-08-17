@@ -1,0 +1,20 @@
+// SPINNER IN BUTTON LOCATION
+.mdl-button {
+	.mdl-spinner {
+		top: 5px;
+		left: 45%;
+		position: absolute;
+	}
+}
+
+// SPINNER COLORS
+.mdl-spinner--single-color {
+	&.mdl-color-white {
+		.mdl-spinner__layer-1,
+		.mdl-spinner__layer-2,
+		.mdl-spinner__layer-2,
+		.mdl-spinner__layer-4 {
+			border-color: $theme_color1;
+		}
+	}
+}

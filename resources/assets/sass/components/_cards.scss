@@ -1,0 +1,74 @@
+.mdl-card {
+	&.demo-card-wide {
+		width: 512px;
+	}
+	&.demo-card-xwide {
+		width: 767px;
+	}
+	&.demo-card-full {
+		width: 100%;
+		.mdl-card__supporting-text {
+			width: auto;
+		}
+	}
+}
+
+
+#map-canvas{
+	min-height: 300px;
+	height: 100%;
+	width: 100%;
+}
+.card-wide.mdl-card {
+	width: 512px;
+	margin: 0 auto;
+}
+
+.card-wide > .mdl-card__title {
+	color: #fff;
+	height: 192px;
+	background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/welcome_card_tuts.png') center / cover;
+}
+
+.card-wide > .mdl-card__menu {
+	color: #fff;
+}
+.mdl-user-avatar {
+	position: absolute;
+	width: 100%;
+	top: 36px;
+}
+.mdl-user-avatar img {
+	border-radius: 50%;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	height: 100px;
+	width: 100px;
+}
+.mdl-title-username {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1em !important;
+	margin: 0px 0 5px 0;
+}
+@media (min-width: 840px) {
+	.mdl-grid.full-grid {
+	    width: 99%;
+	}
+}
+.card-image.mdl-card {
+	width: 100%;
+}
+.card-image > .mdl-card__actions {
+	padding: 1em 1em 0;
+	z-index: 1;
+}
+.mdl-card__supporting-text {
+	width: auto;
+}
+
+
+

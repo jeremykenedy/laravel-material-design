@@ -2,7 +2,7 @@
 
 return [
 
-	'app'			=> 'Laravel',
+	'app'			=> 'Laravel Material',
 	'app2'			=> 'Laravel 5',
 	'home'			=> 'Home',
 	'login'			=> 'Login',
@@ -10,11 +10,11 @@ return [
 	'register'		=> 'Register',
 	'resetPword'	=> 'Reset Password',
 	'toggleNav'		=> 'Toggle Navigation',
-	'profile'		=> 'Profile',
+	'profile'		=> 'User Profile',
 	'editProfile'	=> 'Edit Profile',
 	'createProfile'	=> 'Create Profile',
 	'adminUserList'	=> 'Users List',
 	'adminEditUsers'=> 'Edit Users',
-	'adminNewUser'	=> 'Create New User',
+	'adminNewUser'	=> 'Create User',
 
 ];

@@ -1,0 +1,43 @@
+// DASHBAORD LOGO
+.dashboard-logo {
+  height: 64px;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  i {
+    margin: 0 5px;
+  }
+}
+body .logo-style {
+  line-height: 1;
+  letter-spacing: .02em;
+  font-weight: 300;
+  font-size: 18px;
+  align-items: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  i {
+    margin: 0 5px;
+  }
+}
+
+// AVATAR
+.mdl-list__item-avatar,
+.mdl-list__item-avatar.material-icons {
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  margin: 5px auto;
+  font-size: 100px;
+}

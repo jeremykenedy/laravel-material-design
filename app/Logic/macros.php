@@ -22,7 +22,7 @@
     HTML::macro('icon_btn', function($url = '', $icon = '', $link_name = '', $param = '', $active=true, $ssl=false)
     {
         $url    = $ssl==true ? URL::to_secure($url) : URL::to($url);
-        $icon   = $link_name.' <i class="'.$icon.'" aria-hidden="true"></i>';
+        $icon   = $link_name.' <i class="" aria-hidden="true">'.$icon.'</i>';
         $link   = $active==true ? HTML::link($url, '#', $param) : $icon;
         $link   = str_replace('#',$icon,$link);
         return $link;

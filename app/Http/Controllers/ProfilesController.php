@@ -41,7 +41,7 @@ class ProfilesController extends Controller {
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
-            'location'          => 'required',
+            'location'          => '',
             'bio'               => '',
             'twitter_username'  => '',
             'github_username'   => ''

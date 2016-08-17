@@ -1,33 +1,37 @@
 @if (session('status'))
-	<div class="alert alert-success alert-dismissable flat">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<h4><i class="icon fa fa-check"></i> Success</h4>
-		{{ session('status') }}
+	<div class="success message dismissible">
+		<i class="material-icons status">&#xE876;</i>
+		<h4>
+		  	Success
+		</h4>
+		<p>
+		  	{{ session('status') }}
+		</p>
 	</div>
 @endif
 
 @if (session('anError'))
-	<div class="alert alert-danger alert-dismissable flat">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<div class="warning message dismissible">
+		<i class="material-icons status">&#xE645;</i>
 		<h4>
-			<i class="icon fa fa-warning"></i>
-			Success
+		  	{{ Lang::get('auth.someProblems') }}
 		</h4>
-		{{ session('anError') }}
+		<p>
+		  	{{ session('anError') }}
+		</p>
 	</div>
 @endif
 
 @if (count($errors) > 0)
-	<div class="alert alert-danger alert-dismissable flat">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	<div class="error message dismissible">
+		<i class="material-icons status">&#xE5CD;</i>
 		<h4>
-			<i class="icon fa fa-warning"></i>
-			<strong>{{ Lang::get('auth.whoops') }}</strong> {{ Lang::get('auth.someProblems') }}
+		  	{{ Lang::get('auth.someProblems') }}
 		</h4>
-		<ul>
+		<p>
 			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
+				{{ $error }} <br />
 			@endforeach
-		</ul>
+		</p>
 	</div>
 @endif

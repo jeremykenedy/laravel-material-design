@@ -65,9 +65,7 @@ class UsersManagementController extends Controller {
         $total_users_confirmed  = \DB::table('users')->where('active', '1')->count();
         $total_users_locked = \DB::table('users')->where('resent', '>', 3)->count();
 
-
         $total_users_new        = \DB::table('users')->where('active', '0')->count();
-
 
         $userRole               = $user->hasRole('user');
         $editorRole             = $user->hasRole('editor');
@@ -75,11 +73,14 @@ class UsersManagementController extends Controller {
 
         if($userRole)
         {
-            $access = 'User';
+            $access     = 'User';
+            $accesClass = 'mdl-color--green-200 mdl-color-text--white';
         } elseif ($editorRole) {
-            $access = 'Editor';
+            $access     = 'Editor';
+            $accesClass = 'mdl-color--green-400 mdl-color-text--white';
         } elseif ($adminRole) {
-            $access = 'Administrator';
+            $access     = 'Administrator';
+            $accesClass = 'mdl-color--green-600 mdl-color-text--white';
         }
 
         return view('admin.show-users', [
@@ -87,6 +88,7 @@ class UsersManagementController extends Controller {
         		'total_users' 	          => $total_users,
         		'user' 			          => $user,
         		'access' 	              => $access,
+                'access_class'            => $accesClass,
         		'total_users'             => $total_users,
                 'total_users_confirmed'   => $total_users_confirmed,
                 'total_users_locked'      => $total_users_locked,

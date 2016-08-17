@@ -14,7 +14,7 @@ return [
 
 	// LABELS
 	'whoops'			=> 'Whoops!',
-	'someProblems'		=> 'There were some problems with your input.',
+	'someProblems'		=> 'Errors',
 	'email'				=> 'E-Mail Address',
 	'password'			=> 'Password',
 	'rememberMe'		=> ' Remember Me',

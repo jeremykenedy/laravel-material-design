@@ -1,0 +1,4 @@
+.badge  {
+	padding: 2px 4px 1px;
+	@include vendor(border-radius, $standard-border-radius);
+}

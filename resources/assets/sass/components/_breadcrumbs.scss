@@ -1,0 +1,25 @@
+// BREADCRUMBS
+.breadcrumb {
+  width: 100%;
+  padding: 1em 3em;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .material-icons {
+    padding: 0 10px;
+    color: #E9A7A1;
+    line-height: 1;
+    vertical-align: -6px;
+  }
+}

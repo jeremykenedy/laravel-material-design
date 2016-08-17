@@ -1,4 +1,4 @@
-@extends('app')
+@extends('auth')
 
 @section('template_title')
 	Sorry, it's not going to work out

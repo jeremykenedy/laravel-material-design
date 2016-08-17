@@ -1,4 +1,4 @@
-@extends('app')
+@extends('dashboard')
 
 @section('template_title')
 	Create New User

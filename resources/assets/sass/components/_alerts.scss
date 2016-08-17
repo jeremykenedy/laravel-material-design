@@ -1,0 +1,71 @@
+
+ div.message {
+
+  padding: 10px;
+  padding-left: 35px;
+  margin: 20px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  background: #BBB;
+  color: #FFF;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+
+
+
+
+  position: absolute;
+
+
+  width: 300px;
+  z-index: 9999;
+  top: 0;
+  left: 10px;
+
+
+
+}
+
+
+div.message:hover{
+  box-shadow: 0 15px 20px rgba(10,0,10,.3);
+  -webkit-filter: brightness(110%);
+}
+
+
+.status {
+
+
+
+
+  position: absolute;
+  display: block;
+  top: -10px;
+  left: -10px;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  width: 25px;
+  padding:10px;
+  background: inherit;
+  box-shadow:0 5px 10px rgba(0,0,0,.25);
+  color: rgba(255,255,255,.75);
+  border-radius:50%;
+
+
+}
+
+
+div.message.information{background: #39B;}
+div.message.warning{background: #E74;}
+div.message.success{background: #5A6;}
+div.message.announcement{background: #EA0;}
+div.message.error{background: #C43;}
+
+
+
+.dismissible {
+  cursor: pointer;
+}

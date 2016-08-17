@@ -1,0 +1,13 @@
+.mdl-list__item {
+	a {
+	  text-decoration: none;
+	}
+}
+li {
+	&.mdl-list__item {
+	  	border-bottom: 1px solid #dddddd;
+		&:last-child {
+		  border: none;
+		}
+	}
+}

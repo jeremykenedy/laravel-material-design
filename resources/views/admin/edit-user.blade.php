@@ -1,4 +1,4 @@
-@extends('app')
+@extends('dashboard')
 
 @section('template_title')
 	Showing User {{ $user->name }}
@@ -126,10 +126,10 @@
 			</div>
 		</div>
 	</div>
-
+{{--
 	@include('modals.modal-save')
 	@include('modals.modal-delete')
-
+ --}}
 @endsection
 
 @section('template_scripts')

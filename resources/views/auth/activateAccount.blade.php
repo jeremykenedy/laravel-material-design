@@ -1,4 +1,4 @@
-@extends('app')
+@extends('auth')
 
 @section('template_title')
 	Activation Sent

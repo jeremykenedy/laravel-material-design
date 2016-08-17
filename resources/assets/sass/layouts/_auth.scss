@@ -1,0 +1,13 @@
+.mdl-layout {
+
+	// LOGIN, RESET, AND REGISTER FORM LAYOUTS
+	&.mdl-auth-form {
+		align-items: center;
+		justify-content: center;
+		.mdl-layout__content {
+			margin-top: 12%;
+			padding: .5em;
+		}
+	}
+
+}
