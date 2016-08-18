@@ -240,7 +240,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
     @include('scripts.mdl-datatables')
     ```
 
-    b. Add class ```data-table``` to your table to instantiate it as a datatable.
+    b. Add class ```data-table``` to your ```<table>``` to instantiate it as a datatable.
 
     * You should add classes mdl-data-table mdl-js-data-table for MDL styling (not required).
 
