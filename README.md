@@ -211,18 +211,28 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 ```
 
 ### Helpful custom functions
-1. Call Material Design Lite Dialog Box (aka Modal)
+1. Dialogs (aka Modal)
+
+    a. Call Material Design Lite Dialog Box
     ```
     mdl_dialog(trigger,close,dialog)
     ```
-    The inputs are optional, the Defaults are as follows:
+    * The inputs are optional, the Defaults are as follows:
     ```
         var trigger = trigger || document.querySelector('.dialog-button');
         var close = close || document.querySelector('.dialog-close');
         var dialog = dialog || document.querySelector('#dialog');
     ```
 
+    b. Add the desired dialog view to your template view with:
+    ```
+        @include('dialogs.dialog-save')
+    ```
+    * Substitute with the desired dialog blade.
+
+
 2. Datatabes
+
     Give a table functionality with [DataTables](https://datatables.net)
 
     a. Within the ```@section('template_scripts')``` section call the view with:
