@@ -50,6 +50,16 @@
 						        	</span>
 						        </li>
 					        @endif
+							@if ($user->profile->location)
+							    <li class="mdl-list__item mdl-typography--font-light">
+							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							    		<i class="material-icons mdl-list__item-icon">location_on</i>
+										<span itemprop="streetAddress">
+											{{ $user->profile->location }}
+										</span>
+							    	</div>
+							    </li>
+							@endif
 					        @if ($user->profile->bio)
 						        <li class="mdl-list__item">
 						        	<span class="mdl-list__item-primary-content">
@@ -61,16 +71,6 @@
 						        	</span>
 						        </li>
 					        @endif
-							@if ($user->profile->location)
-							    <li class="mdl-list__item mdl-typography--font-light">
-							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							    		<i class="material-icons mdl-list__item-icon">location_on</i>
-										<span itemprop="streetAddress">
-											{{ $user->profile->location }}
-										</span>
-							    	</div>
-							    </li>
-							@endif
 					    </ul>
 					</div>
 					@if ($user->profile->location)

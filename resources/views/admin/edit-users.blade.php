@@ -62,7 +62,7 @@
 				</table>
 			</div>
 
-			@include('modals.modal-delete')
+		{{-- 	@include('modals.modal-delete') --}}
 
 			<div class="row margin-top-1">
 

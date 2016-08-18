@@ -64,6 +64,7 @@
 					<th class="mdl-data-table__cell--non-numeric">Access Level</th>
 					<th class="mdl-data-table__cell--non-numeric">Created</th>
 					<th class="mdl-data-table__cell--non-numeric">Updated</th>
+					<th class="mdl-data-table__cell--non-numeric nosort">Actions</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -72,9 +73,48 @@
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->id}}</a></td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->name}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->email}} </a></td>
-							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}" class="badge {{ $access_class }}">{{$access}} </a></td>
+							<td class="mdl-data-table__cell--non-numeric">
+								@foreach ($roles as $role)
+									@if ( ($a_user->id) == $role->user_id )
+										@if ($role->role_id == 1 )
+											@php
+									            $access_level   = 'User';
+									            $access_class 	= 'mdl-color--green-200 mdl-color-text--white';
+											@endphp
+										@elseif ($role->role_id == 2 )
+											@php
+									            $access_level   = 'Editor';
+									            $access_class 	= 'mdl-color--green-400 mdl-color-text--white';
+											@endphp
+										@elseif ($role->role_id == 3 )
+											@php
+									            $access_level   = 'Administrator';
+									            $access_class 	= 'mdl-color--green-600 mdl-color-text--white';
+											@endphp
+										@endif
+									@endif
+								@endforeach
+								<a href="{{ URL::to('users/' . $a_user->id) }}" class="badge {{ $access_class }}">
+									{{$access_level}}
+								</a>
+							</td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->created_at}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->updated_at}} </a></td>
+							<td class="mdl-data-table__cell--non-numeric">
+								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
+									<i class="material-icons">person_outline</i>
+								</a>
+								<a href="/profile/{{Auth::user()->name}}/edit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="material-icons">edit</i>
+								</a>
+								{!! Form::open(array('url' => 'users/' . $a_user->id, 'class' => 'inline-block')) !!}
+									{!! Form::hidden('_method', 'DELETE') !!}
+									<a href="#" class="dialog-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+										<i class="material-icons">delete</i>
+									</a>
+									@include('dialogs.dialog-delete')
+								{!! Form::close() !!}
+							</td>
 						</tr>
 			        @endforeach
 			  </tbody>
@@ -100,8 +140,12 @@
 
 @section('template_scripts')
 
-	{!! HTML::script('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js', array('type' => 'text/javascript')) !!}
-	{!! HTML::script('https://cdn.datatables.net/1.10.12/js/dataTables.material.min.js', array('type' => 'text/javascript')) !!}
 	@include('scripts.mdl-datatables')
+
+	<script type="text/javascript">
+
+		mdl_dialog();
+
+	</script>
 
 @endsection

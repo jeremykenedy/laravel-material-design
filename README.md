@@ -97,11 +97,11 @@ And thats it with the caveat of setting up and configuring your development envi
   4. Add the service provider to ```/app/services.php```
      * Example:
      ```
-   	'twitch' => [
-   	    'client_id' 	=> env('TWITCH_KEY'),
-   	    'client_secret' => env('TWITCH_SECRET'),
-   	    'redirect' 		=> env('TWITCH_REDIRECT_URI'),
-   	],
+    'twitch' => [
+        'client_id'     => env('TWITCH_KEY'),
+        'client_secret' => env('TWITCH_SECRET'),
+        'redirect'      => env('TWITCH_REDIRECT_URI'),
+    ],
      ```
   5. Add the API credentials to ``` /.env  ```
      * Example:
@@ -209,6 +209,32 @@ INSTAGRAM_REDIRECT_URI=http://laravel-material-admin.local/social/handle/instagr
 # Google Maps API v3 Key - https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
 GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 ```
+
+### Helpful custom functions
+1. Call Material Design Lite Dialog Box (aka Modal)
+    ```
+    mdl_dialog(trigger,close,dialog)
+    ```
+    The inputs are optional, the Defaults are as follows:
+    ```
+        var trigger = trigger || document.querySelector('.dialog-button');
+        var close = close || document.querySelector('.dialog-close');
+        var dialog = dialog || document.querySelector('#dialog');
+    ```
+
+2. Datatabes
+    Give a table functionality with [DataTables](https://datatables.net)
+
+    a. Within the ```@section('template_scripts')``` section call the view with:
+    ```
+    @include('scripts.mdl-datatables')
+    ```
+
+    b. Add class ```data-table``` to your table to instantiate it as a datatable.
+
+    * You should add classes mdl-data-table mdl-js-data-table for MDL styling (not required).
+
+    c. Optionally disable any columns from being sortable by adding class ```nosort``` to the ```<th>``` of the column.
 
 ### File Structure of Common Used Files
 ```

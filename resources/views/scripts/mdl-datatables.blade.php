@@ -1,3 +1,6 @@
+{!! HTML::script('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js', array('type' => 'text/javascript')) !!}
+{!! HTML::script('https://cdn.datatables.net/1.10.12/js/dataTables.material.min.js', array('type' => 'text/javascript')) !!}
+
 <script type="text/javascript">
 
   (function(window, document, undefined) {
@@ -36,6 +39,10 @@
 
   $(document).ready(function() {
     $('.data-table').dataTable({
+   'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+    }],
   	"pagingType": "full_numbers",
       "oLanguage": {
         "sStripClasses": "",

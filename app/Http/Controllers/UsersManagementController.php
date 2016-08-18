@@ -56,43 +56,24 @@ class UsersManagementController extends Controller {
 
         $user                   = \Auth::user();
         $users 			        = \DB::table('users')->get();
-
+        $roles                  = \DB::table('role_user')->get();
         $total_users 	        = \DB::table('users')->count();
-
-        $attemptsAllowed        = 4;
 
         $total_users_confirmed  = \DB::table('users')->count();
         $total_users_confirmed  = \DB::table('users')->where('active', '1')->count();
-        $total_users_locked = \DB::table('users')->where('resent', '>', 3)->count();
+        $total_users_locked     = \DB::table('users')->where('resent', '>', 3)->count();
 
         $total_users_new        = \DB::table('users')->where('active', '0')->count();
-
-        $userRole               = $user->hasRole('user');
-        $editorRole             = $user->hasRole('editor');
-        $adminRole              = $user->hasRole('administrator');
-
-        if($userRole)
-        {
-            $access     = 'User';
-            $accesClass = 'mdl-color--green-200 mdl-color-text--white';
-        } elseif ($editorRole) {
-            $access     = 'Editor';
-            $accesClass = 'mdl-color--green-400 mdl-color-text--white';
-        } elseif ($adminRole) {
-            $access     = 'Administrator';
-            $accesClass = 'mdl-color--green-600 mdl-color-text--white';
-        }
 
         return view('admin.show-users', [
         		'users' 		          => $users,
         		'total_users' 	          => $total_users,
         		'user' 			          => $user,
-        		'access' 	              => $access,
-                'access_class'            => $accesClass,
         		'total_users'             => $total_users,
                 'total_users_confirmed'   => $total_users_confirmed,
                 'total_users_locked'      => $total_users_locked,
                 'total_users_new'         => $total_users_new,
+                'roles'                   => $roles,
         	]
         );
 	}

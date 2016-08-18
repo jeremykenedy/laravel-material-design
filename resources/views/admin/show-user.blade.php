@@ -16,14 +16,6 @@
 
 @section('content')
 
-
-
-
-
-
-
-
-
 <div class="mdl-grid full-grid margin-top-0 padding-0">
 	<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
 	    <div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
@@ -76,6 +68,16 @@
 						        	</span>
 						        </li>
 					        @endif
+							@if ($user->profile->location)
+							    <li class="mdl-list__item mdl-typography--font-light">
+							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							    		<i class="material-icons mdl-list__item-icon">location_on</i>
+										<span itemprop="streetAddress">
+											{{ $user->profile->location }}
+										</span>
+							    	</div>
+							    </li>
+							@endif
 					        @if ($user->profile->bio)
 						        <li class="mdl-list__item">
 						        	<span class="mdl-list__item-primary-content">
@@ -87,16 +89,6 @@
 						        	</span>
 						        </li>
 					        @endif
-							@if ($user->profile->location)
-							    <li class="mdl-list__item mdl-typography--font-light">
-							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							    		<i class="material-icons mdl-list__item-icon">location_on</i>
-										<span itemprop="streetAddress">
-											{{ $user->profile->location }}
-										</span>
-							    	</div>
-							    </li>
-							@endif
 					    </ul>
 					</div>
 					@if ($user->profile->location)
@@ -117,12 +109,6 @@
 				<div class="mdl-grid full-grid">
 					<div class="mdl-cell mdl-cell--12-col">
 
-{{--
-
-{!! HTML::icon_link(URL::to('users/' . $user->id . '/edit'), 'fa fa-fw '.Lang::get('forms.submit-btn-icon')  , Lang::get('forms.submit-btn-text'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
- --}}
-
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
 								<a href="/profile/{{ Auth::user()->name }}/edit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-shadow--3dp mdl-button--raised mdl-button--primary mdl-color-text--white">
@@ -135,16 +121,10 @@
 							{!! HTML::link(URL::to('/profile/'.Auth::user()->name.'/edit'), Lang::get('titles.createProfile'), array('class' => 'mdl-button mdl-js-button mdl-js-ripple-effect mdl-shadow--3dp')) !!}
 						@endif
 
-
-
-
 					</div>
 				</div>
 		    </div>
 		    <div class="mdl-card__menu">
-
-
-
 
 				@if ($user->profile)
 					@if (Auth::user()->id == $user->id)
@@ -157,13 +137,17 @@
 					{!! HTML::link(URL::to('/profile/'.Auth::user()->name.'/edit'), Lang::get('titles.createProfile'), array('class' => 'mdl-button mdl-js-button mdl-js-ripple-effect')) !!}
 				@endif
 
-
+				{!! Form::open(array('url' => 'users/' . $user->id, 'class' => 'inline-block')) !!}
+					{!! Form::hidden('_method', 'DELETE') !!}
+					<a href="#" class="dialog-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="material-icons">delete</i>
+					</a>
+					@include('dialogs.dialog-delete')
+				{!! Form::close() !!}
 
 				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 					<i class="material-icons">share</i>
 				</button>
-
-
 
 		    </div>
 	    </div>
@@ -300,5 +284,25 @@
 
 	@include('scripts.google-maps-geocode-and-map')
 	@include('scripts.delete-modal-script')
+
+
+	<script type="text/javascript">
+
+
+// function mdl_dialog(trigger,close,dialog) {
+//   'use strict';
+// 	var trigger = trigger || document.querySelector('.dialog-button');
+// 	var close = close || document.querySelector('.dialog-close');
+// 	var dialog = dialog || document.querySelector('#dialog');
+
+
+
+		mdl_dialog();
+
+		// $('form input, form select, form textarea').on('input', function() {
+		//     $('.save-actions').show();
+		// });
+
+	</script>
 
 @endsection

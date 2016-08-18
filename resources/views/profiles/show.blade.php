@@ -39,7 +39,6 @@
 
 @section('content')
 
-
 	@include('cards.user-profile-card')
 
 @endsection

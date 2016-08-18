@@ -19,8 +19,6 @@
 
 					{!! Form::model($user, array('action' => array('UsersManagementController@update', $user->id), 'method' => 'PUT')) !!}
 
-						{!! csrf_field() !!}
-
 						<div class="panel-body">
 
 							@include('partials.form-status')

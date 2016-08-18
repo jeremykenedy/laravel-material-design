@@ -64,6 +64,7 @@
 
 			<div class="mdl-grid full-grid margin-top-0 padding-0">
 				<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
+
 					{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'role' => 'form' ]) !!}
 						<div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 							<div class="mdl-user-avatar">
@@ -88,7 +89,6 @@
 													<span class="mdl-textfield__error">Letters and numbers only</span>
 												</div>
 											</div>
-
 											<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? 'is-invalid' :'' }}">
 													{!! Form::email('email', $user->email, array('id' => 'email', 'class' => 'mdl-textfield__input', 'disabled')) !!}
@@ -96,7 +96,6 @@
 													<span class="mdl-textfield__error">Please Enter a Valid {{ Lang::get('auth.email') }}</span>
 												</div>
 											</div>
-
 											<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
 										        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('first_name') ? 'is-invalid' :'' }}">
 										            {!! Form::text('first_name', $user->first_name, array('id' => 'first_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
@@ -111,7 +110,6 @@
 											        <span class="mdl-textfield__error">Letters only</span>
 											    </div>
 										  	</div>
-
 										  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
 											    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('twitter_username') ? 'is-invalid' :'' }}">
 											        {!! Form::text('twitter_username', $user->profile->twitter_username, array('id' => 'twitter_username', 'class' => 'mdl-textfield__input')) !!}
@@ -132,22 +130,32 @@
 											</div>
 										</div>
 									</div>
-									<div class="mdl-cell mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop margin-top-0 margin-top-1-7-desktop">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-bottom-1 {{ $errors->has('location') ? 'is-invalid' :'' }}">
-										    {!! Form::text('location', $user->profile->location, array('id' => 'location', 'class' => 'mdl-textfield__input' )) !!}
-										    {!! Form::label('location', Lang::get('profile.label-location') , array('class' => 'mdl-textfield__label')); !!}
-											 <span class="mdl-textfield__error">Please Enter a Valid Location</span>
-										</div>
-										@if ($user->profile->location)
-											<div class="card-image mdl-card mdl-shadow--2dp">
-												<div id="map-canvas"></div>
-												<div class="mdl-card__actions mdl-color--primary mdl-color-text--white">
-													<p class="mdl-typography--font-light">
-														LON: <span id="longitude"></span> / LAT: <span id="latitude"></span>
-													</p>
+
+
+									<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
+
+										<div class="mdl-grid ">
+											<div class="mdl-cell mdl-cell--12-col">
+
+												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-bottom-1 {{ $errors->has('location') ? 'is-invalid' :'' }}">
+												    {!! Form::text('location', $user->profile->location, array('id' => 'location', 'class' => 'mdl-textfield__input' )) !!}
+												    {!! Form::label('location', Lang::get('profile.label-location') , array('class' => 'mdl-textfield__label')); !!}
+													<span class="mdl-textfield__error">Please Enter a Valid Location</span>
+
 												</div>
+												@if ($user->profile->location)
+													<div class="card-image mdl-card mdl-shadow--2dp">
+														<div id="map-canvas"></div>
+														<div class="mdl-card__actions mdl-color--primary mdl-color-text--white">
+															<p class="mdl-typography--font-light">
+																LON: <span id="longitude"></span> / LAT: <span id="latitude"></span>
+															</p>
+														</div>
+													</div>
+												@endif
+
 											</div>
-										@endif
+										</div>
 									</div>
 								</div>
 							</div>
@@ -157,18 +165,25 @@
 									<div class="mdl-cell mdl-cell--12-col padding-top-0 margin-top-0">
 										<span class="save-actions start-hidden">
 											{!! Form::button('<i class="material-icons" style="padding-right: 5px;">save</i>'.Lang::get('profile.submitButton'), array('class' => 'dialog-button mdl-button mdl-js-button mdl-js-ripple-effect center mdl-color--primary mdl-color-text--white mdl-button--raised full-span margin-bottom-1 margin-top-1 margin-top-0-desktop')) !!}
-											@include('dialogs.dialog-save')
 										</span>
 									</div>
 								</div>
 						    </div>
 						    <div class="mdl-card__menu">
+						    	<span class="save-actions start-hidden">
+									{!! Form::button('<i class="material-icons">save</i>', array('class' => 'mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'view profile')) !!}
+								</span>
 								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
 									<i class="material-icons">person_outline</i>
 								</a>
 						    </div>
 						</div>
+
+
+						@include('dialogs.dialog-save')
+
 					{!! Form::close() !!}
+
 				</div>
 			</div>
 
@@ -187,6 +202,7 @@
 	@include('scripts.mdl-required-input-fix')
 	@include('scripts.gmaps-address-lookup-api3')
 	@include('scripts.google-maps-geocode-and-map')
+
 	<script type="text/javascript">
 
 		mdl_dialog();
