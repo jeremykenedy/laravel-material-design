@@ -242,7 +242,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
     b. Add class ```data-table``` to your ```<table>``` to instantiate it as a datatable.
 
-    * You should add classes mdl-data-table mdl-js-data-table for MDL styling (not required).
+    * You should add classes ```mdl-data-table mdl-js-data-table``` for MDL styling (not required).
 
     c. Optionally disable any columns from being sortable by adding class ```nosort``` to the ```<th>``` of the column.
 
