@@ -105,16 +105,13 @@
 				</div>
 		    </div>
 		    <div class="mdl-card__menu">
-				@if ($user->profile)
-					@if (Auth::user()->id == $user->id)
-						<a href="/profile/{{Auth::user()->name}}/edit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-							<i class="material-icons">edit</i>
-						</a>
-					@endif
-				@else
-					<p>{{ Lang::get('profile.noProfileYet') }}</p>
-					{!! HTML::link(URL::to('/profile/'.Auth::user()->name.'/edit'), Lang::get('titles.createProfile'), array('class' => 'mdl-button mdl-js-button mdl-js-ripple-effect')) !!}
+
+				@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
+					<a href="{{ URL::to('users/' . $user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="material-icons">edit</i>
+					</a>
 				@endif
+
 				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 					<i class="material-icons">share</i>
 				</button>
