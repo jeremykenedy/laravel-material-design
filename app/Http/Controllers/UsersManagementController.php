@@ -79,40 +79,6 @@ class UsersManagementController extends Controller {
 	}
 
     /**
-     * Edit the Users Management Main Page to the Admin.
-     *
-     * @return Response
-     */
-    // THIS FEELS DUPLICATIVE of showUsersMainPanel() -  WORK ON PHASING THIS METHOD OUT
-    public function editUsersMainPanel()
-    {
-
-        $user               = \Auth::user();
-        $users              = \DB::table('users')->get();
-        $total_users        = \DB::table('users')->count();
-        $userRole           = $user->hasRole('user');
-        $editorRole         = $user->hasRole('editor');
-        $adminRole          = $user->hasRole('administrator');
-
-        if($userRole)
-        {
-            $access = 'User';
-        } elseif ($editorRole) {
-            $access = 'Editor';
-        } elseif ($adminRole) {
-            $access = 'Administrator';
-        }
-
-        return view('admin.edit-users', [
-                'users'             => $users,
-                'total_users'       => $total_users,
-                'user'              => $user,
-                'access'            => $access,
-            ]
-        );
-    }
-
-    /**
      * Get a validator for an incoming update user request.
      *
      * @param  array  $data
@@ -316,7 +282,7 @@ class UsersManagementController extends Controller {
             $user->profile()->save($profile);
 
             // THE SUCCESSFUL RETURN
-            return redirect('edit-users')->with('status', 'Successfully created user!');
+            return redirect('users')->with('status', 'Successfully created user!');
 
         }
 

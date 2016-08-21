@@ -111,13 +111,6 @@ Route::group(['middleware' => 'administrator'], function () {
 		'uses' 			=> 'UsersManagementController@showUsersMainPanel'
 	]);
 
-	// EDIT USERS PAGE ROUTE
-	Route::get('edit-users', [
-		'as' 			=> '{username}',
-		'uses' 			=> 'UsersManagementController@editUsersMainPanel'
-	]);
-
-
 });
 
 // EDITOR ACCESS LEVEL PAGE ROUTES - RUNNING THROUGH EDITOR MIDDLEWARE
