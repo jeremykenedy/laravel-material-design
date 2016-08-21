@@ -66,9 +66,8 @@ class UsersManagementController extends Controller {
         $total_users_new        = \DB::table('users')->where('active', '0')->count();
 
         return view('admin.show-users', [
-        		'users' 		          => $users,
-        		'total_users' 	          => $total_users,
         		'user' 			          => $user,
+                'users'                   => $users,
         		'total_users'             => $total_users,
                 'total_users_confirmed'   => $total_users_confirmed,
                 'total_users_locked'      => $total_users_locked,
