@@ -41,11 +41,11 @@
     $('.data-table').dataTable({
    'aoColumnDefs': [{
         'bSortable': false,
-        'aTargets': ['nosort']
+        'aTargets': ['no-sort']
     }],
    'aoColumnDefs': [{
         'searchable': false,
-        'aTargets': ['nosearch']
+        'aTargets': ['no-search']
     }],
   	"pagingType": "full_numbers",
       "oLanguage": {

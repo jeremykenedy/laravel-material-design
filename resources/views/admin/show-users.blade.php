@@ -70,7 +70,7 @@
 					<th class="mdl-data-table__cell--non-numeric">Access Level</th>
 					<th class="mdl-data-table__cell--non-numeric">Created</th>
 					<th class="mdl-data-table__cell--non-numeric">Updated</th>
-					<th class="mdl-data-table__cell--non-numeric nosort nosearch">Actions</th>
+					<th class="mdl-data-table__cell--non-numeric no-sort no-search">Actions</th>
 			    </tr>
 			  </thead>
 			  <tbody>

@@ -348,7 +348,7 @@ class UsersManagementController extends Controller {
         $user = User::find($id);
         $user->delete();
 
-        return redirect('show-users')->with('status', 'Successfully deleted the user!');
+        return redirect('users')->with('status', 'Successfully deleted the user!');
     }
 
 }
