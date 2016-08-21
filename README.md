@@ -244,9 +244,9 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
     c You should add classes ```mdl-data-table``` and ```mdl-js-data-table``` for MDL styling (not required).
 
-    d. Optionally exclude/disable any column from being sortable by adding class ```nosort``` to the ```<th>``` of the column.
+    d. Optionally exclude/disable any column from being sortable by adding class ```no-sort``` to the ```<th>``` of the column.
 
-    e. Optionally exclude/disable any column from being searchable by adding class ```nosearch``` to the ```<th>``` of the column.
+    e. Optionally exclude/disable any column from being searchable by adding class ```no-search``` to the ```<th>``` of the column.
 
 
 ### File Structure of Common Used Files
