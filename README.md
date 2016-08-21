@@ -351,16 +351,40 @@ laravel-material-admin/
     │       └── ~~js/~~
     ├── resources/
     │   ├── assets/
-    │   │   └── Less/
-    │   │       ├── bootstrap/
-    │   │       └── app.less
+    │   │   ├── js/
+    │   │   │   ├── alerts.js
+    │   │   │   ├── dialogs.js
+    │   │   │   ├── mdl-datatables.js
+    │   │   │   └── spinners.js
+    │   │   └── sass/
+    │   │       ├── components/
+    │   │       │   ├── _alerts.scss
+    │   │       │   ├── _badges.scss
+    │   │       │   ├── _breadcrumbs.scss
+    │   │       │   ├── _cards.scss
+    │   │       │   ├── _dialogs.scss
+    │   │       │   ├── _inputs.scss
+    │   │       │   ├── _lists.scss
+    │   │       │   ├── _material-icons.scss
+    │   │       │   ├── _social-icons.scss
+    │   │       │   ├── _spinners.scss
+    │   │       │   └── _tables.scss
+    │   │       ├── layouts/
+    │   │       │   ├── _auth.scss
+    │   │       │   └── _dashboard.scss
+    │   │       ├── partials/
+    │   │       │   ├── _base.scss
+    │   │       │   ├── _helpers.scss
+    │   │       │   ├── _typography.scss
+    │   │       │   └── _variables.scss
+    │   │       └── app.scss
     │   ├── lang/
     │   │   └── en/
     │   │       ├── auth.php
+    │   │       ├── dialogs.php
     │   │       ├── emails.php
     │   │       ├── forms.php
     │   │       ├── links-and-buttons.php
-    │   │       ├── modals.php
     │   │       ├── pagination.php
     │   │       ├── passwords.php
     │   │       ├── profile.php
@@ -372,7 +396,6 @@ laravel-material-admin/
     │       ├── admin/
     │       │   ├── create-user.blade.php
     │       │   ├── edit-user.blade.php
-    │       │   ├── edit-users.blade.php
     │       │   ├── show-user.blade.php
     │       │   └── show-users.blade.php
     │       ├── auth/
@@ -383,6 +406,13 @@ laravel-material-admin/
     │       │   ├── register.blade.php
     │       │   ├── reset.blade.php
     │       │   └── tooManyEmails.blade.php
+    │       ├── cards/
+    │       │   ├── check-list-card.blade.php
+    │       │   ├── hero-image-card.blade.php
+    │       │   └── user-profile-card.blade.php
+    │       ├── dialogs/
+    │       │   ├── dialog-delete.blade.php
+    │       │   └── dialog-save.blade.php
     │       ├── emails/
     │       │   ├── activateAccount.blade.php
     │       │   └── password.blade.php
@@ -390,26 +420,30 @@ laravel-material-admin/
     │       │   ├── 403.blade.php
     │       │   ├── 404.blade.php
     │       │   └── 503.blade.php
-    │       ├── modals/
-    │       │   ├── modal-delete.blade.php
-    │       │   └── modal-save.blade.php
+    │       ├── modules/
+    │       │   ├── charts.blade.php
+    │       │   └── pie-charts.blade.php
     │       ├── pages/
     │       │   ├── home.blade.php
     │       │   └── status.blade.php
     │       ├── partials
+    │       │   ├── account-nav.blade.php
+    │       │   ├── drawer-nav.blade.php
     │       │   ├── form-status.blade.php
-    │       │   └── nav.blade.php
+    │       │   ├── header-nav.blade.php
+    │       │   └── search-bar.blade.php
     │       ├── profiles
     │       │   ├── edit.blade.php
     │       │   └── show.blade.php
     │       └── scripts
-    │           ├── delete-modal-script.blade.php
     │           ├── gmaps-address-lookup-api3.blade.php
     │           ├── google-maps-geocode-and-map.blade.php
-    │           └── save-modal-script.blade.php
+    │           ├── html5-password-match-check.blade.php
+    │           ├── mdl-datatables.blade.php
+    │           └── mdl-required-input-fix.blade.php
     ├── storage/
     ├── tests/
-    └── vendor/
+    └── vendor/ <-Note: Compiled with Composer.
 ```
 
 ---
