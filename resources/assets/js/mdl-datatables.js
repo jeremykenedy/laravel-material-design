@@ -36,11 +36,9 @@
     $('.data-table').dataTable({
    'aoColumnDefs': [{
         'bSortable': false,
-        'aTargets': ['no-sort']
-    }],
-   'aoColumnDefs': [{
         'searchable': false,
-        'aTargets': ['no-search']
+        'aTargets': ['no-search'],
+        'bTargets': ['no-sort']
     }],
     "pagingType": "full_numbers",
       "oLanguage": {
