@@ -43,6 +43,10 @@
         'bSortable': false,
         'aTargets': ['nosort']
     }],
+   'aoColumnDefs': [{
+        'searchable': false,
+        'aTargets': ['nosearch']
+    }],
   	"pagingType": "full_numbers",
       "oLanguage": {
         "sStripClasses": "",

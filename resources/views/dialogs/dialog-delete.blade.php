@@ -1,4 +1,4 @@
-<dialog id="dialog" class="mdl-dialog padding-0">
+<dialog id="dialog" class="mdl-dialog padding-0" >
 	<i class="material-icons status mdl-color--white mdl-color-text--primary">warning</i>
   	<h3 class="mdl-dialog__title mdl-color--primary mdl-color-text--white text-center-only padding-half-1">
   		{{ Lang::get('dialogs.confirm_delete_title_text') }}

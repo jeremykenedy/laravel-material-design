@@ -83,6 +83,7 @@ class UsersManagementController extends Controller {
      *
      * @return Response
      */
+    // THIS FEELS DUPLICATIVE of showUsersMainPanel() -  WORK ON PHASING THIS METHOD OUT
     public function editUsersMainPanel()
     {
 
@@ -347,7 +348,7 @@ class UsersManagementController extends Controller {
         $user = User::find($id);
         $user->delete();
 
-        return redirect('edit-users')->with('status', 'Successfully deleted the user!');
+        return redirect('show-users')->with('status', 'Successfully deleted the user!');
     }
 
 }

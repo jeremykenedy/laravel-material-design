@@ -39,13 +39,8 @@
 		@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
 
 			<a class="mdl-navigation__link" href="{{ url('/users') }}">
-				<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">view_list</i>
-				{{ Lang::get('titles.adminUserList') }}
-			</a>
-
-			<a class="mdl-navigation__link" href="{{ url('/edit-users') }}">
 				<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">supervisor_account</i>
-				{{ Lang::get('titles.adminEditUsers') }}
+				{{ Lang::get('titles.adminUserList') }}
 			</a>
 
 			<a class="mdl-navigation__link" href="{{ url('/users/create') }}">

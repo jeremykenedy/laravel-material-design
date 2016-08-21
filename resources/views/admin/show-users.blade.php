@@ -9,6 +9,12 @@
 @endsection
 
 @section('template_fastload_css')
+	.mdl-inline-expanded   {
+		margin-top: -6px;
+	}
+	.mdl-textfield.mdl-textfield--expandable {
+		width: auto !important;
+	}
 @endsection
 
 @section('header')
@@ -64,7 +70,7 @@
 					<th class="mdl-data-table__cell--non-numeric">Access Level</th>
 					<th class="mdl-data-table__cell--non-numeric">Created</th>
 					<th class="mdl-data-table__cell--non-numeric">Updated</th>
-					<th class="mdl-data-table__cell--non-numeric nosort">Actions</th>
+					<th class="mdl-data-table__cell--non-numeric nosort nosearch">Actions</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -104,15 +110,14 @@
 								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
 									<i class="material-icons">person_outline</i>
 								</a>
-								<a href="/profile/{{Auth::user()->name}}/edit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+								<a href="{{ URL::to('users/' . $a_user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 									<i class="material-icons">edit</i>
 								</a>
-								{!! Form::open(array('url' => 'users/' . $a_user->id, 'class' => 'inline-block')) !!}
+								{!! Form::open(array('url' => 'users/' . $a_user->id, 'class' => 'inline-block', 'id' => 'delete_'.$a_user->id)) !!}
 									{!! Form::hidden('_method', 'DELETE') !!}
-									<a href="#" class="dialog-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$a_user->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-userid="{{$a_user->id}}">
 										<i class="material-icons">delete</i>
 									</a>
-									@include('dialogs.dialog-delete')
 								{!! Form::close() !!}
 							</td>
 						</tr>
@@ -122,6 +127,9 @@
 		</div>
 	</div>
     <div class="mdl-card__menu" style="top: -5px;">
+		<a href="{{ url('/users/create') }}" class="mdl-button mdl-button--icon mdl-inline-expanded mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--white inline-block">
+			<i class="material-icons">person_add</i>
+		</a>
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search-white">
 			<label class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-button--icon" for="search_table">
 			  	<i class="material-icons">search</i>
@@ -136,6 +144,8 @@
     </div>
 </div>
 
+@include('dialogs.dialog-delete')
+
 @endsection
 
 @section('template_scripts')
@@ -143,9 +153,17 @@
 	@include('scripts.mdl-datatables')
 
 	<script type="text/javascript">
-
-		mdl_dialog();
-
+		@foreach ($users as $a_user)
+			mdl_dialog('.dialiog-trigger{{$a_user->id}}');
+		@endforeach
+		var userid;
+		$('.dialiog-trigger-delete').click(function(event) {
+			event.preventDefault();
+			userid = $(this).attr('data-userid');
+		});
+		$('#confirm').click(function(event) {
+			$('form#delete_'+userid).submit();
+		});
 	</script>
 
 @endsection
