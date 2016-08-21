@@ -19,8 +19,8 @@ elixir(function(mix) {
 
     mix.scripts([
 		'alerts.js',
-        'dialogs.js'
-//        'spinners.js'
+        'dialogs.js',
+        'spinners.js'
     ], 'public/js/app.js');
 
     mix.version([

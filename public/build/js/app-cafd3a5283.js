@@ -25,4 +25,9 @@ function mdl_dialog(trigger,close,dialog) {
     document.querySelector(dialog).open=false;
   });
 }
+$("form").submit(function(event) {
+	$('#submit .mdl-spinner-text').fadeOut(1, function() {
+	  	$('form .mdl-spinner').addClass('is-active');
+	});
+});
 //# sourceMappingURL=app.js.map
