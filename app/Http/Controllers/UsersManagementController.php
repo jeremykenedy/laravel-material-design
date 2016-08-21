@@ -53,7 +53,6 @@ class UsersManagementController extends Controller {
 	 */
 	public function showUsersMainPanel()
 	{
-
         $user                   = \Auth::user();
         $users 			        = \DB::table('users')->get();
         $roles                  = \DB::table('role_user')->get();

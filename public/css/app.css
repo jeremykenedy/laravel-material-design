@@ -1080,6 +1080,9 @@ dialog::backdrop {
       margin: 0;
       line-height: 1;
       display: inline-block; }
+      .breadcrumb ul li.active a {
+        pointer-events: none;
+        cursor: default; }
   .breadcrumb a {
     text-decoration: none; }
   .breadcrumb .material-icons {

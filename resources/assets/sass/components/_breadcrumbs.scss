@@ -11,6 +11,11 @@
       margin: 0;
       line-height: 1;
       display: inline-block;
+      &.active {
+        a {
+          @include disable-link();
+        }
+      }
     }
   }
   a {

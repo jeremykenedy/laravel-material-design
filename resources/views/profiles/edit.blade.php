@@ -5,9 +5,6 @@
 @endsection
 
 @section('template_fastload_css')
-@endsection
-
-@section('template_fastload_css')
 
 	#map-canvas{
 		min-height: 300px;

@@ -5,6 +5,52 @@
 @endsection
 
 @section('template_fastload_css')
+
+	#map-canvas{
+		min-height: 300px;
+		height: 100%;
+		width: 100%;
+	}
+
+@endsection
+
+@section('header')
+	<small>
+		{{ Lang::get('profile.editProfileTitle') }} | {{ Lang::get('profile.showProfileTitle',['username' => $user->name]) }}
+	</small>
+@endsection
+
+@section('breadcrumbs')
+
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="{{url('/')}}">
+			<span itemprop="name">
+				{{ Lang::get('titles.app') }}
+			</span>
+		</a>
+		<i class="material-icons">chevron_right</i>
+		<meta itemprop="position" content="1" />
+	</li>
+
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="{{ url('/profile/'.Auth::user()->name) }}">
+			<span itemprop="name">
+				{{ Lang::get('titles.profile') }}
+			</span>
+		</a>
+		<i class="material-icons">chevron_right</i>
+		<meta itemprop="position" content="2" />
+	</li>
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+		<a itemprop="item" href="{{ url('/profile/'.Auth::user()->name.'/edit') }}" class="hidden">
+			<span itemprop="name">
+				{{ Lang::get('titles.editProfile') }}
+			</span>
+		</a>
+		<meta itemprop="position" content="3" />
+		{{ Lang::get('titles.editProfile') }}
+	</li>
+
 @endsection
 
 @section('content')
@@ -133,7 +179,8 @@
 @section('template_scripts')
 
 	@include('scripts.gmaps-address-lookup-api3')
-	@include('scripts.delete-modal-script')
-	@include('scripts.save-modal-script')
+
+
+
 
 @endsection

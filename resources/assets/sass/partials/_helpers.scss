@@ -195,27 +195,3 @@
 .padding-right-half-1 {
   padding-right: .5em;
 }
-
-// VENDOR PREFIXING MIXIN
-@mixin vendor($property, $value) {
-  #{$property}: $value;
-  -o-#{$property}: $value;
-  -ms-#{$property}: $value;
-  -moz-#{$property}: $value;
-  -webkit-#{$property}: $value;
-}
-// MAKE IMAGES NOT DRAGGABLE
-@mixin draggless() {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-touch-callout: none;
-  @include vendor(user-drag, none);
-  @include vendor(user-select, none);
-}
-// SMOOTH THEM FONTS OUT
-@mixin font-smoothing {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}

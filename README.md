@@ -67,8 +67,8 @@ And thats it with the caveat of setting up and configuring your development envi
 ### laravel-material-admin Admin Routes
 * ```/users```
 * ```/users/create```
-* ```/users{user_id}```
-* ```/users{user_id}/edit```
+* ```/users/{user_id}```
+* ```/users/{user_id}/edit```
 
 ### Get Socialite Login API Keys:
 * [Google Captcha API](https://www.google.com/recaptcha/admin#list)

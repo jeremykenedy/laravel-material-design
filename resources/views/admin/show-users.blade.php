@@ -31,17 +31,13 @@
 		<i class="material-icons">chevron_right</i>
 		<meta itemprop="position" content="1" />
 	</li>
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-		<a itemprop="item" href="/">
+	<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="/users" disabled>
 			<span itemprop="name">
-				Users
+				Users List
 			</span>
 		</a>
-		<i class="material-icons">chevron_right</i>
 		<meta itemprop="position" content="2" />
-	</li>
-	<li class="active">
-		All Users
 	</li>
 @endsection
 
