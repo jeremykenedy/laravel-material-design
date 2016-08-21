@@ -446,6 +446,35 @@ laravel-material-admin/
     └── vendor/ <-Note: Compiled with Composer.
 ```
 
+## Screenshots
+
+###### Login Desktop
+![Login Screen](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/login-desktop.jpg "Laravel Material Design Login")
+
+###### Login Mobile
+![Login Screen](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/login-mobile.jpg "Laravel Material Design Login")
+
+###### User Profile Menu
+![User Profile Menu](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/user-menu-1.jpg "Laravel Material Design")
+
+###### User Top Nav
+![User Top Nav](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/user-nav.jpg "Laravel Material Design")
+
+###### Mobile Drawer Nav
+![Mobile Drawer Nav](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/mobile-nav-drawer.jpg "Laravel Material Design")
+
+###### Admin View - User List Desktop
+![Admin View - User List Desktop](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/user-list-desktop.jpg "Laravel Material Design")
+
+###### Admin View - User List Mobile
+![Admin View - User List Mobile](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/user-list-mobile.jpg "Laravel Material Design")
+
+###### Alert Error Example
+![Alert Error Example](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/alert-error.jpg "Laravel Material Design")
+
+###### Alert Success Example
+![Alert Success Example](https://s3-us-west-2.amazonaws.com/laravel-material-design/screenshots/alert-succes.jpg "Laravel Material Design")
+
 ---
 
 #### Laravel Developement Packages Used References
