@@ -65,8 +65,8 @@
 					{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'role' => 'form' ]) !!}
 						<div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 							<div class="mdl-user-avatar">
-								<img src="http://lorempixel.com/200/200/people" style="max-height:200px;">
-								<span itemprop="image" style="display:none;">http://lorempixel.com/200/200/people</span>
+								<img src="http://lorempicsum.com/futurama/250/250/1" style="max-height:200px;">
+								<span itemprop="image" style="display:none;">http://lorempicsum.com/futurama/250/250/1</span>
 							</div>
 							<div class="mdl-card__title">
 								<h3 class="mdl-card__title-text mdl-title-username">

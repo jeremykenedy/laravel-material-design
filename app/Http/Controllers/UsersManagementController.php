@@ -133,13 +133,17 @@ class UsersManagementController extends Controller {
 
         $access;
 
+
+
         if($userRole)
         {
-            $access = '1';
+            $access = 'User';
         } elseif ($editorRole) {
-            $access = '2';
+            $access = 'Editor';
         } elseif ($adminRole) {
-            $access = '3';
+            $access = 'Administrator';
+        } else {
+            $access = 'None';
         }
 
         return view('admin.edit-user', [
@@ -177,14 +181,29 @@ class UsersManagementController extends Controller {
             $user 				        = User::find($id);
             $user->name                 = $request->input('name');
             $user->email                = $request->input('email');
-
             $user->profile->bio         = $request->input('bio');
-
             $input                      = Input::only('role_id');
 
+            switch ($input['role_id']) {
+                case 'User':
+                    $input_role = '1';
+                    break;
+
+                case 'Editor':
+                    $input_role = '2';
+                    break;
+
+                case 'Administrator':
+                    $input_role = '3';
+                    break;
+
+                default:
+                    $input_role = '3';
+                    break;
+            }
 
             $user->removeRole($current_roles);
-            $user->assignRole($input);
+            $user->assignRole($input_role);
 
             $profile = Profile::find($id);
             $profileInputs = Input::only(
