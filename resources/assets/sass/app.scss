@@ -28,29 +28,6 @@
 
 // ALL BELOW IS HERE TEMP FOR DEV ONLY
 
-
-
-// @mixin placeholder {
-//   ::-webkit-input-placeholder {@content}
-//   :-moz-placeholder           {@content}
-//   ::-moz-placeholder          {@content}
-//   :-ms-input-placeholder      {@content}
-// }
-
-// @include placeholder {
-//     font-style:italic;
-//     color: white;
-//     font-weight:100;
-// }
-
-
-
-
-
-
-
-
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -67,9 +44,6 @@
  * limitations under the License.
  */
 
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-}
 .demo-avatar {
   width: 48px;
   height: 48px;

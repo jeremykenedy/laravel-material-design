@@ -8,11 +8,13 @@ function mdl_dialog(trigger,close,dialog) {
   }
   document.querySelector(trigger).addEventListener('click', function(event) {
     event.preventDefault();
+    dialog = dialog || '#dialog';
     document.querySelector(dialog).showModal();
     document.querySelector(dialog).open=true;
   });
   document.querySelector(close).addEventListener('click', function(event) {
     event.preventDefault();
+    dialog = dialog || '#dialog';
     document.querySelector(dialog).open=true;
     document.querySelector(dialog).close();
     document.querySelector(dialog).open=false;

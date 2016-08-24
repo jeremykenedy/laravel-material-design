@@ -53,7 +53,6 @@
 
 @endsection
 
-
 @section('content')
 
 	@if ($user->profile)
@@ -161,14 +160,14 @@
 								<div class="mdl-grid padding-top-0">
 									<div class="mdl-cell mdl-cell--12-col padding-top-0 margin-top-0">
 										<span class="save-actions start-hidden">
-											{!! Form::button('<i class="material-icons" style="padding-right: 5px;">save</i>'.Lang::get('profile.submitButton'), array('class' => 'dialog-button mdl-button mdl-js-button mdl-js-ripple-effect center mdl-color--primary mdl-color-text--white mdl-button--raised full-span margin-bottom-1 margin-top-1 margin-top-0-desktop')) !!}
+											{!! Form::button('<i class="material-icons" style="padding-right: 5px;">save</i>'.Lang::get('profile.submitButton'), array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect center mdl-color--primary mdl-color-text--white mdl-button--raised full-span margin-bottom-1 margin-top-1 margin-top-0-desktop')) !!}
 										</span>
 									</div>
 								</div>
 						    </div>
 						    <div class="mdl-card__menu">
 						    	<span class="save-actions start-hidden">
-									{!! Form::button('<i class="material-icons">save</i>', array('class' => 'mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'view profile')) !!}
+									{!! Form::button('<i class="material-icons">save</i>', array('class' => 'dialog-icon-save mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'view profile')) !!}
 								</span>
 								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
 									<i class="material-icons">person_outline</i>
@@ -202,7 +201,8 @@
 
 	<script type="text/javascript">
 
-		mdl_dialog();
+		mdl_dialog('.dialog-button-save');
+		mdl_dialog('.dialog-icon-save');
 
 		$('form input, form select, form textarea').on('input', function() {
 		    $('.save-actions').show();
@@ -211,5 +211,3 @@
 	</script>
 
 @endsection
-
-

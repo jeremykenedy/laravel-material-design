@@ -1,27 +1,3 @@
-// TABLET UP MARGIN TOP
-@media(min-width: $phone) {
-  .margin-top-1-tablet {
-    margin-top: 1em;
-  }
-  .margin-top-2-tablet {
-    margin-top: 2em;
-  }
-  .margin-top-3-tablet {
-    margin-top: 3em;
-  }
-}
-
-// BOTTOM MARGIN CLASSES
-.margin-bottom-1 {
-  margin-bottom: 1em;
-}
-.margin-bottom-2 {
-  margin-bottom: 2em;
-}
-.margin-bottom-3 {
-  margin-bottom: 3em;
-}
-
 // VISIBILITY CLASSES
 .block {
   display: block
@@ -32,6 +8,12 @@
 .start-hidden,
 .hidden {
   display: none;
+}
+
+@media(max-width: $tablet) {
+  .hide-mobile {
+    display: none !important;
+  }
 }
 
 // ALIGNMENT CLASSES
@@ -60,11 +42,46 @@
   width: 100%;
 }
 
+// ICON HELPER CLASSES
+.icons-inline {
+  display: inline-block;
+  vertical-align: -4px;
+}
+
+// COLOR HELPER CLASSES
 .text-white {
   color: $theme_color1;
 }
 .bg-white{
   background: $theme_color1;
+}
+
+// TABLET UP MARGIN TOP
+@media(min-width: $phone) {
+  .margin-top-1-tablet {
+    margin-top: 1em;
+  }
+  .margin-top-2-tablet {
+    margin-top: 2em;
+  }
+  .margin-top-3-tablet {
+    margin-top: 3em;
+  }
+}
+
+// BOTTOM MARGIN CLASSES
+.margin-bottom-1 {
+  margin-bottom: 1em;
+}
+.margin-bottom-2 {
+  margin-bottom: 2em;
+}
+.margin-bottom-3 {
+  margin-bottom: 3em;
+}
+// SIDE MARGIN HELPER
+.margin-left-1-1 {
+  margin-left: 1.5em;
 }
 
 // GENERATE MARGIN HELPER CLASSES

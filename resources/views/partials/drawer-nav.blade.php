@@ -39,7 +39,7 @@
 		@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
 
 			<a class="mdl-navigation__link" href="{{ url('/users') }}">
-				<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">supervisor_account</i>
+				<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">contacts</i>
 				{{ Lang::get('titles.adminUserList') }}
 			</a>
 

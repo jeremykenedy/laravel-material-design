@@ -229,7 +229,7 @@ class UsersManagementController extends Controller {
             // SAVE USER CORE SETTINGS
             $user->save();
 
-            return redirect('users/' . $user->id . '/edit')->with('status', 'Successfully updated the user!');
+            return redirect('users/' . $user->id . '/')->with('status', 'Successfully updated the user!');
 
         }
     }

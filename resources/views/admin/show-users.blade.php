@@ -82,28 +82,34 @@
 											@php
 									            $access_level   = 'User';
 									            $access_class 	= 'mdl-color--green-200 mdl-color-text--white';
+									            $access_icon	= 'lock';
 											@endphp
 										@elseif ($role->role_id == 2 )
 											@php
 									            $access_level   = 'Editor';
 									            $access_class 	= 'mdl-color--green-400 mdl-color-text--white';
+									            $access_icon	= 'lock_outline';
 											@endphp
 										@elseif ($role->role_id == 3 )
 											@php
 									            $access_level   = 'Administrator';
 									            $access_class 	= 'mdl-color--green-600 mdl-color-text--white';
+									            $access_icon	= 'verified_user';
 											@endphp
 										@endif
 									@endif
 								@endforeach
-								<a href="{{ URL::to('users/' . $a_user->id) }}" class="badge {{ $access_class }}">
-									{{$access_level}}
+								<a href="{{ URL::to('users/' . $a_user->id) }}">
+									<i class="material-icons icons-inline">{{ $access_icon }}</i>
+									<span class="badge {{ $access_class }}">
+										{{$access_level}}
+									</span>
 								</a>
 							</td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->created_at}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->updated_at}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric">
-								<a href="/profile/{{$a_user->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
+								<a href="{{ URL::to('users/' . $a_user->id) }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
 									<i class="material-icons">person_outline</i>
 								</a>
 								<a href="{{ URL::to('users/' . $a_user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -112,7 +118,7 @@
 								{!! Form::open(array('url' => 'users/' . $a_user->id, 'class' => 'inline-block', 'id' => 'delete_'.$a_user->id)) !!}
 									{!! Form::hidden('_method', 'DELETE') !!}
 									<a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$a_user->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-userid="{{$a_user->id}}">
-										<i class="material-icons">delete</i>
+										<i class="material-icons">delete_forever</i>
 									</a>
 								{!! Form::close() !!}
 							</td>
@@ -150,7 +156,7 @@
 
 	<script type="text/javascript">
 		@foreach ($users as $a_user)
-			mdl_dialog('.dialiog-trigger{{$a_user->id}}');
+			mdl_dialog('.dialiog-trigger{{$a_user->id}}','','#dialog_delete');
 		@endforeach
 		var userid;
 		$('.dialiog-trigger-delete').click(function(event) {

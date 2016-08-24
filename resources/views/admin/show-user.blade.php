@@ -14,6 +14,26 @@
 
 @endsection
 
+@if ($user->hasRole('user'))
+	@php
+        $access_level   = 'User';
+        $access_class 	= 'mdl-color--green-200 mdl-color-text--white';
+        $access_icon	= 'lock';
+	@endphp
+@elseif ($user->hasRole('editor'))
+	@php
+        $access_level   = 'Editor';
+        $access_class 	= 'mdl-color--green-400 mdl-color-text--white';
+        $access_icon	= 'lock_outline';
+	@endphp
+@elseif ($user->hasRole('administrator'))
+	@php
+        $access_level   = 'Administrator';
+        $access_class 	= 'mdl-color--green-600 mdl-color-text--white';
+        $access_icon	= 'verified_user';
+	@endphp
+@endif
+
 @section('content')
 
 <div class="mdl-grid full-grid margin-top-0 padding-0">
@@ -32,6 +52,14 @@
 				<div class="mdl-grid full-grid padding-0">
 					<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
 					    <ul class="demo-list-icon mdl-list">
+					        <li class="mdl-list__item mdl-typography--font-light">
+					        	<div class="mdl-list__item-primary-content">
+					        		<i class="material-icons mdl-list__item-icon">{{ $access_icon }}</i>
+									{{-- <span class="badge {{ $access_class }}"> --}}
+										{{$access_level}}
+									{{-- </span> --}}
+					        	</div>
+					        </li>
 					        <li class="mdl-list__item mdl-typography--font-light">
 					        	<div class="mdl-list__item-primary-content">
 					        		<i class="material-icons mdl-list__item-icon">person</i>
@@ -127,7 +155,7 @@
 
 				{!! Form::open(array('url' => 'users/' . $user->id, 'class' => 'inline-block')) !!}
 					{!! Form::hidden('_method', 'DELETE') !!}
-					<a href="#" class="dialog-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+					<a href="#" class="dialog-button-delete mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 						<i class="material-icons">delete</i>
 					</a>
 					@include('dialogs.dialog-delete')
@@ -150,7 +178,7 @@
 
 	<script type="text/javascript">
 
-		mdl_dialog();
+		mdl_dialog('.dialog-button-delete','.dialog-delete-close','#dialog_delete');
 
 	</script>
 
