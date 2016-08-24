@@ -10,8 +10,18 @@
   display: none;
 }
 
-@media(max-width: $tablet) {
+@media(max-width: $phone) {
   .hide-mobile {
+    display: none !important;
+  }
+}
+@media(max-width: $tablet) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+@media(max-width: $desktop) {
+  .hide-tablet-large {
     display: none !important;
   }
 }

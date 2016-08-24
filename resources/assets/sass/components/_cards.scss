@@ -13,12 +13,6 @@
 	}
 }
 
-
-#map-canvas{
-	min-height: 300px;
-	height: 100%;
-	width: 100%;
-}
 .card-wide.mdl-card {
 	width: 512px;
 	margin: 0 auto;
@@ -70,5 +64,9 @@
 	width: auto;
 }
 
-
+.mdl-card__actions {
+    .mdl-button {
+        min-width: auto;
+    }
+}
 

@@ -9,12 +9,6 @@
 @endsection
 
 @section('template_fastload_css')
-	.mdl-inline-expanded   {
-		margin-top: -6px;
-	}
-	.mdl-textfield.mdl-textfield--expandable {
-		width: auto !important;
-	}
 @endsection
 
 @section('header')
@@ -100,7 +94,9 @@
 									@endif
 								@endforeach
 								<a href="{{ URL::to('users/' . $a_user->id) }}">
-									<i class="material-icons icons-inline">{{ $access_icon }}</i>
+									{{--
+										<i class="material-icons icons-inline">{{ $access_icon }}</i>
+									--}}
 									<span class="badge {{ $access_class }}">
 										{{$access_level}}
 									</span>
@@ -109,12 +105,25 @@
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->created_at}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric"><a href="{{ URL::to('users/' . $a_user->id) }}">{{$a_user->updated_at}} </a></td>
 							<td class="mdl-data-table__cell--non-numeric">
-								<a href="{{ URL::to('users/' . $a_user->id) }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
+
+
+								{{-- VIEW USER PROFILE ICON BUTTON --}}
+								<a href="/profile/{{$a_user->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View User Profile">
 									<i class="material-icons">person_outline</i>
 								</a>
+
+
+								{{-- VIEW USER ACCOUNT ICON BUTTON --}}
+								<a href="{{ URL::to('users/' . $a_user->id) }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View User Account">
+									<i class="material-icons">account_circle</i>
+								</a>
+
+								{{-- EDIT USER ICON BUTTON --}}
 								<a href="{{ URL::to('users/' . $a_user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
 									<i class="material-icons">edit</i>
 								</a>
+
+								{{-- DELETE ICON BUTTON AND FORM CALL --}}
 								{!! Form::open(array('url' => 'users/' . $a_user->id, 'class' => 'inline-block', 'id' => 'delete_'.$a_user->id)) !!}
 									{!! Form::hidden('_method', 'DELETE') !!}
 									<a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$a_user->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-userid="{{$a_user->id}}">

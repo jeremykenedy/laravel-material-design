@@ -8,8 +8,16 @@
 .hidden {
   display: none; }
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .hide-mobile {
+    display: none !important; } }
+
+@media (max-width: 767px) {
+  .hide-tablet {
+    display: none !important; } }
+
+@media (max-width: 921px) {
+  .hide-tablet-large {
     display: none !important; } }
 
 .text-center-only {
@@ -493,6 +501,17 @@ h4 {
 .mdl-textfield {
   width: 100%; }
 
+.mdl-inline-expanded {
+  margin-top: -6px; }
+
+.mdl-textfield.mdl-textfield--expandable {
+  width: auto !important; }
+
+#map-canvas {
+  min-height: 300px;
+  height: 100%;
+  width: 100%; }
+
 .mdl-select .mdl-icon-toggle__label {
   float: right;
   margin-top: -30px;
@@ -962,11 +981,6 @@ div.material-table .table-footer select {
   .mdl-card.demo-card-full .mdl-card__supporting-text {
     width: auto; }
 
-#map-canvas {
-  min-height: 300px;
-  height: 100%;
-  width: 100%; }
-
 .card-wide.mdl-card {
   width: 512px;
   margin: 0 auto; }
@@ -1016,6 +1030,9 @@ div.material-table .table-footer select {
 
 .mdl-card__supporting-text {
   width: auto; }
+
+.mdl-card__actions .mdl-button {
+  min-width: auto; }
 
 .mdl-dialog {
   position: relative; }

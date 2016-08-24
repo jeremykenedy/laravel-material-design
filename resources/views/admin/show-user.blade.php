@@ -5,14 +5,41 @@
 @endsection
 
 @section('template_fastload_css')
-
-	#map-canvas{
-		min-height: 300px;
-		height: 100%;
-		width: 100%;
-	}
-
 @endsection
+
+@section('header')
+	Showing {{ $user->name }}
+@endsection
+
+@section('breadcrumbs')
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="{{url('/')}}">
+			<span itemprop="name">
+				{{ Lang::get('titles.app') }}
+			</span>
+		</a>
+		<i class="material-icons">chevron_right</i>
+		<meta itemprop="position" content="1" />
+	</li>
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="/users">
+			<span itemprop="name">
+				Users List
+			</span>
+		</a>
+		<i class="material-icons">chevron_right</i>
+		<meta itemprop="position" content="2" />
+	</li>
+	<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="/users/{{ $user->id }}">
+			<span itemprop="name">
+				{{ $user->name }}
+			</span>
+		</a>
+		<meta itemprop="position" content="3" />
+	</li>
+@endsection
+
 
 @if ($user->hasRole('user'))
 	@php
@@ -133,20 +160,18 @@
 					@endif
 				</div>
 		    </div>
-		    <div class="mdl-card__actions">
-				<div class="mdl-grid full-grid">
-					<div class="mdl-cell mdl-cell--12-col">
-
-						@if (Auth::user()->id == $user->id)
+		    @if (Auth::user()->id == $user->id)
+			    <div class="mdl-card__actions">
+					<div class="mdl-grid full-grid">
+						<div class="mdl-cell mdl-cell--12-col">
 							<a href="/profile/{{ Auth::user()->name }}/edit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-shadow--3dp mdl-button--raised mdl-button--primary mdl-color-text--white">
 								<i class="material-icons padding-right-half-1">edit</i>
 								{{ Lang::get('titles.editProfile') }}
 							</a>
-						@endif
-
+						</div>
 					</div>
-				</div>
-		    </div>
+			    </div>
+		    @endif
 		    <div class="mdl-card__menu">
 
 				<a href="{{ URL::to('users/' . $user->id . '/edit') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">

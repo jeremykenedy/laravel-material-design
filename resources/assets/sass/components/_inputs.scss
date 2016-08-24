@@ -15,3 +15,15 @@
 .mdl-textfield {
     width: 100%;
 }
+
+.mdl-inline-expanded   {
+    margin-top: -6px;
+}
+.mdl-textfield.mdl-textfield--expandable {
+    width: auto !important;
+}
+#map-canvas{
+    min-height: 300px;
+    height: 100%;
+    width: 100%;
+}

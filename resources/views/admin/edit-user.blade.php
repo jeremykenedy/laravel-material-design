@@ -5,19 +5,10 @@
 @endsection
 
 @section('template_fastload_css')
-
-	#map-canvas{
-		min-height: 300px;
-		height: 100%;
-		width: 100%;
-	}
-
 @endsection
 
 @section('header')
-	<small>
-		Editing {{ $user->name }}
-	</small>
+	Editing {{ $user->name }}
 @endsection
 
 @section('breadcrumbs')
@@ -31,24 +22,31 @@
 		<i class="material-icons">chevron_right</i>
 		<meta itemprop="position" content="1" />
 	</li>
-
 	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-		<a itemprop="item" href="{{ url('/profile/'.Auth::user()->name) }}">
+		<a itemprop="item" href="/users">
 			<span itemprop="name">
-				{{ Lang::get('titles.profile') }}
+				Users List
 			</span>
 		</a>
 		<i class="material-icons">chevron_right</i>
 		<meta itemprop="position" content="2" />
 	</li>
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
-		<a itemprop="item" href="{{ url('/profile/'.Auth::user()->name.'/edit') }}" class="hidden">
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="/users/{{ $user->id }}">
 			<span itemprop="name">
-				{{ Lang::get('titles.editProfile') }}
+				{{ $user->name }}
 			</span>
 		</a>
+		<i class="material-icons">chevron_right</i>
 		<meta itemprop="position" content="3" />
-		{{ Lang::get('titles.editProfile') }}
+	</li>
+	<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+		<a itemprop="item" href="/users/{{ $user->id }}/edit">
+			<span itemprop="name">
+				Editing
+			</span>
+		</a>
+		<meta itemprop="position" content="4" />
 	</li>
 
 @endsection
@@ -173,32 +171,50 @@
 				    <div class="mdl-card__actions padding-top-0">
 						<div class="mdl-grid padding-top-0">
 							<div class="mdl-cell mdl-cell--12-col padding-top-0 margin-top-0 margin-left-1-1">
+
 								{{-- SAVE BUTTON--}}
 								<span class="save-actions start-hidden">
-									{!! Form::button('Save <span class="hide-mobile">Changes</span>', array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--primary mdl-color-text--white mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1 padding-left-1 padding-right-1 padding-left-2-tablet padding-right-2-tablet')) !!}
+									{!! Form::button('<i class="material-icons">save</i> <span class="hide-mobile">Save</span> <span class="hide-tablet">Changes</span>', array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--green mdl-color-text--white mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1 padding-left-1 padding-right-1 ')) !!}
 								</span>
 
-								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1" title="view profile">
-									View <span class="hide-mobile">Profile</span>
+								{{-- ADMIN VIEW USER BUTTON --}}
+								<a href="/users/{{$user->id}}" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--primary mdl-color-text--white margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1 padding-left-1 padding-right-1 " title="view profile">
+									<i class="material-icons">account_circle</i> <span class="hide-mobile hide-tablet">View</span> <span class="hide-mobile hide-tablet">User</span> <span class="hide-mobile">Account</span>
+								</a>
+
+								{{-- VIEW PROFILE BUTTON --}}
+								<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue-600 mdl-color-text--white margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1 padding-left-1 padding-right-1 " title="view profile">
+									<i class="material-icons">person_outline</i> <span class="hide-mobile hide-tablet">View</span> <span class="hide-mobile hide-tablet">User</span> <span class="hide-mobile">Profile</span>
 								</a>
 
 								{{-- DELETE USER BUTTON--}}
-								{!! Form::button('Delete <span class="hide-mobile">User</span>', array('class' => 'dialog-button-delete mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--red mdl-color-text--white mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop padding-left-1 padding-right-1 padding-left-2-tablet padding-right-2-tablet')) !!}
+								{!! Form::button('<i class="material-icons">delete</i> <span class="hide-mobile">Delete</span> <span class="hide-mobile hide-tablet">User</span>', array('class' => 'dialog-button-delete mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--red mdl-color-text--white mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop padding-left-1 padding-right-1 ')) !!}
 
 							</div>
 						</div>
 				    </div>
 				    <div class="mdl-card__menu">
+
 						{{-- SAVE ICON --}}
 						<span class="save-actions start-hidden">
-							{!! Form::button('<i class="material-icons">save</i>', array('class' => 'dialog-button-icon-save mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'save profile')) !!}
+							{!! Form::button('<i class="material-icons">save</i>', array('class' => 'dialog-button-icon-save mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'Save Changes')) !!}
 						</span>
-						<a href="#" class="dialog-button-delete-icon dialiog-trigger-delete dialiog-trigger{{$user->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-userid="{{$user->id}}">
+
+						{{-- DELETE USER ICON --}}
+						<a href="#" class="dialog-button-delete-icon dialiog-trigger-delete dialiog-trigger{{$user->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-userid="{{$user->id}}" title="Delete User">
 							<i class="material-icons">delete</i>
 						</a>
-						<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="view profile">
+
+						{{-- VIEW PROFILE ICON --}}
+						<a href="/profile/{{Auth::user()->name}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View User Profile">
 							<i class="material-icons">person_outline</i>
 						</a>
+
+						{{-- VIEW ACCOUNT ICON --}}
+						<a href="/users/{{$user->id}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View User Account">
+							<i class="material-icons">account_circle</i>
+						</a>
+
 				    </div>
 				</div>
 
@@ -240,4 +256,3 @@
 	</script>
 
 @endsection
-

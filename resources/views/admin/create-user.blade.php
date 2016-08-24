@@ -9,6 +9,15 @@
 
 @section('content')
 
+
+
+
+{{-- WORKING ON THIS THEMPLATE--}}
+
+
+
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -17,8 +26,6 @@
 						Create New User
 					</div>
 					<div class="panel-body">
-
-						@include('partials.form-status')
 
 						{!! Form::open(array('action' => 'UsersManagementController@store', 'method' => 'POST', 'role' => 'form')) !!}
 							{{-- -or- {!! Form::open(array('url' => url('/users'), 'method' => 'POST', 'method' => 'POST', 'role' => 'form')) !!} --}}
