@@ -48,7 +48,7 @@
 
 <div class="mdl-grid full-grid margin-top-0 padding-0">
 	<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
-	    <div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
+	    <div class="mdl-card card-new-user" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 
 
 			<div class="mdl-card__title mdl-card--expand">
@@ -57,7 +57,100 @@
 
 			{!! Form::open(array('action' => 'UsersManagementController@store', 'method' => 'POST', 'role' => 'form')) !!}
 
-			    <div class="mdl-card__supporting-text">
+
+
+				<div class="mdl-card__supporting-text">
+					<div class="mdl-grid full-grid padding-0">
+						<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+
+							<div class="mdl-grid ">
+
+								<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('name') ? 'is-invalid' :'' }}">
+										{!! Form::text('name', NULL, array('id' => 'name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z,0-9]*')) !!}
+										{!! Form::label('name', Lang::get('auth.name') , array('class' => 'mdl-textfield__label')); !!}
+										<span class="mdl-textfield__error">Letters and numbers only</span>
+									</div>
+								</div>
+
+								<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select mdl-select__fullwidth">
+									    <input class="mdl-textfield__input mdl-select-input" type="text" name="role_id" id="role_id" value="" readonly tabIndex="-1">
+									    <label for="role_id">
+									        <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
+									    </label>
+									    <label for="role_id" class="mdl-textfield__label">{{ Lang::get('forms.label-userrole_id') }}</label>
+									    <ul for="role_id" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+									        <li class="mdl-menu__item">User</li>
+									        <li class="mdl-menu__item">Editor</li>
+									        <li class="mdl-menu__item">Administrator</li>
+									    </ul>
+									</div>
+								</div>
+
+								<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? 'is-invalid' :'' }}">
+										{!! Form::email('email', NULL, array('id' => 'email', 'class' => 'mdl-textfield__input')) !!}
+										{!! Form::label('email', Lang::get('auth.email') , array('class' => 'mdl-textfield__label')); !!}
+										<span class="mdl-textfield__error">Please Enter a Valid {{ Lang::get('auth.email') }}</span>
+									</div>
+								</div>
+								<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+							        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('first_name') ? 'is-invalid' :'' }}">
+							            {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
+							            {!! Form::label('first_name', 'First Name', array('class' => 'mdl-textfield__label')); !!}
+							            <span class="mdl-textfield__error">Letters only</span>
+							        </div>
+							  	</div>
+							  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+								    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('last_name') ? 'is-invalid' :'' }}">
+								        {!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
+								        {!! Form::label('last_name', 'Last Name', array('class' => 'mdl-textfield__label')); !!}
+								        <span class="mdl-textfield__error">Letters only</span>
+								    </div>
+							  	</div>
+							  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+								    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('twitter_username') ? 'is-invalid' :'' }}">
+								        {!! Form::text('twitter_username', NULL, array('id' => 'twitter_username', 'class' => 'mdl-textfield__input')) !!}
+								        {!! Form::label('twitter_username', 'Twitter Username', array('class' => 'mdl-textfield__label')); !!}
+								    </div>
+							  	</div>
+							  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+								    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('github_username') ? 'is-invalid' :'' }}">
+								        {!! Form::text('github_username', NULL, array('id' => 'github_username', 'class' => 'mdl-textfield__input')) !!}
+								        {!! Form::label('github_username', 'GitHub Username', array('class' => 'mdl-textfield__label')); !!}
+								    </div>
+							  	</div>
+
+
+
+
+
+							  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-bottom-1 {{ $errors->has('location') ? 'is-invalid' :'' }}">
+									    {!! Form::text('location', NULL, array('id' => 'location', 'class' => 'mdl-textfield__input' )) !!}
+									    {!! Form::label('location', 'User Location', array('class' => 'mdl-textfield__label')); !!}
+										<span class="mdl-textfield__error">Please Enter a Valid Location</span>
+									</div>
+								</div>
+
+
+
+
+								<div class="mdl-cell mdl-cell--12-col">
+								    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('bio') ? 'is-invalid' :'' }}">
+								        {!! Form::textarea('bio',  NULL, array('id' => 'bio', 'class' => 'mdl-textfield__input')) !!}
+								        {!! Form::label('bio', 'Bio', array('class' => 'mdl-textfield__label')); !!}
+								    </div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+{{-- 			    <div class="mdl-card__supporting-text">
 					<div class="mdl-grid full-grid padding-0">
 						<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
 
@@ -205,21 +298,38 @@
 					</div>
 			    </div>
 
-				<div class="mdl-card__actions mdl-card--border">
+--}}
 
-					{!! Form::button('<i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;' . Lang::get('forms.create_user_button_text'), array('class' => 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect','type' => 'submit')) !!}
 
+
+
+
+
+				<div class="mdl-card__actions padding-top-0">
+					<div class="mdl-grid padding-top-0">
+						<div class="mdl-cell mdl-cell--12-col padding-top-0 margin-top-0 margin-left-1-1">
+
+							{{-- SAVE BUTTON--}}
+							<span class="save-actions">
+								{!! Form::button('<i class="material-icons">save</i> Save New User', array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--green mdl-color-text--white mdl-button--raised margin-bottom-1 margin-top-1 margin-top-0-desktop margin-right-1 padding-left-1 padding-right-1 ')) !!}
+							</span>
+
+						</div>
+					</div>
 				</div>
 
-			{!! Form::close() !!}
+			    <div class="mdl-card__menu">
 
-		    <div class="mdl-card__menu">
+					{{-- SAVE ICON --}}
+					<span class="save-actions">
+						{!! Form::button('<i class="material-icons">save</i>', array('class' => 'dialog-button-icon-save mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect', 'title' => 'Save New User')) !!}
+					</span>
+			    </div>
 
-				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-					<i class="material-icons">share</i>
-				</button>
+			    @include('dialogs.dialog-save')
 
-		    </div>
+		    {!! Form::close() !!}
+
 	    </div>
 	</div>
 </div>
@@ -228,6 +338,15 @@
 
 @section('template_scripts')
 
+
+	@include('scripts.mdl-required-input-fix')
 	@include('scripts.gmaps-address-lookup-api3')
+	@include('scripts.mdl-select')
+
+	<script type="text/javascript">
+		mdl_dialog('.dialog-button-save');
+		mdl_dialog('.dialog-button-icon-save');
+	</script>
+
 
 @endsection

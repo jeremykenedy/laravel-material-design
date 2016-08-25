@@ -193,6 +193,7 @@
 							</div>
 						</div>
 				    </div>
+
 				    <div class="mdl-card__menu">
 
 						{{-- SAVE ICON --}}
@@ -214,9 +215,10 @@
 						<a href="/users/{{$user->id}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View User Account">
 							<i class="material-icons">account_circle</i>
 						</a>
-
 				    </div>
+
 				</div>
+
 
 				@include('dialogs.dialog-save')
 
