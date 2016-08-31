@@ -88,28 +88,18 @@
 					        	</div>
 					        </li>
 
-
-
-
-<li class="mdl-list__item mdl-typography--font-light">
-	<div class="mdl-list__item-primary-content">
-		<i class="material-icons mdl-list__item-icon">event</i>
-		{{-- <span class="badge {{ $access_class }}"> --}}
-			Created: {{ $user->created_at }}
-		{{-- </span> --}}
-	</div>
-</li>
-<li class="mdl-list__item mdl-typography--font-light">
-	<div class="mdl-list__item-primary-content">
-		<i class="material-icons mdl-list__item-icon">event</i>
-		{{-- <span class="badge {{ $access_class }}"> --}}
-			Last Updated: {{ $user->updated_at }}
-		{{-- </span> --}}
-	</div>
-</li>
-
-
-
+							<li class="mdl-list__item mdl-typography--font-light">
+								<div class="mdl-list__item-primary-content">
+									<i class="material-icons mdl-list__item-icon">event</i>
+									Created: {{ $user->created_at }}
+								</div>
+							</li>
+							<li class="mdl-list__item mdl-typography--font-light">
+								<div class="mdl-list__item-primary-content">
+									<i class="material-icons mdl-list__item-icon">event</i>
+									Last Updated: {{ $user->updated_at }}
+								</div>
+							</li>
 
 					        <li class="mdl-list__item mdl-typography--font-light">
 					        	<div class="mdl-list__item-primary-content">
