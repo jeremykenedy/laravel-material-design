@@ -65,6 +65,10 @@
   .margin-top-3-tablet {
     margin-top: 3em; } }
 
+.margin-bottom-half,
+.margin-bottom-half-1 {
+  margin-bottom: .5em; }
+
 .margin-bottom-1 {
   margin-bottom: 1em; }
 
@@ -281,7 +285,11 @@
   .margin-right-4-desktop {
     margin-right: 4em; }
   .margin-top-1-7-desktop {
-    margin-top: 1.7em; } }
+    margin-top: 1.7em; }
+  .margin-top-half-1-desktop {
+    margin-top: .5em; }
+  .margin-top-half-6-desktop {
+    margin-top: .6em; } }
 
 .padding-0 {
   padding: 0em; }
@@ -1145,6 +1153,39 @@ dialog::backdrop {
   -ms-border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px; }
+
+.mdl-selectfield {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  margin: 0;
+  padding: 20px 0; }
+
+.mdl-selectfield--align-right {
+  text-align: right; }
+
+.mdl-selectfield--full-width {
+  width: 100%; }
+
+.mdl-selectfield__select {
+  display: block;
+  width: 100%;
+  padding: 4px 0;
+  margin: 0;
+  color: inherit;
+  background: transparent;
+  font-size: 16px;
+  text-align: left;
+  color: inherit;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
 
 .mdl-layout.mdl-auth-form {
   -ms-flex-align: center;

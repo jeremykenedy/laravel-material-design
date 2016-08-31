@@ -47,5 +47,6 @@ return [
 	'ph-twitter_username'		=> 'Enter your Twitter username',
 
 	'submitButton'				=> 'Save',
+	'submitChangesButton'		=> 'Save Changes'
 
 ];

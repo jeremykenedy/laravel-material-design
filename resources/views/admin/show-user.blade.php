@@ -87,6 +87,30 @@
 									{{-- </span> --}}
 					        	</div>
 					        </li>
+
+
+
+
+<li class="mdl-list__item mdl-typography--font-light">
+	<div class="mdl-list__item-primary-content">
+		<i class="material-icons mdl-list__item-icon">event</i>
+		{{-- <span class="badge {{ $access_class }}"> --}}
+			Created: {{ $user->created_at }}
+		{{-- </span> --}}
+	</div>
+</li>
+<li class="mdl-list__item mdl-typography--font-light">
+	<div class="mdl-list__item-primary-content">
+		<i class="material-icons mdl-list__item-icon">event</i>
+		{{-- <span class="badge {{ $access_class }}"> --}}
+			Last Updated: {{ $user->updated_at }}
+		{{-- </span> --}}
+	</div>
+</li>
+
+
+
+
 					        <li class="mdl-list__item mdl-typography--font-light">
 					        	<div class="mdl-list__item-primary-content">
 					        		<i class="material-icons mdl-list__item-icon">person</i>
@@ -123,16 +147,6 @@
 						        	</span>
 						        </li>
 					        @endif
-							@if ($user->profile->location)
-							    <li class="mdl-list__item mdl-typography--font-light">
-							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							    		<i class="material-icons mdl-list__item-icon">location_on</i>
-										<span itemprop="streetAddress">
-											{{ $user->profile->location }}
-										</span>
-							    	</div>
-							    </li>
-							@endif
 					        @if ($user->profile->bio)
 						        <li class="mdl-list__item">
 						        	<span class="mdl-list__item-primary-content">
@@ -146,8 +160,21 @@
 					        @endif
 					    </ul>
 					</div>
+
 					@if ($user->profile->location)
-						<div class="mdl-cell mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop margin-top-0 margin-top-2-desktop">
+						<div class="mdl-cell mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop margin-top-0 margin-top-half-6-desktop">
+
+							<ul class="demo-list-icon mdl-list padding-0 margin-bottom-half-1">
+							    <li class="mdl-list__item mdl-typography--font-light">
+							    	<div class="mdl-list__item-primary-content" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							    		<i class="material-icons mdl-list__item-icon">location_on</i>
+										<span itemprop="streetAddress">
+											{{ $user->profile->location }}
+										</span>
+							    	</div>
+							    </li>
+							</ul>
+
 							<div class="card-image mdl-card mdl-shadow--2dp">
 								<div id="map-canvas"></div>
 								<div class="mdl-card__actions mdl-color--primary mdl-color-text--white">

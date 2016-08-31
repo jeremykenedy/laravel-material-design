@@ -20,7 +20,8 @@ elixir(function(mix) {
     mix.scripts([
 		'alerts.js',
         'dialogs.js',
-        'spinners.js'
+        'spinners.js',
+        'mdl-selectfield.js'
     ], 'public/js/app.js');
 
     mix.version([

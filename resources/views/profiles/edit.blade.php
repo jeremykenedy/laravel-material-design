@@ -160,7 +160,7 @@
 								<div class="mdl-grid padding-top-0">
 									<div class="mdl-cell mdl-cell--12-col padding-top-0 margin-top-0">
 										<span class="save-actions start-hidden">
-											{!! Form::button('<i class="material-icons" style="padding-right: 5px;">save</i>'.Lang::get('profile.submitButton'), array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect center mdl-color--primary mdl-color-text--white mdl-button--raised full-span margin-bottom-1 margin-top-1 margin-top-0-desktop')) !!}
+											{!! Form::button(Lang::get('profile.submitChangesButton'), array('class' => 'dialog-button-save mdl-button mdl-js-button mdl-js-ripple-effect margin-top-1 margin-top-0-desktop')) !!}
 										</span>
 									</div>
 								</div>

@@ -1,0 +1,33 @@
+.mdl-selectfield {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 0
+}
+.mdl-selectfield--align-right {
+    text-align: right
+}
+.mdl-selectfield--full-width {
+    width: 100%
+}
+.mdl-selectfield__select {
+    display: block;
+    width: 100%;
+    padding: 4px 0;
+    margin: 0;
+    color: inherit;
+    background: transparent;
+    font-size: 16px;
+    text-align: left;
+    color: inherit;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}

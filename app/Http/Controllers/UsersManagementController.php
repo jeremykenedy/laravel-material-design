@@ -103,16 +103,17 @@ class UsersManagementController extends Controller {
     public function create_new_validator(array $data)
     {
         return Validator::make($data, [
-            'name'              => 'required|max:255|unique:users',
-            'email'             => 'required|email|max:255|unique:users',
-            'first_name'        => 'required|max:255',
-            'last_name'         => 'required|max:255',
-            'password'          => 'required|confirmed|min:6',
-            'user_level'        => 'required|numeric|min:1',
-            'location'          => '',
-            'bio'               => '',
-            'twitter_username'  => '',
-            'github_username'   => ''
+            'name'                  => 'required|alpha_num|min:5|max:255|unique:users',
+            'email'                 => 'required|email|max:255|unique:users',
+            'first_name'            => 'required|max:255',
+            'last_name'             => 'required|max:255',
+            'password'              => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|min:6|same:pass',
+            'user_level'            => 'required',
+            'location'              => '',
+            'bio'                   => '',
+            'twitter_username'      => '',
+            'github_username'       => ''
         ]);
     }
 
@@ -132,8 +133,6 @@ class UsersManagementController extends Controller {
         $adminRole          = $user->hasRole('administrator');
 
         $access;
-
-
 
         if($userRole)
         {
@@ -198,7 +197,7 @@ class UsersManagementController extends Controller {
                     break;
 
                 default:
-                    $input_role = '3';
+                    $input_role = '1';
                     break;
             }
 
@@ -283,8 +282,27 @@ class UsersManagementController extends Controller {
             // SAVE THE USER
             $user->save();
 
+            // CONVERT ROLE FROM MATERIAL DESIGN INPUT
+            switch ($userAccessLevel) {
+                case 'User':
+                    $input_role = '1';
+                    break;
+
+                case 'Editor':
+                    $input_role = '2';
+                    break;
+
+                case 'Administrator':
+                    $input_role = '3';
+                    break;
+
+                default:
+                    $input_role = '1';
+                    break;
+            }
+
             // ADD ROLE
-            $user->assignRole($userAccessLevel);
+            $user->assignRole($input_role);
 
             // CREATE PROFILE LINK TO TABLE
             $profile = new Profile;

@@ -80,6 +80,10 @@
 }
 
 // BOTTOM MARGIN CLASSES
+.margin-bottom-half,
+.margin-bottom-half-1 {
+  margin-bottom: .5em;
+}
 .margin-bottom-1 {
   margin-bottom: 1em;
 }
@@ -155,6 +159,12 @@
     }
     .margin-top-1-7-desktop {
       margin-top: 1.7em;
+    }
+    .margin-top-half-1-desktop {
+      margin-top: .5em;
+    }
+    .margin-top-half-6-desktop {
+      margin-top: .6em;
     }
   }
 }
