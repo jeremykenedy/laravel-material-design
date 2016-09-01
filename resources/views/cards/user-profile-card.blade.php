@@ -2,12 +2,12 @@
 	<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
 	    <div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 			<div class="mdl-user-avatar">
-
 				<img src="{{ Gravatar::get($user->email) }}" alt="{{ $user->name }}">
 				<span itemprop="image" style="display:none;">{{ Gravatar::get($user->email) }}</span>
-
 			</div>
-    	    <div class="mdl-card__title">
+			<div class="mdl-card__title" style="background: url('/uploads/user-backgrounds/{{ $user->profile->user_profile_bg }}') center center; background-size: cover; background-repeat: no-repeat;">
+				<!-- // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES ^|^|^ -->
+
 		        <h3 class="mdl-card__title-text mdl-title-username">
 		        	{{ $user->name }}
 		        </h3>

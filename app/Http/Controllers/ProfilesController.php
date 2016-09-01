@@ -11,6 +11,7 @@ use App\Models\Profile;
 use App\Models\User;
 use Validator;
 use Input;
+use Image;
 
 class ProfilesController extends Controller {
 
@@ -44,7 +45,8 @@ class ProfilesController extends Controller {
             'location'          => '',
             'bio'               => '',
             'twitter_username'  => '',
-            'github_username'   => ''
+            'github_username'   => '',
+            'user_profile_bg'   => ''
         ]);
     }
 
@@ -115,10 +117,10 @@ class ProfilesController extends Controller {
             $this->throwValidationException(
                 $request, $profile_validator
             );
-
             return redirect('profile/'.$user->name.'/edit')->withErrors($validator)->withInput();
         }
 
+        // CHECK IF PROFILE EXISTS JUST IN CASE
         if ($user->profile == null) {
 
             $profile = new Profile;
@@ -128,6 +130,21 @@ class ProfilesController extends Controller {
         } else {
             $user->profile->fill($input)->save();
 
+        }
+
+        // CHECK FOR USER BACKGROUND IMAGE FILE UPLOAD
+        if(Input::file('user_profile_bg') != NULL){
+            //$user_profile_bg = $request->file('user_profile_bg');
+            $user_profile_bg = Input::file('user_profile_bg');
+            $filename = time() . '.' . $user_profile_bg->getClientOriginalExtension();
+
+// CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
+            Image::make($user_profile_bg)->resize(900, 300)->save( public_path('/uploads/user-backgrounds/' . $filename ) );
+// CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
+
+
+            $user->profile->user_profile_bg = $filename;
+            $user->profile->save();
         }
 
         return redirect('profile/'.$user->name.'/edit')->with('status', 'Profile updated!');

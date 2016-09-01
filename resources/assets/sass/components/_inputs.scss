@@ -10,12 +10,11 @@
     background: transparent;
     color: inherit;
     font-size: 12px;
-    color: rgb(158,158,158);
+    color: rgb(158,158,158);    // GRRRR... <- LOOK INTO CHANGING THIS TO A VARIABLE LATER
 }
 .mdl-textfield {
     width: 100%;
 }
-
 .mdl-inline-expanded   {
     margin-top: -6px;
 }
@@ -26,4 +25,20 @@
     min-height: 300px;
     height: 100%;
     width: 100%;
+}
+.file_upload_container {
+    margin: auto;
+    width: 250px;
+    height: 40px;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+.file_upload_btn {
+  float: left;
+}
+#file_upload_text_div {
+    width: 200px;
+    margin-top: -8px;
+    margin-left: 5px;
 }

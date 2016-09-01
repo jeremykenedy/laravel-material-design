@@ -8,6 +8,16 @@
 .hidden {
   display: none; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
 @media (max-width: 480px) {
   .hide-mobile {
     display: none !important; } }
@@ -519,6 +529,22 @@ h4 {
   min-height: 300px;
   height: 100%;
   width: 100%; }
+
+.file_upload_container {
+  margin: auto;
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 1em;
+  left: 1em; }
+
+.file_upload_btn {
+  float: left; }
+
+#file_upload_text_div {
+  width: 200px;
+  margin-top: -8px;
+  margin-left: 5px; }
 
 .mdl-select .mdl-icon-toggle__label {
   float: right;

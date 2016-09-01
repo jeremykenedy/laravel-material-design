@@ -13,7 +13,8 @@ class Profile extends Model {
 		'location',
 		'bio',
 		'twitter_username',
-		'github_username'
+		'github_username',
+		'user_profile_bg'
 	];
 
 	/**
