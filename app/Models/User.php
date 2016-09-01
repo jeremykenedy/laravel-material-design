@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -9,7 +10,7 @@ use App\Logic\User\CaptureIp;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword, Notifiable;
 
     /**
      * The database table used by the model.
@@ -23,14 +24,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'first_name', 'last_name', 'email', 'password'];
+    protected $fillable = [
+        'name',
+        'first_name',
+        'last_name',
+        'email',
+        'password'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
     // REGISTRATION VALIDATION RULES
     public static $rules = [
