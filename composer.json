@@ -13,7 +13,8 @@
 		"socialiteproviders/youtube": "^2.0",
 		"socialiteproviders/twitch": "^2.0",
 		"socialiteproviders/instagram": "^2.0",
-		"socialiteproviders/37signals": "^2.0"
+		"socialiteproviders/37signals": "^2.0",
+		"creativeorange/gravatar": "~1.0"
 	},
 	"require-dev": {
         "fzaninotto/faker": "~1.4",

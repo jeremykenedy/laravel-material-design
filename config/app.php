@@ -157,12 +157,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
     	App\Providers\MacroServiceProvider::class,					// TAKE NOTE: This needs to load after HtmlServiceProvider
-
-
-
         Laravel\Socialite\SocialiteServiceProvider::class,
-
         SocialiteProviders\Manager\ServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
 	],
 
 	/*
@@ -216,6 +213,10 @@ return [
 
         // ADD SOCIALITE
         'Socialite' 	=> Laravel\Socialite\Facades\Socialite::class,
+
+        // ADD GRAVATAR CLASSES - https://github.com/creativeorange/gravatar
+        'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
+
 
 	],
 

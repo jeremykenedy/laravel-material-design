@@ -9,7 +9,7 @@
 	<header class="demo-drawer-header">
 
 		{{--
-			<img src="/images/dashboard/user.jpg" class="demo-avatar">
+			<img src="{{ Gravatar::get(Auth::user()->email) }}" alt="{{ Auth::user()->name }}" class="demo-avatar">
 		--}}
 		<i class="material-icons mdl-list__item-avatar">face</i>
 
