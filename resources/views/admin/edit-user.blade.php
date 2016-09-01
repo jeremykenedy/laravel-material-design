@@ -60,8 +60,8 @@
 
 				<div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 					<div class="mdl-user-avatar">
-						<img src="http://lorempicsum.com/futurama/250/250/1" style="max-height:200px;">
-						<span itemprop="image" style="display:none;">http://lorempicsum.com/futurama/250/250/1</span>
+						<img src="{{ Gravatar::get($user->email) }}" alt="{{ $user->name }}">
+						<span itemprop="image" style="display:none;">{{ Gravatar::get($user->email) }}</span>
 					</div>
 					<div class="mdl-card__title">
 						<h3 class="mdl-card__title-text mdl-title-username">

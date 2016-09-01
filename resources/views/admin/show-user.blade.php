@@ -67,8 +67,8 @@
 	<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
 	    <div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 			<div class="mdl-user-avatar">
-				<img src="http://lorempicsum.com/futurama/250/250/2" style="max-height:200px;">
-				<span itemprop="image" style="display:none;">http://lorempicsum.com/futurama/250/250/1</span>
+				<img src="{{ Gravatar::get($user->email) }}" alt="{{ $user->name }}">
+				<span itemprop="image" style="display:none;">{{ Gravatar::get($user->email) }}</span>
 			</div>
     	    <div class="mdl-card__title">
 		        <h3 class="mdl-card__title-text mdl-title-username">
