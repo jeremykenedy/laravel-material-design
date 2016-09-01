@@ -46,7 +46,7 @@
 	<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
 	    <div class="mdl-card card-new-user" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 
-			<div class="mdl-card__title mdl-card--expand">
+			<div class="mdl-card__title mdl-card--expand mdl-color--primary mdl-color-text--white">
 				<h2 class="mdl-card__title-text">Create New User</h2>
 			</div>
 
@@ -160,7 +160,7 @@
 					</div>
 				</div>
 
-			    <div class="mdl-card__menu">
+			    <div class="mdl-card__menu mdl-color-text--white">
 
 					{{-- SAVE ICON --}}
 					<span class="save-actions">

@@ -160,6 +160,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 	],
 
 	/*
@@ -211,12 +212,14 @@ return [
         'Form' 			=> Collective\Html\FormFacade::class,
         'HTML' 			=> Collective\Html\HtmlFacade::class,
 
-        // ADD SOCIALITE
+        // ADD SOCIALITE - https://github.com/laravel/socialite
         'Socialite' 	=> Laravel\Socialite\Facades\Socialite::class,
 
         // ADD GRAVATAR CLASSES - https://github.com/creativeorange/gravatar
         'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
 
+        // ADD IMAGE HANGLING - https://github.com/Intervention/image
+        'Image'         => Intervention\Image\Facades\Image::class,
 
 	],
 
