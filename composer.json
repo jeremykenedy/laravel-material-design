@@ -39,6 +39,8 @@
 	},
 	"scripts": {
 		"post-install-cmd": [
+			"php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+			"php artisan key:generate",
 			"php artisan clear-compiled",
 			"php artisan optimize"
 		],
@@ -47,7 +49,7 @@
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
-			"php -r \"copy('.env.example', '.env');\"",
+			"php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
 			"php artisan key:generate"
 		]
 	},
