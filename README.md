@@ -24,7 +24,7 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 
 ### Quick Project Setup
 ###### (Not including the dev environment)
-1. Run `sudo git clone https://github.com/jeremykenedy/laravel-material-admin.git laravel-material-admin`
+1. Run `sudo git clone https://github.com/jeremykenedy/laravel-material-design.git laravel-material-design`
 2. Create a MySQL database for the project
     * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
     * ```create database laravel_material;```
@@ -32,7 +32,7 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 3. From the projects root run `cp .env.example .env`
 4. Configure your `.env` file // NOTE: Google API Key will prevent maps error
 5. Run `sudo composer update` from the projects root folder
-6. From the projects root folder run `sudo chmod -R 755 ../laravel-material-admin`
+6. From the projects root folder run `sudo chmod -R 755 ../laravel-material-design`
 7. From the projects root folder run `sudo php artisan key:generate`
 8. From the projects root folder run `sudo php artisan migrate`
 9. From the projects root folder run `sudo composer dump-autoload`
@@ -46,25 +46,25 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 
 And thats it with the caveat of setting up and configuring your development environemnt. I recommend [VAGRANT](https://docs.vagrantup.com/v2/getting-started/) or the Laravel configured instance of Vagrant called [HOMESTEAD](http://laravel.com/docs/5.1/homestead).
 
-### laravel-material-admin URL's (routes)
+### laravel-material-design URL's (routes)
 * ```/```
 * ```/auth/login```
 * ```/auth/logout```
 * ```/auth/register```
 * ```/password/email```
 
-### laravel-material-admin Alias Redirect URL's (routes)
+### laravel-material-design Alias Redirect URL's (routes)
 * ```/home```
 * ```/reset```
 * ```/login```
 * ```/logout```
 * ```/register```
 
-### laravel-material-admin Profile Routes
+### laravel-material-design Profile Routes
 * ```/profile/{username}```
 * ```/profile/{username}/edit``` <- Editing in this view is limited to current user only.
 
-### laravel-material-admin Admin Routes
+### laravel-material-design Admin Routes
 * ```/users```
 * ```/users/create```
 * ```/users/{user_id}```
@@ -192,18 +192,18 @@ YOUTUBE_REDIRECT_URI=https://larablog.io/social/handle/youtube
 # http://www.twitch.tv/kraken/oauth2/clients/new
 TWITCH_KEY=YOURKEYHERE
 TWITCH_SECRET=YOURSECRETHERE
-TWITCH_REDIRECT_URI=http://laravel-material-admin.local/social/handle/twitch
+TWITCH_REDIRECT_URI=http://laravel-material-design.local/social/handle/twitch
 
 # https://instagram.com/developer/register/
 INSTAGRAM_KEY=YOURKEYHERE
 INSTAGRAM_SECRET=YOURSECRETHERE
-INSTAGRAM_REDIRECT_URI=http://laravel-material-admin.local/social/handle/instagram
+INSTAGRAM_REDIRECT_URI=http://laravel-material-design.local/social/handle/instagram
 
 # https://basecamp.com/
 # https://github.com/basecamp/basecamp-classic-api
 37SIGNALS_KEY=YOURKEYHERE
 37SIGNALS_SECRET=YOURSECRETHERE
-37SIGNALS_REDIRECT_URI=http://laravel-material-admin.local/social/handle/37signals
+37SIGNALS_REDIRECT_URI=http://laravel-material-design.local/social/handle/37signals
 
 // NOTE: YOU CAN REMOVE THE KEY CALL IN app.blade.php IF YOU GET A POP UP AND DO NOT WANT TO SETUP A KEY FOR DEV
 # Google Maps API v3 Key - https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
@@ -251,7 +251,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
 ### File Structure of Common Used Files
 ```
-laravel-material-admin/
+laravel-material-design/
     ├── .env.example
     ├── .gitattributes
     ├── .gitignore
