@@ -70,7 +70,7 @@
 				<img src="{{ Gravatar::get($user->email) }}" alt="{{ $user->name }}">
 				<span itemprop="image" style="display:none;">{{ Gravatar::get($user->email) }}</span>
 			</div>
-			<div class="mdl-card__title" style="background: url('/uploads/user-backgrounds/{{ $user->profile->user_profile_bg }}') center center; background-size: cover; background-repeat: no-repeat;">
+			<div class="mdl-card__title" @if ($user->profile->user_profile_bg != NULL) style="background: url('/uploads/user-backgrounds/{{$user->profile->user_profile_bg}}') center/cover;" @endif>
 
 				<!-- // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES ^|^|^ -->
 

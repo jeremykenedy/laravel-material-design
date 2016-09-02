@@ -138,10 +138,9 @@ class ProfilesController extends Controller {
             $user_profile_bg = Input::file('user_profile_bg');
             $filename = time() . '.' . $user_profile_bg->getClientOriginalExtension();
 
-// CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
-            Image::make($user_profile_bg)->resize(900, 300)->save( public_path('/uploads/user-backgrounds/' . $filename ) );
-// CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
-
+            // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
+                Image::make($user_profile_bg)->resize(900, 300)->save( public_path('/uploads/user-backgrounds/' . $filename ) );
+            // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
 
             $user->profile->user_profile_bg = $filename;
             $user->profile->save();
