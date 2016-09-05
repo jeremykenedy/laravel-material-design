@@ -1,4 +1,6 @@
-### Laravel Material Admin is a Complete Build of Laravel 5.2 with FULL Email and Social Authentication - WORKING - NOT READY FOR USE. [![License](http://jeremykenedy.com/license-mit.svg)]()
+### Laravel Material Admin is a Complete Build of Laravel 5.2 with FULL Email and Social Authentication [![License](http://jeremykenedy.com/license-mit.svg)]()
+
+#### READY FOR USE!
 
 Laravel 5.2 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
 
