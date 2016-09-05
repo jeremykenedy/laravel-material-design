@@ -207,7 +207,6 @@
 	@include('scripts.google-maps-geocode-and-map')
 	@include('scripts.mdl-file-upload')
 
-
 	<script type="text/javascript">
 
 		mdl_dialog('.dialog-button-save');
