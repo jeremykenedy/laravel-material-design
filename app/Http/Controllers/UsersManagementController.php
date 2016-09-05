@@ -231,17 +231,20 @@ class UsersManagementController extends Controller {
             // SAVE USER CORE SETTINGS
             $user->save();
 
-            // CHECK FOR USER BACKGROUND IMAGE FILE UPLOAD
             if(Input::file('user_profile_bg') != NULL){
-                //$user_profile_bg = $request->file('user_profile_bg');
-                $user_profile_bg = Input::file('user_profile_bg');
-                $filename = time() . '.' . $user_profile_bg->getClientOriginalExtension();
 
-                // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
-                    Image::make($user_profile_bg)->resize(900, 300)->save( public_path('/uploads/user-backgrounds/' . $filename ) );
-                // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
+                $user_profile_bg    = Input::file('user_profile_bg');
+                $filename           = 'user-background.' . $user_profile_bg->getClientOriginalExtension();
+                $save_path          = '/uploads/user-backgrounds/';
 
-                $user->profile->user_profile_bg = $filename;
+                // MAKE USER FOLDER AND UPDATE PERMISSIONS
+                File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
+
+                // SAVE FILE TO SERVER
+                Image::make($user_profile_bg)->resize(900, 300)->save(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/' . $filename);
+
+                // SAVE ROUTED PATH TO IMAGE TO DATABASE
+                $user->profile->user_profile_bg = '/images/profile/' . $user->id . '/backgrounds/' . $filename;
                 $user->profile->save();
             }
 
