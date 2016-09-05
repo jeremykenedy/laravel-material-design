@@ -264,7 +264,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
     3. Call Snackbar/Toast using JavaScript: EXAMPLES BELOW
 
-        ##### A. Snackbar
+        1. Snackbar
 
         ###### SNACKBAR ACTION(s)
         ```
@@ -286,7 +286,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
         ```
 
-        ##### B. Toast
+        2. Toast
 
         ###### TOAST CALL - NO ACTION
         ```
@@ -298,7 +298,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 
         ```
 
-        ##### C. EXAMPLE CTA TO SnackBar/Toast
+        3. EXAMPLE CTA TO SnackBar/Toast
 
         ```
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-snackbar-trigger" type="button">Show Toast</button>
