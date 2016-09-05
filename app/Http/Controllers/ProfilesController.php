@@ -145,29 +145,12 @@ class ProfilesController extends Controller {
             $user->profile->fill($input)->save();
         }
 
-// ============================================================================================================
-// TODO: CHANGE TO PROTECTED STORAGE USING CONTROLLER W METHOD AND ROUTES
-// ============================================================================================================
-// http://stackoverflow.com/questions/21869223/create-folder-in-laravel
-// http://stackoverflow.com/questions/21133712/laravel-load-images-stored-outside-public-folder
-// https://laravel.com/docs/5.3/controllers
-// http://stackoverflow.com/questions/30191330/laravel-5-how-to-access-image-uploaded-in-storage-within-view
-// http://www.blog.plint-sites.nl/protect-images-laravel/
-// ============================================================================================================
-
         // CHECK FOR USER BACKGROUND IMAGE FILE UPLOAD
         if(Input::file('user_profile_bg') != NULL){
 
             $user_profile_bg    = Input::file('user_profile_bg');
             $filename           = 'user-background.' . $user_profile_bg->getClientOriginalExtension();
             $save_path          = '/uploads/user-backgrounds/';
-            $local_path         = public_path() . $save_path . $user->id;
-
-
-            //FIX DB PATH TO MATCH ROUTED IMAGE PATH
-            $save_file_w_path   = $save_path . $user->id . '/'.$filename;
-
-// NEED TO CLEANUP AND ADD TO USER MANAGMENT CONtroLLER AS WELL
 
             // MAKE USER FOLDER AND UPDATE PERMISSIONS
             File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
@@ -175,6 +158,7 @@ class ProfilesController extends Controller {
             // SAVE FILE TO SERVER
             Image::make($user_profile_bg)->resize(900, 300)->save(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/' . $filename);
 
+            // SAVE ROUTED PATH TO IMAGE TO DATABASE
             $user->profile->user_profile_bg = '/images/profile/' . $user->id . '/backgrounds/' . $filename;
             $user->profile->save();
         }
