@@ -167,7 +167,7 @@ class ProfilesController extends Controller {
             //FIX DB PATH TO MATCH ROUTED IMAGE PATH
             $save_file_w_path   = $save_path . $user->id . '/'.$filename;
 
-
+// NEED TO CLEANUP AND ADD TO USER MANAGMENT CONtroLLER AS WELL
 
             // MAKE USER FOLDER AND UPDATE PERMISSIONS
             File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
