@@ -36,7 +36,7 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
     * ```\q```
 3. From the projects root run `cp .env.example .env`
 4. Configure your `.env` file // NOTE: Google API Key will prevent maps error
-5. Run `sudo composer update` from the projects root folder
+5. Run `sudo composer install` from the projects root folder
 6. From the projects root folder run `sudo chmod -R 755 ../laravel-material-design`
 7. From the projects root folder run `sudo php artisan key:generate`
 8. From the projects root folder run `sudo php artisan migrate`
