@@ -55,14 +55,13 @@
 
 				{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
 					<div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
+
 						<div class="mdl-user-avatar">
 							<img src="{{ Gravatar::get($user->email) }}" alt="{{ $user->name }}">
 							<span itemprop="image" style="display:none;">{{ Gravatar::get($user->email) }}</span>
 						</div>
 
-						<div class="mdl-card__title" @if ($user->profile->user_profile_bg != NULL) style="background: url('/uploads/user-backgrounds/{{$user->profile->user_profile_bg}}') center/cover;" @endif>
-
-							<!-- // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES ^|^|^ -->
+						<div class="mdl-card__title" @if ($user->profile->user_profile_bg != NULL) style="background: url('{{$user->profile->user_profile_bg}}') center/cover;" @endif>
 
 							<div class="file_upload_container">
 							    <div class="file_upload_btn">

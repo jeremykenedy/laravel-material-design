@@ -23,6 +23,8 @@ use Gravatar;
 use Input;
 use Image;
 
+use File;
+
 class UsersManagementController extends Controller {
 
 	/*

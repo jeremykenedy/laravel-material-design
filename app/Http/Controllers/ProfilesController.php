@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,6 +14,8 @@ use App\Models\User;
 use Validator;
 use Input;
 use Image;
+
+use File;
 
 class ProfilesController extends Controller {
 
@@ -99,6 +103,16 @@ class ProfilesController extends Controller {
         return view('profiles.edit')->withUser($user);
     }
 
+    public function getProfileBGImage(){
+
+        //return Storage::get($this->id.'/'.$this->id.'.jpeg');
+
+        //return Storage::get('zimages/v1.png');
+
+        return Image::make(storage_path('/zimages/'.$filename))->response();
+
+    }
+
     /**
      * Update a user's profile
      *
@@ -129,20 +143,39 @@ class ProfilesController extends Controller {
 
         } else {
             $user->profile->fill($input)->save();
-
         }
+
+// ============================================================================================================
+// TODO: CHANGE TO PROTECTED STORAGE USING CONTROLLER W METHOD AND ROUTES
+// ============================================================================================================
+// http://stackoverflow.com/questions/21869223/create-folder-in-laravel
+// http://stackoverflow.com/questions/21133712/laravel-load-images-stored-outside-public-folder
+// https://laravel.com/docs/5.3/controllers
+// http://stackoverflow.com/questions/30191330/laravel-5-how-to-access-image-uploaded-in-storage-within-view
+// http://www.blog.plint-sites.nl/protect-images-laravel/
+// ============================================================================================================
 
         // CHECK FOR USER BACKGROUND IMAGE FILE UPLOAD
         if(Input::file('user_profile_bg') != NULL){
-            //$user_profile_bg = $request->file('user_profile_bg');
-            $user_profile_bg = Input::file('user_profile_bg');
-            $filename = time() . '.' . $user_profile_bg->getClientOriginalExtension();
 
-            // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
-                Image::make($user_profile_bg)->resize(900, 300)->save( public_path('/uploads/user-backgrounds/' . $filename ) );
-            // CHANGE TO PROTECTED INDIVIDUAL USERS DIRECTORIES
+            $user_profile_bg    = Input::file('user_profile_bg');
+            $filename           = 'user-background.' . $user_profile_bg->getClientOriginalExtension();
+            $save_path          = '/uploads/user-backgrounds/';
+            $local_path         = public_path() . $save_path . $user->id;
 
-            $user->profile->user_profile_bg = $filename;
+
+            //FIX DB PATH TO MATCH ROUTED IMAGE PATH
+            $save_file_w_path   = $save_path . $user->id . '/'.$filename;
+
+
+
+            // MAKE USER FOLDER AND UPDATE PERMISSIONS
+            File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
+
+            // SAVE FILE TO SERVER
+            Image::make($user_profile_bg)->resize(900, 300)->save(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/' . $filename);
+
+            $user->profile->user_profile_bg = '/images/profile/' . $user->id . '/backgrounds/' . $filename;
             $user->profile->save();
         }
 
@@ -150,4 +183,11 @@ class ProfilesController extends Controller {
 
     }
 
+    // FUNCTON TO RETURN USER PROFILE BACKGROUND IMAGE
+    public function userProfileBackgroundImage($id, $image)
+    {
+        return Image::make(storage_path() . '/users/id/' . $id . '/uploads/images/profile-backgrounds/' . $image)->response();
+    }
+
 }
+

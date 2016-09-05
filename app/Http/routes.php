@@ -62,6 +62,11 @@ Route::get('reset', function () {
     return redirect('password/email');
 });
 
+// ROUTE FOR USER PROFILE IMAGES
+Route::get('images/profile/{id}/backgrounds/{image}', [
+	'uses' 		=> 'ProfilesController@userProfileBackgroundImage'
+]);
+
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 

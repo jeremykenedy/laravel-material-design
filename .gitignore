@@ -41,6 +41,7 @@ vendor
 node_modules
 Homestead.yaml
 Homestead.json
+/storage/users/*
 
 ## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
 README.md
