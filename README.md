@@ -254,6 +254,57 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
     e. Optionally exclude/disable any column from being searchable by adding class ```no-search``` to the ```<th>``` of the column.
 
 
+3. SnackBar / Toast
+
+    Use Google Material Design Lite built in notificatons outlined below:
+
+    1. Include ```@include('scripts.mdl-snackbar')``` call in the ```@section('template_scripts')``` section
+
+    2. Include ```@include('partials.mdl-snackbar')``` in your template
+
+    3. Call Snackbar/Toast using JavaScript: EXAMPLES BELOW
+
+        ##### A. Snackbar
+
+        ###### SNACKBAR ACTION(s)
+        ```
+        var someActions = function(event) {
+            document.querySelector('.mdl-snackbar-trigger').style.backgroundColor = 'red';
+        };
+
+        ```
+
+        ######  SNACKBAR CALL - WITH ACTION(s)
+        ```
+        mdl_snackbar({
+            msg: 'Profile Updated',
+            timout: 4000,                               // OPTIONAL
+            snackBarTrigger: '.mdl-snackbar-trigger',   // OPTIONAL
+            actionText: 'Undo',                         // OPTIONAL
+            actionHandler: someActions,                 // OPTIONAL
+        });
+
+        ```
+
+        ##### B. Toast
+
+        ###### TOAST CALL - NO ACTION
+        ```
+        mdl_snackbar({
+            msg: 'Profile Updated',
+            timout: 4000,
+            snackBarTrigger: '.mdl-snackbar-trigger'
+        });
+
+        ```
+
+        ##### C. EXAMPLE CTA TO SnackBar/Toast
+
+        ```
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-snackbar-trigger" type="button">Show Toast</button>
+
+        ```
+
 ### File Structure of Common Used Files
 ```
 laravel-material-design/
