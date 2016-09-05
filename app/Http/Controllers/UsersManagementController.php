@@ -22,7 +22,6 @@ use Validator;
 use Gravatar;
 use Input;
 use Image;
-
 use File;
 
 class UsersManagementController extends Controller {
@@ -235,17 +234,18 @@ class UsersManagementController extends Controller {
 
                 $user_profile_bg    = Input::file('user_profile_bg');
                 $filename           = 'user-background.' . $user_profile_bg->getClientOriginalExtension();
-                $save_path          = '/uploads/user-backgrounds/';
+                $save_path          = storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/';
 
                 // MAKE USER FOLDER AND UPDATE PERMISSIONS
-                File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
+                File::makeDirectory($save_path, $mode = 0755, true, true);
 
                 // SAVE FILE TO SERVER
-                Image::make($user_profile_bg)->resize(900, 300)->save(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/' . $filename);
+                Image::make($user_profile_bg)->resize(900, 300)->save($save_path . $filename);
 
                 // SAVE ROUTED PATH TO IMAGE TO DATABASE
                 $user->profile->user_profile_bg = '/images/profile/' . $user->id . '/backgrounds/' . $filename;
                 $user->profile->save();
+
             }
 
             return redirect('users/' . $user->id . '/')->with('status', 'Successfully updated the user!');

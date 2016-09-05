@@ -48,6 +48,34 @@
 
 @section('content')
 
+
+
+<button id="" class="mdl-button mdl-js-button mdl-button--raised mdl-snackbar-trigger" type="button">Show Toast</button>
+
+<div id="" class="mdl-js-snackbar mdl-snackbar">
+	<div class="mdl-snackbar__text"></div>
+	<button class="mdl-snackbar__action hiddesn" type="button"></button>
+</div>
+
+
+{{--
+
+var someActions = function(event) {
+    document.querySelector('.mdl-snackbar-trigger').style.backgroundColor = 'red';
+};
+
+mdl_snackbar({
+	msg: 'Profile Updated',
+	timout: 4000,							// OPTIONAL
+	snackBarTrigger: '.mdl-snackbar-trigger', 	// OPTIONAL
+	actionText: 'Undo',  					// OPTIONAL
+	actionHandler: someActions,				// OPTIONAL
+});
+
+
+ --}}
+
+
 	@if (Auth::user()->id == $user->id)
 
 		<div class="mdl-grid full-grid margin-top-0 padding-0">
@@ -206,6 +234,8 @@
 	@include('scripts.gmaps-address-lookup-api3')
 	@include('scripts.google-maps-geocode-and-map')
 	@include('scripts.mdl-file-upload')
+	@include('scripts.mdl-snackbar')
+
 
 	<script type="text/javascript">
 
@@ -220,6 +250,11 @@
 			$('.save-actions').show();
 		});
 
+		mdl_snackbar({
+			msg: 'Profile Updated',
+			timout: 4000,
+			snackBarTrigger: '.mdl-snackbar-trigger'
+		});
 
 	</script>
 

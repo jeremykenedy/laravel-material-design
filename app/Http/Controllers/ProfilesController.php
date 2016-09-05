@@ -1,7 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -11,10 +9,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Logic\User\UserRepository;
 use App\Models\Profile;
 use App\Models\User;
+
 use Validator;
 use Input;
 use Image;
-
 use File;
 
 class ProfilesController extends Controller {
@@ -150,13 +148,13 @@ class ProfilesController extends Controller {
 
             $user_profile_bg    = Input::file('user_profile_bg');
             $filename           = 'user-background.' . $user_profile_bg->getClientOriginalExtension();
-            $save_path          = '/uploads/user-backgrounds/';
+            $save_path          = storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/';
 
             // MAKE USER FOLDER AND UPDATE PERMISSIONS
-            File::makeDirectory(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/', $mode = 0755, true, true);
+            File::makeDirectory($save_path, $mode = 0755, true, true);
 
             // SAVE FILE TO SERVER
-            Image::make($user_profile_bg)->resize(900, 300)->save(storage_path() . '/users/id/' . $user->id . '/uploads/images/profile-backgrounds/' . $filename);
+            Image::make($user_profile_bg)->resize(900, 300)->save($save_path . $filename);
 
             // SAVE ROUTED PATH TO IMAGE TO DATABASE
             $user->profile->user_profile_bg = '/images/profile/' . $user->id . '/backgrounds/' . $filename;
