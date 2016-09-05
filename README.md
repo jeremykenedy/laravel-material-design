@@ -15,11 +15,14 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 |User Socialite Logins ready to go - See API list used below|
 |Google Maps API v3 for User Location lookup and Geocoding|
 |CRUD (Create, Read, Update, Delete) User Management|
+|Users can upload profile background images|
+|User uploads are in protected storage API|
 |Google Captcha Protection with Google API|
 |User Registration with email verification|
 |Capture IP to users table upon signup|
 |User Password Reset via Email Token|
 |User Login with remember password|
+|User have automatic Gravatar|
 |User roles implementation|
 |Eloquent user profiles|
 |Custom 404 Page|
