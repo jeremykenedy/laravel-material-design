@@ -2,7 +2,7 @@
 
 #### READY FOR USE!
 
-Laravel 5.2 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
+Laravel 5.2 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
 
 ###### A [Laravel](http://laravel.com/) 5.2.x with [Material Design Lite](https://getmdl.io/) 1.1.3 project.
 | Laravel Material Admin Features  |
@@ -14,12 +14,14 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 |Laravel Scaffolding **User** and **Administrator Authentication**|
 |User Socialite Logins ready to go - See API list used below|
 |Google Maps API v3 for User Location lookup and Geocoding|
+|CRUD (Create, Read, Update, Delete) Tasks Management|
 |CRUD (Create, Read, Update, Delete) User Management|
 |Users can upload profile background images|
 |User uploads are in protected storage API|
 |Google Captcha Protection with Google API|
 |User Registration with email verification|
 |Capture IP to users table upon signup|
+
 |User Password Reset via Email Token|
 |User Login with remember password|
 |User have automatic Gravatar|
@@ -42,6 +44,10 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 8. From the projects root folder run `sudo php artisan migrate`
 9. From the projects root folder run `sudo composer dump-autoload`
 10. From the projects root folder run `sudo php artisan db:seed`
+
+#### View the Project in Browser
+1. From the projects root folder run `php artisan serve`
+2. Open your web browser and go to `http://localhost`
 
 ###### Seeds
 1. Seeded Roles
@@ -74,6 +80,15 @@ And thats it with the caveat of setting up and configuring your development envi
 * ```/users/create```
 * ```/users/{user_id}```
 * ```/users/{user_id}/edit```
+
+### Laravel-Tasks URL's (routes)
+* ```/home```
+* ```/tasks```
+* ```/tasks/create```
+* ```/tasks/{id}/edit```
+* ```/tasks-all```
+* ```/tasks-complete```
+* ```/tasks-incomplete```
 
 ### Get Socialite Login API Keys:
 * [Google Captcha API](https://www.google.com/recaptcha/admin#list)
@@ -538,6 +553,10 @@ laravel-material-design/
 * http://laravel.com/docs/5.1/authorization
 * http://laravel.com/docs/5.1/routing
 * http://laravel.com/docs/5.0/schema
+* https://laravelcollective.com/docs/5.2/html
+* http://laravel.com/docs/5.2/authentication
+* http://laravel.com/docs/5.2/authorization
+* http://laravel.com/docs/5.2/routing
 
 ---
 
