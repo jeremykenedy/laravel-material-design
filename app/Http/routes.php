@@ -67,6 +67,12 @@ Route::get('images/profile/{id}/backgrounds/{image}', [
 	'uses' 		=> 'ProfilesController@userProfileBackgroundImage'
 ]);
 
+// USER TASKS ROUTES
+Route::resource('/tasks', 'TasksController');
+Route::resource('/tasks-all', 'TasksController@index_all');
+Route::resource('/tasks-complete', 'TasksController@index_complete');
+Route::resource('/tasks-incomplete', 'TasksController@index_incomplete');
+
 // USER PAGE ROUTES - RUNNING THROUGH AUTH MIDDLEWARE
 Route::group(['middleware' => 'auth'], function () {
 
