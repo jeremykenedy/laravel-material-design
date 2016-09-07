@@ -4,9 +4,6 @@
     <div class="container">
         <div class="col-sm-offset-1 col-sm-10">
 
-            <!-- Display Validation Errors -->
-            @include('common.status')
-
             <!-- Current Tasks -->
             @if (count($tasks) > 0)
 
