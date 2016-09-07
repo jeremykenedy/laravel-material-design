@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 use Validator;
 use Gravatar;
@@ -112,7 +113,7 @@ class UsersManagementController extends Controller {
             'first_name'            => 'required|max:255',
             'last_name'             => 'required|max:255',
             'password'              => 'required|min:6|confirmed',
-            'password_confirmation' => 'required|min:6|same:pass',
+            'password_confirmation' => 'required|min:6|same:password',
             'user_level'            => 'required',
             'location'              => '',
             'bio'                   => '',
@@ -372,6 +373,20 @@ class UsersManagementController extends Controller {
         $user->delete();
 
         return redirect('users')->with('status', 'Successfully deleted the user!');
+    }
+
+    /**
+     * Return count of ALL USERS using View::Composer
+     *
+     * @param  \App\Providers\ComposerServiceProvider.php
+     * @param  obj $view
+     * @return \Illuminate\View\View
+     */
+    public function getTotalUsers(View $view)
+    {
+        $users                  = \DB::table('users')->get();
+        $total_users            = \DB::table('users')->count();
+        $view->with('totalUsers', $total_users);
     }
 
 }

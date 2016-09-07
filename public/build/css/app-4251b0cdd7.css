@@ -1180,6 +1180,9 @@ dialog::backdrop {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px; }
 
+.mdl-layout__drawer .mdl-badge[data-badge]:after {
+  background: rgba(0, 0, 0, 0.7); }
+
 .mdl-selectfield {
   position: relative;
   font-size: 16px;

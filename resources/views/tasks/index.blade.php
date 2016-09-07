@@ -1,6 +1,5 @@
 @extends('dashboard')
 
-
 @section('template_title')
     My Task List
 @endsection

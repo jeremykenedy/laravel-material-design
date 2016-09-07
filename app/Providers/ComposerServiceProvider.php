@@ -25,6 +25,11 @@ class ComposerServiceProvider extends ServiceProvider
             'dashboard',
             'App\Http\Controllers\TasksController@getCompleteTasks'
         );
+        view()->composer(
+            'dashboard',
+            'App\Http\Controllers\UsersManagementController@getTotalUsers'
+        );
+
     }
 
     /**

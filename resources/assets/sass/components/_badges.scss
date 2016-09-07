@@ -2,3 +2,6 @@
 	padding: 2px 4px 1px;
 	@include vendor(border-radius, $standard-border-radius);
 }
+.mdl-layout__drawer .mdl-badge[data-badge]:after {
+  	background: rgba(0,0,0,.7);
+}
