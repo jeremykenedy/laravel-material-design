@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 use App\Http\Requests;
-
 use App\Models\Task;
 use App\Models\User;
 use Auth;
-
 use App\Logic\User\UserRepository;
 
 class TasksController extends Controller
@@ -154,8 +153,16 @@ class TasksController extends Controller
         $task->name         = $request->input('name');
         $task->description  = $request->input('description');
         $task->completed    = $request->input('completed');
+
+        if ($task->completed == '1') {
+            $return_msg = 'Task Completed !!!';
+        } else {
+            $return_msg = 'Task Updated';
+        }
+
         $task->save();
-        return redirect('tasks')->with('success', 'Task Updated');
+
+        return redirect('tasks')->with('status', $return_msg);
 
     }
 
@@ -170,6 +177,59 @@ class TasksController extends Controller
 
         Task::findOrFail($id)->delete();
         return redirect('/tasks')->with('success', 'Task Deleted');
+
+    }
+
+    /**
+     * Return current users tasks using View::Composer
+     *
+     * @param  \App\Providers\ComposerServiceProvider.php
+     * @param  obj $view
+     * @return \Illuminate\View\View
+     */
+    public function getAllTasks(View $view)
+    {
+        $user       = Auth::user();
+        $queryTasks = Task::orderBy('created_at', 'asc');
+        $Alltasks   = $queryTasks->where('user_id', $user->id)->get();
+        $view->with('allTasks', $Alltasks);
+    }
+
+    /**
+     * Return current users INCOMPLETE tasks using View::Composer
+     *
+     * @param  \App\Providers\ComposerServiceProvider.php
+     * @param  obj $view
+     * @return \Illuminate\View\View
+     */
+    public function getIncompleteTasks(View $view)
+    {
+        $user       = Auth::user();
+        $queryTasks = Task::orderBy('created_at', 'asc');
+        $tasksInComplete = $queryTasks->where([
+            ['user_id', '=', $user->id],
+            ['completed', '=', '0'],
+        ])->get();
+        $view->with('incompleteTasks', $tasksInComplete);
+
+    }
+
+    /**
+     * Return current users COMPLETE tasks using View::Composer
+     *
+     * @param  \App\Providers\ComposerServiceProvider.php
+     * @param  obj $view
+     * @return \Illuminate\View\View
+     */
+    public function getCompleteTasks(View $view)
+    {
+        $user       = Auth::user();
+        $queryTasks = Task::orderBy('created_at', 'asc');
+        $tasksCompleted = $queryTasks->where([
+            ['user_id', '=', $user->id],
+            ['completed', '=', '1'],
+        ])->get();
+        $view->with('completeTasks', $tasksCompleted);
 
     }
 }

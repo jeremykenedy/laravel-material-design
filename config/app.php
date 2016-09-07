@@ -161,7 +161,8 @@ return [
         SocialiteProviders\Manager\ServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-	],
+        App\Providers\ComposerServiceProvider::class,
+    ],
 
 	/*
 	|--------------------------------------------------------------------------

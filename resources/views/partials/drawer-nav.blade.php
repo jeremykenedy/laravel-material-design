@@ -36,6 +36,11 @@
 			{{ Lang::get('titles.profile') }}
 		</a>
 
+		<a class="mdl-navigation__link" href="/tasks">
+			<i class="material-icons mdl-badge mdl-badge--overlap" @if (count($incompleteTasks) != 0) data-badge="{{ count($incompleteTasks) }}" @endif role="presentation">view_list</i>
+			My Tasks
+		</a>
+
 		@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
 
 			<a class="mdl-navigation__link" href="{{ url('/users') }}">

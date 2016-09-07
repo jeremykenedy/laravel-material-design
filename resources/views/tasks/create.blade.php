@@ -4,9 +4,6 @@
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
 
-            <!-- Display Validation Errors -->
-            @include('common.status')
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Create New Task

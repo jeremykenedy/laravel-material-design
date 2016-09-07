@@ -38,6 +38,7 @@
 	<div class="mdl-grid margin-top-0-important padding-top-0-important">
 
 		@include('modules.pie-charts')
+
 		@include('modules.charts')
 
 		<div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
@@ -47,6 +48,24 @@
 			<div class="demo-separator mdl-cell--1-col"></div>
 
 			@include('cards.check-list-card')
+
+		</div>
+
+		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+
+			@include('modules.table')
+
+		</div>
+
+		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+
+			@include('modules.mega-footer')
+
+		</div>
+
+		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+
+			@include('modules.mini-footer')
 
 		</div>
 
