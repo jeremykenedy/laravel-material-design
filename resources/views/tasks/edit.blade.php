@@ -95,11 +95,11 @@
 
                                 <div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select mdl-select__fullwidth {{ $errors->has('user_level') ? 'is-invalid' :'' }}">
-                                        {!! Form::select('status', array('1' => 'Complete', '2' => 'Incomplete'), $task->completed, array('class' => 'mdl-selectfield__select mdl-textfield__input mdl-color-text--white', 'id' => 'status')) !!}
-                                        <label for="status">
+                                        {!! Form::select('completed', array('1' => 'Complete', '0' => 'Incomplete'), $task->completed, array('class' => 'mdl-selectfield__select mdl-textfield__input mdl-color-text--white', 'id' => 'status')) !!}
+                                        <label for="completed">
                                             <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
                                         </label>
-                                        {!! Form::label('status', 'Task Status', array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--primary')); !!}
+                                        {!! Form::label('completed', 'Task Status', array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--primary')); !!}
                                         <span class="mdl-textfield__error"></span>
                                     </div>
                                 </div>
@@ -111,30 +111,6 @@
                                         <span class="mdl-textfield__error"></span>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                             </div>
                         </div>
@@ -244,5 +220,16 @@
             </div>
         </div>
     </div> --}}
+
+@endsection
+
+@section('template_scripts')
+
+    @include('scripts.mdl-required-input-fix')
+
+    <script type="text/javascript">
+        mdl_dialog('.dialog-button-save');
+        mdl_dialog('.dialog-button-icon-save');
+    </script>
 
 @endsection
