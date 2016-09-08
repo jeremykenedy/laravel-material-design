@@ -21,7 +21,6 @@ Laravel 5.2 with user authentication, registration with email confirmation, soci
 |Google Captcha Protection with Google API|
 |User Registration with email verification|
 |Capture IP to users table upon signup|
-
 |User Password Reset via Email Token|
 |User Login with remember password|
 |User have automatic Gravatar|
