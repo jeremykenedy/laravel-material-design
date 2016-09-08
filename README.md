@@ -82,7 +82,6 @@ And thats it with the caveat of setting up and configuring your development envi
 * ```/users/{user_id}/edit```
 
 ### Laravel-Tasks URL's (routes)
-* ```/home```
 * ```/tasks```
 * ```/tasks/create```
 * ```/tasks/{id}/edit```

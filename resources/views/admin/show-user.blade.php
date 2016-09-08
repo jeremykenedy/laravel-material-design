@@ -40,7 +40,6 @@
 	</li>
 @endsection
 
-
 @if ($user->hasRole('user'))
 	@php
         $access_level   = 'User';
