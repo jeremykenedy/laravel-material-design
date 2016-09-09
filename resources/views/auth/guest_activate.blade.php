@@ -4,13 +4,6 @@
 	Activation Required
 @endsection
 
-@php
-
-	$email = 'jeremykenedy@gmail.com';
-	$date  = '08/31/2016'
-
-@endphp
-
 @section('template_fastload_css')
 
 	.mdl-grid.mdl-grid--no-spacing {
