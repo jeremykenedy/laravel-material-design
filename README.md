@@ -58,7 +58,7 @@ And thats it with the caveat of setting up and configuring your development envi
 
 #### Video/GIF Examples
 ###### Project Setup fresh setup
-[Install Laravel Material Design]("https://s3-us-west-2.amazonaws.com/github-project-images/laravel-mdl-setup.gif")
+[Install Laravel Material Design](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-mdl-setup.gif)
 
 ### laravel-material-design URL's (routes)
 * ```/```
