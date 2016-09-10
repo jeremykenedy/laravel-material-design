@@ -88,7 +88,7 @@ class AuthController extends Controller {
 	public function postRegister(Request $request)
 	{
 
-		// DISABLED WHILE TESTING
+		// DISABLED WHILE TESTING - Already disabled :)
 	    // if($this->captchaCheck() == false)
 	    // {
 	    //     return redirect()->back()->withErrors(['Sorry, Wrong Captcha'])->withInput();
