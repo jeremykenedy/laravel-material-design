@@ -253,9 +253,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
     * Substitute with the desired dialog blade.
 
     c. Options
-
-        ###### 1. DELETE DIALOG OPTIONS
-
+        1. DELETE DIALOG OPTIONS
         You can override the delete dialog title and save button text by passing your variables, otherwise the defaults will display.
 
         Example:
