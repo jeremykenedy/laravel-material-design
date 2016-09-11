@@ -1,4 +1,6 @@
-### Laravel Material Admin is a Complete Build of Laravel 5.2 and Google Material Design Lite 1.3 with FULL Email and Social Authentication [![License](http://jeremykenedy.com/license-mit.svg)]()
+### Laravel Material Admin is a Complete Build of Laravel 5.2 and Google Material Design Lite 1.3 with FULL Email and Social Authentication
+
+[![License](http://jeremykenedy.com/license-mit.svg)]() [![License](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)]()
 
 #### READY FOR USE!
 
@@ -253,7 +255,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
     * Substitute with the desired dialog blade.
 
     3. Options
-    
+
         1. DELETE DIALOG OPTIONS
         You can override the delete dialog title and save button text by passing your variables, otherwise the defaults will display.
 
