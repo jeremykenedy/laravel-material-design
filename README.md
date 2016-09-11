@@ -235,7 +235,7 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
 ### Helpful custom functions
 1. Dialogs (aka Modal)
 
-    a. Call Material Design Lite Dialog Box
+    1. Call Material Design Lite Dialog Box
     ```
     mdl_dialog(trigger,close,dialog)
     ```
@@ -246,16 +246,15 @@ GOOGLEMAPS_API_KEY=YOURGOOGLEMAPSkeyHERE
         var dialog = dialog || document.querySelector('#dialog');
     ```
 
-    b. Add the desired dialog view to your template view with:
+    2. Add the desired dialog view to your template view with:
     ```
         @include('dialogs.dialog-save')
     ```
     * Substitute with the desired dialog blade.
 
-    c. Options
-
-        1. ###### DELETE DIALOG OPTIONS
-
+    3. Options
+    
+        1. DELETE DIALOG OPTIONS
         You can override the delete dialog title and save button text by passing your variables, otherwise the defaults will display.
 
         Example:
