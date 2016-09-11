@@ -110,7 +110,7 @@ class TasksController extends Controller
         $task                   = $request->all();
         $task['user_id']        = $user->id;
         Task::create($task);
-        return redirect('/tasks')->with('success', 'Task created');
+        return redirect('/tasks')->with('status', 'Task created');
     }
 
     /**
@@ -176,7 +176,7 @@ class TasksController extends Controller
     {
 
         Task::findOrFail($id)->delete();
-        return redirect('/tasks')->with('success', 'Task Deleted');
+        return redirect('/tasks')->with('status', 'Task Deleted');
 
     }
 

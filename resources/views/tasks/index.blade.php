@@ -31,6 +31,30 @@
     .mdl-checkbox__box-outline {
         border: 2px solid rgba(255,255,255,1);
     }
+    .no-sort::after {
+        display: none !important;
+    }
+    .material-table .pagination .mdl-button.mdl-button--colored,
+    div.material-table .table-footer label,
+    div.material-table .table-footer select,
+    div.material-table .table-footer {
+        color: inherit !important;
+    }
+    .dataTables_empty {
+        padding: 1em !important;
+        text-align: center !important;
+    }
+    .table-striped tr.odd,
+    .striped-table tr.odd {
+        background: rgba(0,0,0,.1) !important;
+    }
+    div.material-table table th.sorting:after,
+    div.material-table table th.sorting_asc:after,
+    div.material-table table th.sorting_desc:after {
+        position: absolute;
+        margin: -7px 0 0 5px;
+        font-size: 16px;
+    }
 
 @endsection
 
@@ -79,6 +103,8 @@
 
         </div>
 
+        @include('dialogs.dialog-delete', ['dialogTitle' => 'Confirm Task Deletion', 'dialogSaveBtnText' => 'Delete'])
+
     @else
 
         <div class="panel panel-default">
@@ -96,6 +122,35 @@
             </div>
 
         </div>
+
+    @endif
+
+@endsection
+
+@section('template_scripts')
+
+    @if (count($tasks) > 0)
+
+        @include('scripts.mdl-datatables')
+
+        <script type="text/javascript">
+
+            @foreach ($tasks as $task)
+                mdl_dialog('.dialiog-trigger{{$task->id}}','','#dialog_delete');
+            @endforeach
+
+            var taskId;
+
+            $('.dialiog-trigger-delete').click(function(event) {
+                event.preventDefault();
+                taskId = $(this).attr('data-taskid');
+            });
+
+            $('#confirm').click(function(event) {
+                $('form#delete_'+taskId).submit();
+            });
+
+        </script>
 
     @endif
 

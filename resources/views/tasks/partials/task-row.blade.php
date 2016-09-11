@@ -14,7 +14,7 @@
 
     </td>
 
-    <td class="mdl-data-table__cell--non-numeric">
+    <td class="mdl-data-table__cell--non-numeric hide-mobile">
         {{ $task->id }}
     </td>
 
@@ -44,10 +44,21 @@
     </td>
 
     <td class="mdl-data-table__cell--non-numeric">
-        <a href="{{ route('tasks.edit', $task->id) }}" class="pull-right">
+
+        <a href="{{ route('tasks.edit', $task->id) }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
             <i class="material-icons mdl-color-text--white">edit</i>
             <span class="sr-only">Edit Task</span>
         </a>
+
+        {{-- DELETE TASK ICON AND FORM CALL --}}
+        {!! Form::open(array('class' => 'inline-block', 'id' => 'delete_'.$task->id, 'method' => 'DELETE', 'route' => array('tasks.destroy', $task->id))) !!}
+            {{ method_field('DELETE') }}
+            <a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$task->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-taskid="{{$task->id}}">
+                <i class="material-icons mdl-color-text--white">delete_forever</i>
+                <span class="sr-only">Delete Task</span>
+            </a>
+        {!! Form::close() !!}
+
     </td>
 
 </tr>
