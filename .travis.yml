@@ -3,11 +3,17 @@ language: php
 php:
 
   - 5.6
-
+  - 7.0
   - hhvm
 
 before_script:
-
+  - cp .env.travis .env
+  - mysql -e 'create database laravel_material;'
+  - composer self-update
   - composer install --dev --prefer-source --no-interaction
+  - php artisan key:generate
+  - php artisan migrate
+  - composer dump-autoload
+  - php artisan db:seed
 
 script: vendor/bin/phpspec run
