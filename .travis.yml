@@ -7,7 +7,7 @@ php:
   - hhvm
 
 before_script:
-  - cp .env.travis .env
+  - cp .env.example .env
   - mysql -e 'create database laravel_material;'
   - composer self-update
   - composer install --dev --prefer-source --no-interaction
