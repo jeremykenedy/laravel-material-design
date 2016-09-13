@@ -6,11 +6,13 @@ php:
   - 7.0
   - hhvm
 
+services:
+  - mysql
+
 before_script:
-  - cp .env.example .env
-  - mysql -e 'create database laravel_material;'
-  - composer self-update
-  - composer install --dev --prefer-source --no-interaction
+  - cp .env.travis .env
+  - mysql -u root -e 'create database laravel_material;'
+
   - php artisan key:generate
   - php artisan migrate
   - composer dump-autoload
