@@ -49,7 +49,7 @@
             </span>
         </a>
         <i class="material-icons">chevron_right</i>
-        <meta itemprop="position" content="2" />
+        <meta itemprop="position" content="3" />
     </li>
     <li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <a itemprop="item" href="/tasks/{{$task->id}}/edit">
@@ -57,7 +57,7 @@
                 {{$task->name}}
             </span>
         </a>
-        <meta itemprop="position" content="3" />
+        <meta itemprop="position" content="4" />
     </li>
 
 @endsection

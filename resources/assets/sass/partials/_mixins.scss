@@ -19,6 +19,7 @@
 // FONT SMOOTHING WITH CSS
 @mixin font-smoothing() {
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
 }
 // DISABLE ANCHOR WITH CSS

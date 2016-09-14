@@ -1,23 +1,17 @@
 <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-
 	<a href="/" class="dashboard-logo mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--primary mdl-color-text--white">
 		Laravel
 			<i class="material-icons " role="presentation">whatshot</i>
 		Material
 	</a>
-
 	<header class="demo-drawer-header">
-
 		{{--
 			<img src="{{ Gravatar::get(Auth::user()->email) }}" alt="{{ Auth::user()->name }}" class="demo-avatar">
 		--}}
 		<i class="material-icons mdl-list__item-avatar">face</i>
-
 		<div class="demo-avatar-dropdown">
 			<span>
-
 				{{ Auth::user()->name }}
-
 			</span>
 			<div class="mdl-layout-spacer"></div>
 			@include('partials.account-nav')
@@ -30,17 +24,18 @@
 			<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
 			{{ Lang::get('titles.home') }}
 		</a>
-
 		<a class="mdl-navigation__link" href="{{ url('/profile/'.Auth::user()->name) }}">
 			<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>
 			{{ Lang::get('titles.profile') }}
 		</a>
-
 		<a class="mdl-navigation__link" href="/tasks">
 			<i class="material-icons mdl-badge mdl-badge--overlap" @if (count($incompleteTasks) != 0) data-badge="{{ count($incompleteTasks) }}" @endif role="presentation">view_list</i>
 			My Tasks
 		</a>
-
+		<a class="mdl-navigation__link" href="/tasks/create">
+			<i class="material-icons mdl-badge mdl-badge--overlap" role="presentation">playlist_add</i>
+			Create Task
+		</a>
 		@if (!Auth::guest() && Auth::user()->hasRole('administrator'))
 
 			<a class="mdl-navigation__link" href="{{ url('/users') }}">

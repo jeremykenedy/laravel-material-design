@@ -493,6 +493,7 @@
 * {
   font-family: Roboto;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale; }
 
 html, body {
@@ -632,27 +633,25 @@ table a {
     width: 98%; }
 
 .search-white {
-  color: #ffffff; }
+  color: #FFFFFF; }
 
 .search-white input[type="search"],
 .search-white input[type="search"]:active,
 .search-white input[type="search"]:focus {
-  border-color: #ffffff; }
+  border-color: #FFFFFF; }
 
 .pagination .mdl-button.mdl-button--colored {
-  color: #fff; }
+  color: #FFFFFF; }
 
 .search-white input[type="search"]:focus {
   border-bottom: 3px solid #cccccc !important; }
 
+div.material-table .hiddensearch,
 div.material-table table.dataTable thead .sorting:before,
 div.material-table table.dataTable thead .sorting_asc:before,
 div.material-table table.dataTable thead .sorting_desc:before,
 div.material-table table.dataTable thead .sorting_asc_disabled:before,
 div.material-table table.dataTable thead .sorting_desc_disabled:before {
-  display: none; }
-
-div.material-table .hiddensearch {
   display: none; }
 
 div.material-table .table-header {
@@ -760,7 +759,7 @@ div.material-table .table-footer select {
 
 div.material-table .table-title {
   font-size: 20px;
-  color: #000; }
+  color: black; }
 
 div.material-table table tr td a {
   color: inherit; }
@@ -870,85 +869,18 @@ div.material-table .table-footer select {
   border-bottom: 3px solid #9b9b9b;
   box-shadow: none;
   border-radius: 0;
-  color: #000;
+  color: black;
   margin-bottom: -2px; }
 
-.mdl-button.next:before {
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-  color: #9b9b9b;
-  content: "chevron_right";
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-  transition: all 0.3s ease-in-out; }
-
-.mdl-button.previous:before {
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-  color: #9b9b9b;
-  content: "chevron_left";
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-  transition: all 0.3s ease-in-out; }
-
-.mdl-button.first:before {
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-  color: #9b9b9b;
-  content: "first_page";
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-  transition: all 0.3s ease-in-out; }
-
+.mdl-button.next:before,
+.mdl-button.previous:before,
+.mdl-button.first:before,
 .mdl-button.last:before {
   height: 30px;
   width: 30px;
   display: block;
   position: relative;
   color: #9b9b9b;
-  content: "last_page";
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -963,7 +895,23 @@ div.material-table .table-footer select {
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out; }
+
+.mdl-button.next:before {
+  content: "chevron_right"; }
+
+.mdl-button.previous:before {
+  content: "chevron_left"; }
+
+.mdl-button.first:before {
+  content: "first_page"; }
+
+.mdl-button.last:before {
+  content: "last_page"; }
 
 .mdl-button.first.disabled:before,
 .mdl-button.last.disabled:before,
@@ -992,6 +940,45 @@ div.material-table .table-footer select {
     float: left; }
   div.material-table .table-footer {
     display: block !important; } }
+
+div.material-table table thead tr th {
+  text-align: left;
+  padding: 0em .5em; }
+
+div.material-table table tbody tr td {
+  padding: 1em .5em;
+  text-align: left; }
+
+.no-sort::after {
+  display: none !important; }
+
+.dataTables_empty {
+  padding: 1em !important;
+  text-align: center !important; }
+
+.table-striped tr.odd,
+.striped-table tr.odd {
+  background: rgba(0, 0, 0, 0.1) !important; }
+
+div.material-table table th.sorting:after,
+div.material-table table th.sorting_asc:after,
+div.material-table table th.sorting_desc:after {
+  position: absolute;
+  margin: -7px 0 0 5px;
+  font-size: 16px; }
+
+.dark-table div.material-table table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: default; }
+
+.dark-table .mdl-checkbox__box-outline {
+  border: 2px solid white; }
+
+.dark-table .material-table .pagination .mdl-button.mdl-button--colored,
+.dark-table div.material-table .table-footer label,
+.dark-table div.material-table .table-footer select,
+.dark-table div.material-table .table-footer {
+  color: inherit !important; }
 
 .mdl-button .mdl-spinner {
   top: 5px;
@@ -1163,7 +1150,8 @@ dialog::backdrop {
       display: inline-block; }
       .breadcrumb ul li.active a {
         pointer-events: none;
-        cursor: default; }
+        cursor: default;
+        color: black; }
   .breadcrumb a {
     text-decoration: none; }
   .breadcrumb .material-icons {
@@ -1215,6 +1203,16 @@ dialog::backdrop {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
+
+.mdl-layout .mdl-tabs .mdl-tabs__panel:not(.is-active) {
+  display: none; }
+
+.mdl-tabs .mdl-tabs__panel {
+  min-height: 50px; }
+
+.mdl-tabs__tab-bar {
+  margin: 0 .55em 1em;
+  display: block; }
 
 .mdl-layout.mdl-auth-form {
   -ms-flex-align: center;

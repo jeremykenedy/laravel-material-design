@@ -14,32 +14,24 @@ table {
 	}
 }
 
-
-
-
-
-
-
-
 .search-white {
-  color: #ffffff;
+  color: $theme_color1;
 
 }
 .search-white input[type="search"],
 .search-white input[type="search"]:active,
 .search-white input[type="search"]:focus {
-  border-color: #ffffff;
+  border-color: $theme_color1;
 }
 .pagination .mdl-button.mdl-button--colored {
-  color: #fff;
+  color: $theme_color1;
 }
-
 
 .search-white input[type="search"]:focus {
 	border-bottom: 3px solid #cccccc !important;
 }
 
-
+div.material-table .hiddensearch,
 div.material-table table.dataTable thead .sorting:before,
 div.material-table table.dataTable thead .sorting_asc:before,
 div.material-table table.dataTable thead .sorting_desc:before,
@@ -48,14 +40,6 @@ div.material-table table.dataTable thead .sorting_desc_disabled:before {
     display: none;
 }
 
-
-
-
-
-
-div.material-table .hiddensearch {
-  display: none;
-}
 div.material-table .table-header {
   height: 64px;
   padding-left: 24px;
@@ -176,7 +160,7 @@ div.material-table .table-footer select {
 
 div.material-table .table-title {
   font-size: 20px;
-  color: #000;
+  color: darken($theme_color1, 100%);
 }
 
 div.material-table table tr td a {
@@ -260,36 +244,24 @@ div.material-table table td:last-child {
 
 
 .material-pagination {
-
   list-style-type: none;
   line-height: 1;
 }
 
 .material-table div.dataTables_wrapper div.dataTables_info {
     padding-top: 0;
-
 }
 
-
-
 div.material-table .table-footer select {
-
 	margin-top: 1px;
 	margin-left: 5px !important;
 	margin-right: -10px;
 	color: rgb(155,155,155)!important;
-
-
-
 }
-
 
 .mdl-data-table {
 	border: none;
 }
-
-
-
 
 ::-webkit-input-placeholder {
   color: #eeeeee;
@@ -304,38 +276,17 @@ div.material-table .table-footer select {
   color: #eeeeee;
 }
 
-
-
-
-
-
-
-
-
-
 .material-table .pagination .mdl-button {
-    border: none;
-    font-weight: 400;
-    margin: 0 5px 0 0;
-    min-width: auto;
-
-
-    height: 30px;
-    width: 30px;
-
+  border: none;
+  font-weight: 400;
+  margin: 0 5px 0 0;
+  min-width: auto;
+  height: 30px;
+  width: 30px;
   padding: 0;
   line-height: 1.2;
-color: rgb(155,155,155);
-font-size: .99em;
-
-
-
-
-
-
-
-
-
+  color: rgb(155,155,155);
+  font-size: .99em;
 }
 
 .material-table .pagination .mdl-button.mdl-button--colored {
@@ -343,182 +294,53 @@ font-size: .99em;
   border-bottom: 3px solid rgb(155,155,155);
   box-shadow: none;
   border-radius: 0;
-  color: #000;
+  color: darken($theme_color1, 100%);
   margin-bottom: -2px;
 }
 
-
-
+.mdl-button.next:before,
+.mdl-button.previous:before,
+.mdl-button.first:before,
+.mdl-button.last:before {
+  height: 30px;
+  width: 30px;
+  display: block;
+  position: relative;
+  color: rgb(155,155,155);
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  @include font-smoothing();
+  font-feature-settings: 'liga';
+  @include vendor(transition, all $default-trans-speed ease-in-out)
+}
 
 .mdl-button.next:before {
-
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-
-  color: rgb(155,155,155);
-
-
   content: "chevron_right";
-
-
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-
-
- -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-
-
 }
-
-
-
-
-
-
 .mdl-button.previous:before {
-
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-
-  color: rgb(155,155,155);
-
-
   content: "chevron_left";
-
-
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-
-
- -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-
-
 }
-
-
-
-
-
-
-
 .mdl-button.first:before {
-
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-
-  color: rgb(155,155,155);
-
-
   content: "first_page";
-
-
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-
-
- -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-
-
 }
-
-
 .mdl-button.last:before {
-
-  height: 30px;
-  width: 30px;
-  display: block;
-  position: relative;
-
-  color: rgb(155,155,155);
-
-
   content: "last_page";
-
-
-
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'liga';
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
 }
 
 .mdl-button.first.disabled:before,
 .mdl-button.last.disabled:before,
 .mdl-button.previous.disabled:before,
 .mdl-button.next.disabled:before {
-	color: rgb(224, 224, 224) !important;
+  color: rgb(224, 224, 224) !important;
 }
-
-
-
 
 @media(max-width: 600px) {
 
@@ -554,6 +376,52 @@ font-size: .99em;
 
   }
 
-
-
 }
+
+
+div.material-table table thead tr th{
+    text-align: left;
+    padding: 0em .5em;
+}
+div.material-table table tbody tr td{
+    padding: 1em .5em;
+    text-align: left;
+}
+.no-sort::after {
+    display: none !important;
+}
+.dataTables_empty {
+    padding: 1em !important;
+    text-align: center !important;
+}
+.table-striped tr.odd,
+.striped-table tr.odd {
+    background: rgba(0,0,0,.1) !important;
+}
+div.material-table table th.sorting:after,
+div.material-table table th.sorting_asc:after,
+div.material-table table th.sorting_desc:after {
+    position: absolute;
+    margin: -7px 0 0 5px;
+    font-size: 16px;
+}
+
+.dark-table {
+  div.material-table table tbody tr:hover {
+      background-color: rgba(0,0,0,.3);
+      cursor: default;
+  }
+  .mdl-checkbox__box-outline {
+      border: 2px solid rgba(255,255,255,1);
+  }
+  .material-table .pagination .mdl-button.mdl-button--colored,
+  div.material-table .table-footer label,
+  div.material-table .table-footer select,
+  div.material-table .table-footer {
+      color: inherit !important;
+  }
+}
+
+
+
+

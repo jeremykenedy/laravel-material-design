@@ -14,6 +14,7 @@
       &.active {
         a {
           @include disable-link();
+          color: darken($theme_color1, 100%);
         }
       }
     }

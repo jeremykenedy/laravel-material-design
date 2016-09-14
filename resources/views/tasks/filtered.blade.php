@@ -1,105 +1,135 @@
 @extends('dashboard')
 
-@section('content')
-    <div class="container">
-        <div class="col-sm-offset-1 col-sm-10">
+@php
 
-            <!-- Current Tasks -->
-            @if (count($tasks) > 0)
+    if (Request::is('tasks-all')) {
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-12">
+        $current_view = 'All Tasks';
 
-                                @if (Request::is('tasks-all'))
-                                    All Tasks
-                                @elseif (Request::is('tasks-incomplete'))
-                                    Incomplete Tasks
-                                @elseif (Request::is('tasks-complete'))
-                                   Complete Tasks
-                                @else
-                                    No Tasks
-                                @endif
+    } elseif (Request::is('tasks-incomplete')) {
 
-                                <div class="pull-right">
+        $current_view = 'Incomplete Tasks';
 
-                                    <a href="{{ url('/tasks-all') }}" class="btn btn-sm btn-default {{ Request::is('tasks-all') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-tasks" aria-hidden="true"></span> <span class="hidden-xs">All</span>
-                                    </a>
-                                    <a href="{{ url('/tasks-incomplete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-incomplete') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-square-o" aria-hidden="true"></span> <span class="hidden-xs">Incomplete</span>
-                                    </a>
-                                    <a href="{{ url('/tasks-complete') }}" class="btn btn-sm btn-default {{ Request::is('tasks-complete') ? 'active' : '' }}" type="button">
-                                        <span class="fa fa-check-square-o" aria-hidden="true"></span> <span class="hidden-xs">Complete</span>
-                                    </a>
+    } elseif (Request::is('tasks-complete')) {
 
-                                </div>
+        $current_view = 'Completed Tasks';
+    } else {
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped task-table table-condensed">
-                                <thead>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th colspan="3">Status</th>
-                                </thead>
-                                <tbody>
-                                    @foreach ($tasks as $task)
-                                        @include('tasks.partials.task-row')
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        $current_view = 'No Tasks';
+    }
 
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <a href="{{ url('/tasks/create') }}" class="btn btn-sm btn-primary pull-right" type="button">
-                                    <span class="fa fa-plus" aria-hidden="true"></span> New Task
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+@endphp
 
-                </div>
-
-            @else
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Create New Task
-                    </div>
-                    <div class="panel-body">
-
-                        @include('tasks.partials.create-task')
-
-                    </div>
-                </div>
-
-            @endif
-
-        </div>
-    </div>
+@section('template_title')
+    {{ $current_view }}
 @endsection
 
-@section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('table').DataTable();
-        } );
-    </script>
+@section('template_fastload_css')
+@endsection
 
+@section('header')
+    {{ $current_view }}
+@endsection
 
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-    });
-</script>
+@section('breadcrumbs')
+
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{url('/')}}">
+            <span itemprop="name">
+                {{ Lang::get('titles.app') }}
+            </span>
+        </a>
+        <i class="material-icons">chevron_right</i>
+        <meta itemprop="position" content="1" />
+    </li>
+
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="{{url('/tasks-all')}}">
+            <span itemprop="name">
+                My Tasks
+            </span>
+        </a>
+        <i class="material-icons">chevron_right</i>
+        <meta itemprop="position" content="2" />
+    </li>
+
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+        <a itemprop="item" href="">
+            <span itemprop="name">
+                {{ $current_view }}
+            </span>
+        </a>
+        <meta itemprop="position" content="3" />
+    </li>
+
+@endsection
+
+@section('content')
+
+    @if (count($tasks) > 0)
+
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+
+            <div class="mdl-tabs__tab-bar simulated-tabs">
+
+                <a href="{{ url('/tasks-all') }}" class="mdl-tabs__tab {{ Request::is('tasks-all') ? 'is-active' : '' }} ">
+                    All
+                </a>
+
+                <a href="{{ url('/tasks-incomplete') }}" class="mdl-tabs__tab {{ Request::is('tasks-incomplete') ? 'is-active' : '' }} ">
+                    Incomplete
+                </a>
+
+                <a href="{{ url('/tasks-complete') }}" class="mdl-tabs__tab {{ Request::is('tasks-complete') ? 'is-active' : '' }} ">
+                    Complete
+                </a>
+
+            </div>
+
+           @include('tasks/partials/task-tab', array('tab' => '', 'tasks' => $tasks, 'title' => $current_view, 'status' => 'is-active'))
+
+        </div>
+
+        @include('dialogs.dialog-delete', ['dialogTitle' => 'Confirm Task Deletion', 'dialogSaveBtnText' => 'Delete'])
+
+    @else
+
+        @include('tasks.partials.create-task')
+
+    @endif
+
+@endsection
+
+@section('template_scripts')
+
+    @if (count($tasks) > 0)
+
+        @include('scripts.mdl-datatables')
+
+        <script type="text/javascript">
+
+            @foreach ($tasks as $task)
+                mdl_dialog('.dialiog-trigger{{$task->id}}','','#dialog_delete');
+            @endforeach
+
+            var taskId;
+
+            $('.dialiog-trigger-delete').click(function(event) {
+                event.preventDefault();
+                taskId = $(this).attr('data-taskid');
+            });
+
+            $('#confirm').click(function(event) {
+                $('form#delete_'+taskId).submit();
+            });
+
+            $('.simulated-tabs .mdl-tabs__tab').click(function(event) {
+                event.preventDefault();
+                window.location.href = $(this).attr('href');
+            });
+
+        </script>
+
+    @endif
 
 @endsection

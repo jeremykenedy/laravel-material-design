@@ -1,0 +1,10 @@
+.mdl-layout .mdl-tabs .mdl-tabs__panel:not(.is-active) {
+    display: none;
+}
+.mdl-tabs .mdl-tabs__panel {
+    min-height: 50px;
+}
+.mdl-tabs__tab-bar {
+    margin: 0 .55em 1em;
+    display: block;
+}
