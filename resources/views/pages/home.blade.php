@@ -43,11 +43,11 @@
 
 		<div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
 
-			@include('cards.hero-image-card')
+			@include('cards.check-list-card')
 
 			<div class="demo-separator mdl-cell--1-col"></div>
 
-			@include('cards.check-list-card')
+			@include('cards.hero-image-card')
 
 		</div>
 

@@ -1,36 +1,35 @@
-<div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
-  <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
-    <h3>View options</h3>
-    <ul>
-      <li>
-        <label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-          <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
-          <span class="mdl-checkbox__label">Click per object</span>
-        </label>
-      </li>
-      <li>
-        <label for="chkbox2" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-          <input type="checkbox" id="chkbox2" class="mdl-checkbox__input">
-          <span class="mdl-checkbox__label">Views per object</span>
-        </label>
-      </li>
-      <li>
-        <label for="chkbox3" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-          <input type="checkbox" id="chkbox3" class="mdl-checkbox__input">
-          <span class="mdl-checkbox__label">Objects selected</span>
-        </label>
-      </li>
-      <li>
-        <label for="chkbox4" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-          <input type="checkbox" id="chkbox4" class="mdl-checkbox__input">
-          <span class="mdl-checkbox__label">Objects viewed</span>
-        </label>
-      </li>
-    </ul>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50">Change location</a>
-    <div class="mdl-layout-spacer"></div>
-    <i class="material-icons">location_on</i>
-  </div>
+<div class="demo-options mdl-card mdl-color--blue-900 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+    <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+        <h3>Incomplete Tasks</h3>
+        <ul>
+
+            @foreach ($incompleteTasks as $task)
+
+                <li>
+
+                    {!! Form::model($task, array('action' => array('TasksController@update', $task->id), 'method' => 'PUT', 'class'=>'form-inline', 'role' => 'form')) !!}
+
+                        <label for="completed-{{ $task->id }}" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                            {!! Form::hidden('name', $task->name, array('id' => 'task-name-'.$task->name)) !!}
+                            {!! Form::hidden('description', $task->description, array('id' => 'task-description-'.$task->id)) !!}
+                            {!! Form::checkbox('completed', 1, $task->completed, ['id' => 'completed-'.$task->id, 'class' => 'mdl-checkbox__input','onClick' => 'this.form.submit()']) !!}
+                            <span class="mdl-checkbox__label">
+                                {{ $task->name }}
+                            </span>
+
+                        </label>
+
+                    {!! Form::close() !!}
+
+                </li>
+
+            @endforeach
+
+        </ul>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a href="/tasks" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50">
+            See All Tasks
+        </a>
+    </div>
 </div>

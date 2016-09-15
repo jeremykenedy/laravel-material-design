@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -19,17 +20,16 @@ class ComposerServiceProvider extends ServiceProvider
         );
         view()->composer(
             'dashboard',
-            'App\Http\Controllers\TasksController@getIncompleteTasks'
-        );
-        view()->composer(
-            'dashboard',
             'App\Http\Controllers\TasksController@getCompleteTasks'
         );
         view()->composer(
             'dashboard',
             'App\Http\Controllers\UsersManagementController@getTotalUsers'
         );
-
+        view()->composer(
+            '*',
+            'App\Http\Controllers\TasksController@getIncompleteTasks'
+        );
     }
 
     /**
