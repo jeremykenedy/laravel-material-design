@@ -11,6 +11,8 @@ use App\Models\User;
 use Auth;
 use App\Logic\User\UserRepository;
 
+use Redirect;
+
 class TasksController extends Controller
 {
 
@@ -162,7 +164,7 @@ class TasksController extends Controller
 
         $task->save();
 
-        return redirect('tasks')->with('status', $return_msg);
+        return Redirect::back()->with('status', $return_msg);
 
     }
 
