@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,10 +27,16 @@ class ComposerServiceProvider extends ServiceProvider
             'dashboard',
             'App\Http\Controllers\UsersManagementController@getTotalUsers'
         );
-        view()->composer(
-            '*',
-            'App\Http\Controllers\TasksController@getIncompleteTasks'
-        );
+
+        View::composer('*', function($view) {
+            if(Auth::check()) {
+                view()->composer(
+                    '*',
+                    'App\Http\Controllers\TasksController@getIncompleteTasks'
+                );
+            }
+        });
+
     }
 
     /**
