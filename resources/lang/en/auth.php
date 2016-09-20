@@ -38,7 +38,7 @@ return [
 	// USER FLASH MESSAGES
 	'sendResetLink'		=> 'Send Password Reset Link',
 	'resetPassword'		=> 'Reset Password',
-	'loggedIn'			=> 'You are logged in!',
+	'loggedIn'			=> 'Welcome :name',
 
 	// EMAIL LINKS
 	'pleaseActivate'	=> 'Please activate your account.',

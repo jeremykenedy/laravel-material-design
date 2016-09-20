@@ -1,18 +1,16 @@
 @extends('dashboard')
 
 @section('template_title')
-	Welcome {{ Auth::user()->name }}
+	{{ Lang::get('titles.home') }}
 @endsection
 
 @section('template_fastload_css')
 @endsection
 
 @section('header')
-	{{ Lang::get('titles.home') }}
-	|
-	<small>
-		{{ Lang::get('auth.loggedIn') }}
-	</small>
+
+	{{ Lang::get('auth.loggedIn', ['name' => Auth::user()->name]) }}
+
 @endsection
 
 @section('breadcrumbs')
@@ -32,22 +30,27 @@
 
 @endsection
 
-
 @section('content')
 
 	<div class="mdl-grid margin-top-0-important padding-top-0-important">
 
-		@include('modules.pie-charts')
-
-		@include('modules.charts')
-
-		<div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+		<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell margin-top-0-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--8-col-desktop">
+		  	<div class="mdl-card__title mdl-card--expand @if (Auth::user()->profile->user_profile_bg == NULL) mdl-color--teal-300 @endif" @if (Auth::user()->profile->user_profile_bg != NULL) style="background: #263238 url('{{Auth::user()->profile->user_profile_bg}}') center/cover;" @endif>
+				<div class="mdl-user-avatar">
+					<img src="{{ Gravatar::get(Auth::user()->email) }}" alt="{{ Auth::user()->name }}">
+					<span itemprop="image" style="display:none;">{{ Gravatar::get(Auth::user()->email) }}</span>
+				</div>
+				<h2 class="mdl-card__title-text mdl-title-username mdl-color-text--white text-center">
+					Hi {{ Auth::user()->name }}
+				</h2>
+		  	</div>
+			<div class="mdl-card__supporting-text mdl-color-text--grey-600">
+				Thank you for checking out this Laravel Material Design Lite project. Please star and/or fork this repository :)
+			</div>
+		</div>
+		<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell margin-top-0-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop mdl-card mdl-color--primary">
 
 			@include('cards.check-list-card')
-
-			<div class="demo-separator mdl-cell--1-col"></div>
-
-			@include('cards.hero-image-card')
 
 		</div>
 

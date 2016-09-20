@@ -20,11 +20,39 @@
 
 @endphp
 
+@if (count($tasks) > 0)
+
+    @php
+
+        $task_view_title = $current_view;
+
+    @endphp
+
+@else
+
+    @php
+
+        $task_view_title = $current_view . ' (None)';
+
+    @endphp
+
+@endif
+
 @section('template_title')
     {{ $current_view }}
 @endsection
 
 @section('template_fastload_css')
+
+    @if (!count($tasks) > 0)
+
+        .mdl-textfield.search-white,
+        div.material-table table tr {
+            display: none;
+        }
+
+    @endif
+
 @endsection
 
 @section('header')
@@ -66,35 +94,31 @@
 
 @section('content')
 
-    @if (count($tasks) > 0)
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 
-        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar simulated-tabs">
 
-            <div class="mdl-tabs__tab-bar simulated-tabs">
+            <a href="{{ url('/tasks-all') }}" class="mdl-tabs__tab {{ Request::is('tasks-all') ? 'is-active' : '' }} ">
+                All
+            </a>
 
-                <a href="{{ url('/tasks-all') }}" class="mdl-tabs__tab {{ Request::is('tasks-all') ? 'is-active' : '' }} ">
-                    All
-                </a>
+            <a href="{{ url('/tasks-incomplete') }}" class="mdl-tabs__tab {{ Request::is('tasks-incomplete') ? 'is-active' : '' }} ">
+                Incomplete
+            </a>
 
-                <a href="{{ url('/tasks-incomplete') }}" class="mdl-tabs__tab {{ Request::is('tasks-incomplete') ? 'is-active' : '' }} ">
-                    Incomplete
-                </a>
-
-                <a href="{{ url('/tasks-complete') }}" class="mdl-tabs__tab {{ Request::is('tasks-complete') ? 'is-active' : '' }} ">
-                    Complete
-                </a>
-
-            </div>
-
-           @include('tasks/partials/task-tab', array('tab' => '', 'tasks' => $tasks, 'title' => $current_view, 'status' => 'is-active'))
+            <a href="{{ url('/tasks-complete') }}" class="mdl-tabs__tab {{ Request::is('tasks-complete') ? 'is-active' : '' }} ">
+                Complete
+            </a>
 
         </div>
 
+        @include('tasks/partials/task-tab', array('tab' => '', 'tasks' => $tasks, 'title' => $task_view_title, 'status' => 'is-active'))
+
+    </div>
+
+    @if (count($tasks) > 0)
+
         @include('dialogs.dialog-delete', ['dialogTitle' => 'Confirm Task Deletion', 'dialogSaveBtnText' => 'Delete'])
-
-    @else
-
-        @include('tasks.partials.create-task')
 
     @endif
 
@@ -123,13 +147,17 @@
                 $('form#delete_'+taskId).submit();
             });
 
-            $('.simulated-tabs .mdl-tabs__tab').click(function(event) {
-                event.preventDefault();
-                window.location.href = $(this).attr('href');
-            });
-
         </script>
 
     @endif
+
+    <script type="text/javascript">
+
+        $('.simulated-tabs .mdl-tabs__tab').click(function(event) {
+            event.preventDefault();
+            window.location.href = $(this).attr('href');
+        });
+
+    </script>
 
 @endsection
