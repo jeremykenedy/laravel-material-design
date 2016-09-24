@@ -24,7 +24,8 @@ elixir(function(mix) {
         'dialogs.js',
         'spinners.js',
         'mdl-selectfield.js',
-        'jQuery.simpleWeather.js'
+        'jQuery.simpleWeather.js',
+        'jQuery.animate-bg.js'
     ], 'public/js/app.js');
 
     mix.version([
