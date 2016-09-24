@@ -48,29 +48,37 @@
 				Thank you for checking out this Laravel Material Design Lite project. Please star and/or fork this repository :)
 			</div>
 		</div>
-		<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell margin-top-0-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop mdl-card mdl-color--primary">
+		<div class="mdl-card mdl-shadow--2dp mdl-cell margin-top-0-tablet-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop mdl-shadow--2dp mdl-color--grey-700">
+
+			@include('cards.weather-card')
+
+		</div>
+
+		<div class="mdl-cell mdl-shadow--2dp mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop mdl-color--primary mdl-card dark-table">
 
 			@include('cards.check-list-card')
 
 		</div>
 
-		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+		{{--
+			<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 
-			@include('modules.table')
+				@include('modules.table')
 
-		</div>
+			</div>
 
-		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+			<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 
-			@include('modules.mega-footer')
+				@include('modules.mega-footer')
 
-		</div>
+			</div>
 
-		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+			<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 
-			@include('modules.mini-footer')
+				@include('modules.mini-footer')
 
-		</div>
+			</div>
+		--}}
 
 	</div>
 

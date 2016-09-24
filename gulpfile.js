@@ -13,6 +13,8 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
 
+    mix.copy('node_modules/simpleweather/jQuery.simpleWeather.js', 'resources/assets/js/jQuery.simpleWeather.js');
+
     mix.sass([
 		'app.scss'
     ], 'public/css/app.css');
@@ -21,7 +23,8 @@ elixir(function(mix) {
 		'alerts.js',
         'dialogs.js',
         'spinners.js',
-        'mdl-selectfield.js'
+        'mdl-selectfield.js',
+        'jQuery.simpleWeather.js'
     ], 'public/js/app.js');
 
     mix.version([

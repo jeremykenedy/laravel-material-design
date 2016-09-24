@@ -80,6 +80,9 @@
 
 // TABLET UP MARGIN TOP
 @media(min-width: $phone) {
+  .margin-top-0-tablet {
+    margin-top: 0;
+  }
   .margin-top-1-tablet {
     margin-top: 1em;
   }
@@ -140,6 +143,9 @@
   }
   @media(min-width: $phone){
     @for $i from 0 through $num-of-helper-classes {
+      .margin-top-#{$i}-tablet-important {
+        margin-top: (#{$i}em) !important;
+      }
       .margin-top-#{$i}-tablet {
         margin-top: (#{$i}em);
       }

@@ -1,8 +1,8 @@
-<div class="mdl-card__supporting-text mdl-color-text--blue-grey-50 padding-bottom-0">
+<div class="mdl-card__supporting-text padding-bottom-0 mdl-color-text--white">
     <h3 class="mdl-card__title-text">
         Incomplete Tasks
     </h3>
-    <ul>
+    <ul style="list-style-type:none; padding-left: .5em;">
 
         @foreach ($incompleteTasks as $task)
 
