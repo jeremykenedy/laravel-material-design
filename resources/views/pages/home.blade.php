@@ -48,7 +48,7 @@
 				Thank you for checking out this Laravel Material Design Lite project. Please star and/or fork this repository :)
 			</div>
 		</div>
-		<div class="mdl-card mdl-shadow--2dp mdl-cell margin-top-0-tablet-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop mdl-shadow--2dp mdl-color--grey-700">
+		<div class="mdl-card mdl-shadow--2dp mdl-cell margin-top-0-tablet-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop mdl-shadow--2dp mdl-color--grey-700 weather-container">
 
 			@include('cards.weather-card')
 

@@ -1,13 +1,25 @@
 <script type="text/javascript">
 
-  $(document).ready(function() {
+    $(document).ready(function() {
+      loadWeather('{{ Auth::user()->profile->location }}',''); //@params location, woeid
+    });
 
-    // RENDER USER WEATHER WITH ANIMATED BG
-    $.simpleWeather({
-      woeid: '',
-      location: '{{ Auth::user()->profile->location }}',   // PORTLAND 2475687
-      unit: 'f',
-      success: function(weather) {
+    function loadWeather(location, woeid) {
+      $.simpleWeather({
+        location: location,
+        woeid: woeid,
+        unit: 'f',
+        success: function(weather) {
+          show_weather(weather);
+        },
+        error: function(error) {
+          $('#weather').html('<p>'+error+'</p>');
+        }
+      });
+    }
+
+    // WEATHER HTML OUTPUT WITH ANIMATED BG
+    function show_weather(weather) {
 
       var tempBgColors = {
         'freezing'    : '#0091c2',
@@ -22,9 +34,10 @@
         'superHot'    : '#F7AC57',
         'extreme'     : 'red',
       };
-      var tempTransSpeed    = 1500;
-      var tempBgContainer   = $('#weather_container');
+      var tempTransSpeed    = 500;
+      var tempBgContainer   = $('.weather-container');
       var tempOutput        = $('#weather');
+      var forcastOutput     = $('#forecast');
       var tempElement       = weather.temp;
       var mdlBgClass        = 'mdl-color--grey-700';
 
@@ -54,64 +67,77 @@
         tempBgContainer.animate({backgroundColor: tempBgColors['freezing']}, tempTransSpeed);
       }
 
+      // RENDER CURRENT WEATHER HTML
       html = '<h3 class="margin-top-0"><small>Currently</small><i class="wi wi-fw icon-'+weather.code+'"></i> '+tempElement+'<sup><small>&deg;'+weather.units.temp+'</small></sup></h3>';
       html += '<ul class="mdl-weather"><li><i class="material-icons">person_pin_circle</i> '+weather.city+', '+weather.region+'</li>';
       html += '<li class="currently"><i class="wi wi-fw icon-'+weather.code+'"></i>'+weather.currently+'</li>';
       html += '<li><i class="wi wi-wind wi-towards-'+weather.wind.direction.toLowerCase()+'"></i>  '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-
       tempOutput.html(html);
 
-      },
-      error: function(error) {
-        tempOutput.html('<p>'+error+'</p>');
-      }
-    });
-
-
-    // RENDER FORECAST HTML
-    $.simpleWeather({
-      woeid: '',
-      location: 'Portland, OR',
-      unit: 'f',
-      success: function(weather) {
-        html = '<ul class="mdl-weather"><li>'+weather.city+', '+weather.region+'</li>';
-
+      // RENDER FORECAST HTML
+      htmlForcast = '<ul class="mdl-weather">';
+        htmlForcast += '<li><h4 class="margin-top-0"><i class="material-icons">place</i> '+weather.city+', '+weather.region+'</h4></li>';
         for(var i=0;i<weather.forecast.length;i++) {
-          html += '<p>'+weather.forecast[i].day+' High: '+weather.forecast[i].high+'&deg;'+weather.units.temp+' / ';
-          html += ' Low: '+weather.forecast[i].low+'&deg;'+weather.units.temp+'</p>';
+          htmlForcast += '<li>';
+          htmlForcast += weather.forecast[i].day+' High: '+weather.forecast[i].high+'&deg;'+weather.units.temp+' / ';
+          htmlForcast += ' Low: '+weather.forecast[i].low+'&deg;'+weather.units.temp;
+          htmlForcast += '</li>';
         }
-        $("#forecast").html(html);
-      },
-      error: function(error) {
-        $("#forecast").html('<p>'+error+'</p>');
-      }
-    });
+        htmlForcast += '</ul>';
+      forcastOutput.html(htmlForcast);
+      weatherAction();
+      location_buttons();
+    }
 
     // WEATHER WIDGET ACTIONS
-    $('.show-forecast').click(function(event) {
-        $('#weather_container').addClass('mdl-color--grey-700');
-        $('#weather').fadeOut(200, function() {
-            $('#forecast').fadeIn(200, function() {});
-        });
-        $(this).fadeOut(200, function() {
-            $('.show-weather').fadeIn(200, function() {
-                $(this).css('display', 'inline-block');
-            });
-        });
-    });
+    function weatherAction() {
 
-    $('.show-weather').click(function(event) {
-      $('#weather_container').removeClass('mdl-color--grey-700');
-      $('#forecast').fadeOut(200, function() {
-          $('#weather').fadeIn(200, function() {});
-      });
-      $(this).fadeOut(200, function() {
-          $('.show-forecast').fadeIn(200, function() {
-              $(this).css('display', 'inline-block');
+      var btnTransSpeed     = 200;
+      var mdlBgClass        = 'mdl-color--grey-700';
+      var currentTrigger    = $('.show-weather');
+      var forecastTrigger   = $('.show-forecast');
+      var weatherContainer  = $('.weather-container');
+      var currentWeather    = $('#weather');
+      var forecastWeather   = $('#forecast');
+
+      forecastTrigger.click(function(event) {
+        weatherContainer.addClass(mdlBgClass);
+        currentWeather.fadeOut(btnTransSpeed, function() {
+          forecastWeather.fadeIn(btnTransSpeed, function() {});
+        });
+        $(this).fadeOut(btnTransSpeed, function() {
+          currentTrigger.fadeIn(btnTransSpeed, function() {
+            $(this).css('display', 'inline-block');
           });
+        });
       });
-    });
+      currentTrigger.click(function(event) {
+        weatherContainer.removeClass(mdlBgClass);
+        forecastWeather.fadeOut(btnTransSpeed, function() {
+          currentWeather.fadeIn(btnTransSpeed, function() {});
+        });
+        $(this).fadeOut(btnTransSpeed, function() {
+          forecastTrigger.fadeIn(btnTransSpeed, function() {
+            $(this).css('display', 'inline-block');
+          });
+        });
+      });
+    }
 
-  });
+    function location_buttons() {
+      if ("geolocation" in navigator) {
+        $('.js-geolocation').show();
+      } else {
+        $('.js-geolocation').hide();
+      }
+      $('.js-geolocation').on('click', function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+        });
+      });
+      $('.js-user-location').on('click', function() {
+          loadWeather('{{ Auth::user()->profile->location }}','');
+      });
+    }
 
 </script>
