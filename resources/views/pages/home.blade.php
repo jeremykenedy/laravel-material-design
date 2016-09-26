@@ -5,6 +5,8 @@
 @endsection
 
 @section('template_fastload_css')
+
+
 @endsection
 
 @section('header')

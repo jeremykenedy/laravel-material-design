@@ -67,23 +67,29 @@
         tempBgContainer.animate({backgroundColor: tempBgColors['freezing']}, tempTransSpeed);
       }
 
+
+
       // RENDER CURRENT WEATHER HTML
-      html = '<h3 class="margin-top-0"><small>Currently</small><i class="wi wi-fw icon-'+weather.code+'"></i> '+tempElement+'<sup><small>&deg;'+weather.units.temp+'</small></sup></h3>';
-      html += '<ul class="mdl-weather"><li><i class="material-icons">person_pin_circle</i> '+weather.city+', '+weather.region+'</li>';
+      html = '<h3 class="margin-top-0"><small>Currently</small>  <i class="wi wi-fw icon-'+weather.code+'"></i> '+tempElement+'<sup><small>&deg;'+weather.units.temp+'</small></sup> <small></small></h3>' ;
+      html += '<i class="wi wi-wind wi-towards-'+weather.wind.direction.toLowerCase()+'"></i>  '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed;
+      html += '<ul class="mdl-weather"><li><i class="material-icons">place</i> '+weather.city+', '+weather.region+'</li>';
       html += '<li class="currently"><i class="wi wi-fw icon-'+weather.code+'"></i>'+weather.currently+'</li>';
       html += '<li><i class="wi wi-wind wi-towards-'+weather.wind.direction.toLowerCase()+'"></i>  '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-      tempOutput.html(html);
+
 
       // RENDER FORECAST HTML
       htmlForcast = '<ul class="mdl-weather">';
         htmlForcast += '<li><h4 class="margin-top-0"><i class="material-icons">place</i> '+weather.city+', '+weather.region+'</h4></li>';
         for(var i=0;i<weather.forecast.length;i++) {
           htmlForcast += '<li>';
-          htmlForcast += weather.forecast[i].day+' High: '+weather.forecast[i].high+'&deg;'+weather.units.temp+' / ';
+          htmlForcast += weather.forecast[i].day+': <i class="wi wi-fw icon-'+weather.forecast[i].code+'"></i> High: '+weather.forecast[i].high+'&deg;'+weather.units.temp+' / ';
           htmlForcast += ' Low: '+weather.forecast[i].low+'&deg;'+weather.units.temp;
           htmlForcast += '</li>';
         }
-        htmlForcast += '</ul>';
+      htmlForcast += '</ul>';
+
+      // OUTPUTS
+      tempOutput.html(html);
       forcastOutput.html(htmlForcast);
       weatherAction();
       location_buttons();
@@ -141,3 +147,4 @@
     }
 
 </script>
+

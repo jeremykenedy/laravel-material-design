@@ -14,6 +14,27 @@
     width: 100%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 
 <div class="mdl-card mdl-color--grey-700 weather-container" style="width: 100%; background-color: #616161;">
@@ -55,8 +76,18 @@
 
 </div>
 
+
+
+
+
+
+
+
+
 @section('template_scripts')
 
     @include('scripts.weather')
+
+
 
 @endsection

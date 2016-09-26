@@ -14,6 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
 
     mix.copy('node_modules/simpleweather/jQuery.simpleWeather.js', 'resources/assets/js/jQuery.simpleWeather.js');
+    mix.copy('resources/assets/vendor/weather-icons/sass/**', 'resources/assets/sass/components/weather-icons/');
+    mix.copy('resources/assets/vendor/weather-icons/font/**', 'public/fonts/weather-icons/');
 
     mix.sass([
 		'app.scss'
