@@ -1,3 +1,5 @@
+#### 5/9/2017 :: Update: I am currently working on re-writing this on Laravel 5.4 along with some NEW feature! Stay tuned...
+
 ### Laravel Material Admin is a Complete Build of Laravel 5.2 and Google Material Design Lite 1.3 with FULL Email and Social Authentication
 
 [![License](http://jeremykenedy.com/license-mit.svg)](https://raw.githubusercontent.com/jeremykenedy/laravel-material-design/master/LICENSE) [![License](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-material-design)
