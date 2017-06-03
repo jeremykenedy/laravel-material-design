@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-
 use App\Http\Requests;
 use App\Models\Task;
 use App\Models\User;
 use Auth;
-use App\Logic\User\UserRepository;
-
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Redirect;
 
 class TasksController extends Controller
@@ -20,7 +17,6 @@ class TasksController extends Controller
         'name'          => 'required|max:60',
         'description'   => 'max:155',
         'completed'     => 'numeric',
-
     ];
 
     /**
@@ -42,11 +38,13 @@ class TasksController extends Controller
     {
 
         $user = Auth::user();
-        return view('tasks.index', [
+        $data = [
             'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),
             'tasksInComplete' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get(),
             'tasksComplete' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '1')->get()
-        ]);
+        ];
+
+        return view('tasks.index', $data);
     }
 
 
@@ -58,9 +56,11 @@ class TasksController extends Controller
     public function index_all()
     {
         $user = Auth::user();
-        return view('tasks.filtered', [
+        $data = [
             'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get()
-        ]);
+        ];
+
+        return view('tasks.filtered', $data);
     }
 
     /**
@@ -71,9 +71,11 @@ class TasksController extends Controller
     public function index_incomplete()
     {
         $user = Auth::user();
-        return view('tasks.filtered', [
+        $data = [
             'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get()
-        ]);
+        ];
+
+        return view('tasks.filtered', $data);
     }
 
     /**
@@ -108,11 +110,15 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, $this->rules);
+
         $user                   = Auth::user();
         $task                   = $request->all();
         $task['user_id']        = $user->id;
+
         Task::create($task);
+
         return redirect('/tasks')->with('status', 'Task created');
+
     }
 
     /**
@@ -134,7 +140,6 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-
         $task               = Task::findOrFail($id);
         return view('tasks.edit')->withTask($task);
     }
@@ -146,9 +151,8 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Task $task, Request $request, $id)
+    public function update(Request $request, $id)
     {
-
         $this->validate($request, $this->rules);
 
         $task               = Task::findOrFail($id);
@@ -159,13 +163,13 @@ class TasksController extends Controller
         if ($task->completed == '1') {
             $return_msg = 'Task Completed !!!';
         } else {
+            $task->completed = 0;
             $return_msg = 'Task Updated';
         }
 
         $task->save();
 
         return Redirect::back()->with('status', $return_msg);
-
     }
 
     /**
@@ -176,10 +180,8 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-
         Task::findOrFail($id)->delete();
         return redirect('/tasks')->with('status', 'Task Deleted');
-
     }
 
     /**
@@ -212,8 +214,8 @@ class TasksController extends Controller
             ['user_id', '=', $user->id],
             ['completed', '=', '0'],
         ])->get();
-        $view->with('incompleteTasks', $tasksInComplete);
 
+        $view->with('incompleteTasks', $tasksInComplete);
     }
 
     /**
@@ -232,6 +234,5 @@ class TasksController extends Controller
             ['completed', '=', '1'],
         ])->get();
         $view->with('completeTasks', $tasksCompleted);
-
     }
 }

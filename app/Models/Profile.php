@@ -6,18 +6,41 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model {
 
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'profiles';
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+    	'id'
+    ];
+
 	/**
 	 * Fillable fields for a Profile
 	 *
 	 * @var array
 	 */
 	protected $fillable = [
-		'location',
+		'theme_id',
+        'location',
 		'bio',
 		'twitter_username',
 		'github_username',
-		'user_profile_bg'
+        'user_profile_bg',
+        'avatar',
+        'avatar_status',
 	];
+
+    protected $casts = [
+        'theme_id' => 'integer',
+    ];
 
 	/**
 	 * A profile belongs to a user
@@ -28,5 +51,16 @@ class Profile extends Model {
 	{
 		return $this->belongsTo('App\Models\User');
 	}
+
+    /**
+     * Profile Theme Relationships
+     *
+     * @var array
+     */
+    public function theme()
+    {
+        return $this->hasOne('App\Models\Theme');
+    }
+
 
 }

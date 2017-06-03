@@ -1,10 +1,17 @@
-@extends('dashboard')
+@extends('layouts.dashboard')
 
 @section('template_title')
 	{{ $user->name }}'s Profile
 @endsection
 
 @section('template_fastload_css')
+
+	#map-canvas{
+		min-height: 300px;
+		height: 100%;
+		width: 100%;
+	}
+
 @endsection
 
 @section('header')
@@ -43,7 +50,7 @@
 
 @endsection
 
-@section('template_scripts')
+@section('footer_scripts')
 
 	@include('scripts.google-maps-geocode-and-map')
 

@@ -27,6 +27,10 @@ table {
   color: $theme_color1;
 }
 
+body .mdl-textfield--expandable .mdl-button--icon {
+  top: 18px;
+}
+
 .search-white input[type="search"]:focus {
 	border-bottom: 3px solid #cccccc !important;
 }
@@ -239,10 +243,6 @@ div.material-table table td:last-child {
 }
 
 
-
-
-
-
 .material-pagination {
   list-style-type: none;
   line-height: 1;
@@ -344,8 +344,6 @@ div.material-table .table-footer select {
 
 @media(max-width: 600px) {
 
-
-
   div.material-table .table-footer .dataTables_info {
 
     width: 40% !important;
@@ -369,15 +367,10 @@ div.material-table .table-footer select {
     margin: 0 auto 1.5em;
     float: left;
   }
-
-
   div.material-table .table-footer {
     display: block !important;
-
   }
-
 }
-
 
 div.material-table table thead tr th{
     text-align: left;
@@ -425,3 +418,59 @@ div.material-table table th.sorting_desc:after {
 
 
 
+.php-info-table {
+  background: $white !important;
+  img {
+    display: none;
+  }
+  h1 {
+
+    font-size: 34px;
+    width: 100%;
+    text-align: left;
+    padding: 0 20px;
+  }
+  h2 {
+    font-size: 1.3em;
+    text-align: center;
+    background: rgba(0,0,0, .2);
+    color: $white !important;
+    a {
+      color: $white !important;
+    }
+  }
+  hr {
+    display: none;
+  }
+  .e, .v, .vr {
+    color: #333;
+    font-size: 11px;
+  }
+  .e {
+    background: $white;
+    padding: 1em !important;
+    &:hover {
+      background: $white !important;
+    }
+  }
+  .v {
+    background: $white;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    padding: 1em !important;
+    td {
+      background: $white !important;
+      padding: 1em !important;
+      &:hover {
+        background: $white !important;
+      }
+    }
+    &:hover {
+      background: $white !important;
+    }
+  }
+}

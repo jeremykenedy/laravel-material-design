@@ -1,0 +1,73 @@
+.btn {
+    @include transitions();
+}
+
+.btn-youtube {
+	@include btn-social(#e52d27);
+}
+
+.btn-twitch {
+	@include btn-social(#6441A4);
+}
+
+.btn-basecamp {
+	@include btn-social(#3cb371);
+}
+
+[data-toggle="buttons"] >div .btn input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+@media(min-width: $mq-tiny) {
+	.col-xs-6 {
+		&.left-btn-container {
+			padding-left: 0;
+			.btn {
+				@include vendor(border-radius, 0 $standard-radius $standard-radius 0);
+			}
+		}
+		&.right-btn-container {
+			padding-right: 0;
+			.btn {
+				@include vendor(border-radius, $standard-radius 0 0 $standard-radius);
+			}
+		}
+	}
+}
+
+.nav-pills > li.active.bg-primary > a,
+.nav-pills > li.active.bg-primary > a:hover,
+.nav-pills > li.active.bg-primary > a:focus {
+    color: $white;
+    background-color: $brand-primary;
+}
+
+.nav-pills > li.active.bg-info > a,
+.nav-pills > li.active.bg-info > a:hover,
+.nav-pills > li.active.bg-info > a:focus {
+    color: $white;
+    background-color: $brand-info;
+}
+
+.nav-pills > li.active.bg-success > a,
+.nav-pills > li.active.bg-success > a:hover,
+.nav-pills > li.active.bg-success > a:focus {
+    color: $white;
+    background-color: $brand-success;
+}
+
+.nav-pills > li.active.bg-warning > a,
+.nav-pills > li.active.bg-warning > a:hover,
+.nav-pills > li.active.bg-warning > a:focus {
+    color: $white;
+    background-color: $brand-warning;
+}
+
+.nav-pills > li.active.bg-danger > a,
+.nav-pills > li.active.bg-danger > a:hover,
+.nav-pills > li.active.bg-danger > a:focus {
+    color: $white;
+    background-color: $brand-danger;
+}

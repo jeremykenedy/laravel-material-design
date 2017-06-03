@@ -1,0 +1,70 @@
+#weather,
+.show-forecast {
+    display: none;
+}
+
+.mdl-weather {
+	list-style-type: none;
+	padding: 1em;
+	.mdl-menu__item {
+	    width: 100%;
+	}
+}
+
+#forecast {
+  	text-align: center;
+	.mdl-weather {
+	    padding-top: 0em;
+	}
+}
+
+.forecast-item {
+	margin: 0 -30px;
+	padding: 2px 30px;
+	cursor: default;
+	&:nth-child(2) {
+		padding-top: 10px;
+		margin-top: 10px;
+		border-top: 1px solid #f1f1f1;
+	}
+	&:last-child {
+	  padding-bottom: 0;
+	}
+	&.freezing .wi.wi-fw {
+		color: $freezing !important;
+	}
+	&.superCold .wi.wi-fw {
+		color: $superCold !important;
+	}
+	&.veryCold .wi.wi-fw {
+		color: $veryCold !important;
+	}
+	&.cold .wi.wi-fw {
+		color: $cold !important;
+	}
+	&.brisk .wi.wi-fw {
+		color: $brisk !important;
+	}
+	&.fair .wi.wi-fw {
+		color: $fair !important;
+	}
+	&.nice .wi.wi-fw {
+		color: $nice !important;
+	}
+	&.warm .wi.wi-fw {
+		color: $warm !important;
+	}
+	&.hot .wi.wi-fw {
+		color: $hot !important;
+	}
+	&.superHot .wi.wi-fw {
+		color: $superHot !important;
+	}
+	&.extreme .wi.wi-fw {
+		color: $extreme !important;
+	}
+	.day {
+		width: 40px;
+		display: inline-block;
+	}
+}

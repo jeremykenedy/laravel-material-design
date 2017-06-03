@@ -1,62 +1,20 @@
-<style type="text/css">
-
-.mdl-weather {
-  list-style-type: none;
-  padding: 1em;
-}
-
-.show-weather,
-#forecast {
-    display: none;
-}
-
-.mdl-weather .mdl-menu__item {
-    width: 100%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
-
-<div class="mdl-card mdl-color--grey-700 weather-container" style="width: 100%; background-color: #616161;">
-    <div class="mdl-card__title mdl-color-text--white">
+<div class="mdl-card mdl-shadow--2dp mdl-cell margin-top-0-tablet-important mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop weather-container">
+    <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
         <h2 class="mdl-card__title-text">
             Your Weather
         </h2>
     </div>
-    <div class="mdl-card__supporting-text margin-top-0 padding-top-0 mdl-color-text--white">
-        @if (Auth::user()->profile->location)
-            <div id="weather"></div>
-            <div id="forecast"></div>
-        @else
-            No Location Set
-        @endif
+
+    <div class="mdl-card__supporting-text margin-top-0 padding-top-0">
+        <div id="weather"></div>
+        <div id="forecast"></div>
     </div>
     <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white show-forecast">
-            Forecast
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect show-forecast">
+            Show Forecast
         </a>
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white show-weather">
-            Current
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect show-weather">
+            Show Current
         </a>
     </div>
     <div class="mdl-card__menu">
@@ -73,21 +31,8 @@
 
         </ul>
     </div>
-
 </div>
 
-
-
-
-
-
-
-
-
-@section('template_scripts')
-
+@section('footer_scripts')
     @include('scripts.weather')
-
-
-
 @endsection

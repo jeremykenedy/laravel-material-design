@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-.demo-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
-}
+// .demo-avatar {
+//   width: 48px;
+//   height: 48px;
+//   border-radius: 24px;
+// }
 .demo-layout .demo-header .mdl-textfield {
   padding: 0px;
   margin-top: 41px;
@@ -146,7 +146,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   font-size: 1em;
 }
 .demo-updates .mdl-card__title {
-  min-height: 200px;
+  min-height: 60px;
   background-image: url('/images/dashboard/dog.png');
   background-position: 90% 100%;
   background-repeat: no-repeat;

@@ -70,3 +70,16 @@
     }
 }
 
+.mdl-card__title-text {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	font-size: 20px !important;
+	margin: 5px 0 5px 0;
+}

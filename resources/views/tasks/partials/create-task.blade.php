@@ -9,7 +9,7 @@
                     <div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('name') ? 'is-invalid' :'' }}">
                             {!! Form::text('name', NULL, array('id' => 'task-name', 'class' => 'mdl-textfield__input mdl-color-text--white')) !!}
-                            {!! Form::label('name', 'Task Name', array('class' => 'mdl-textfield__label mdl-color-text--primary')); !!}
+                            {!! Form::label('name', 'Task Name', array('class' => 'mdl-textfield__label mdl-color-text--white')); !!}
                             <span class="mdl-textfield__error">Task name is required</span>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                                 <label for="completed">
                                     <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
                                 </label>
-                                {!! Form::label('completed', 'Task Status', array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--primary')); !!}
+                                {!! Form::label('completed', 'Task Status', array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--white')); !!}
                                 <span class="mdl-textfield__error"></span>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                     <div class="mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('description') ? 'is-invalid' :'' }}">
                             {!! Form::textarea('description', NULL, array('id' => 'task-description', 'class' => 'mdl-textfield__input mdl-color-text--white')) !!}
-                            {!! Form::label('description', 'Task Description', array('class' => 'mdl-textfield__label mdl-color-text--primary')); !!}
+                            {!! Form::label('description', 'Task Description', array('class' => 'mdl-textfield__label mdl-color-text--white')); !!}
                             <span class="mdl-textfield__error"></span>
                         </div>
                     </div>

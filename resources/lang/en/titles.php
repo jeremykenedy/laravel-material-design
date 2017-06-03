@@ -2,19 +2,33 @@
 
 return [
 
-	'app'			=> 'Laravel Material',
-	'app2'			=> 'Laravel 5',
+	'app'			=> 'Laravel MDL 2.0',
+	'app2'			=> 'Laravel MDL 2.0',
 	'home'			=> 'Home',
 	'login'			=> 'Login',
 	'logout'		=> 'Logout',
 	'register'		=> 'Register',
 	'resetPword'	=> 'Reset Password',
 	'toggleNav'		=> 'Toggle Navigation',
-	'profile'		=> 'User Profile',
+	'profile'		=> 'Profile',
 	'editProfile'	=> 'Edit Profile',
 	'createProfile'	=> 'Create Profile',
-	'adminUserList'	=> 'Users List',
+	'dashboard'		=> 'Dashboard',
+
+	'activation'	=> 'Registration Started  | Activation Required',
+	'exceeded'		=> 'Activation Error',
+
+	'editProfile'	=> 'Edit Profile',
+	'createProfile'	=> 'Create Profile',
+	'adminUserList'	=> 'Users',
 	'adminEditUsers'=> 'Edit Users',
-	'adminNewUser'	=> 'Create User',
+	'adminNewUser'	=> 'Add User',
+
+	'adminThemesList' => 'Themes',
+	'adminThemesAdd'  => 'Add New Theme',
+
+	'adminLogs'		=> 'Log Files',
+	'adminPHP'		=> 'PHP Info',
+	'adminRoutes'	=> 'Routing Info',
 
 ];

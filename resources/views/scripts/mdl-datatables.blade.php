@@ -39,13 +39,13 @@
 
   $(document).ready(function() {
     $('.data-table').dataTable({
-   'aoColumnDefs': [{
+     'aoColumnDefs': [{
         'bSortable': false,
         'searchable': false,
         'aTargets': ['no-search'],
         'bTargets': ['no-sort']
-    }],
-  	"pagingType": "full_numbers",
+      }],
+      "pagingType": "full_numbers",
       "oLanguage": {
         "sStripClasses": "",
         "sSearch": "",
@@ -63,9 +63,9 @@
       bAutoWidth: false
     });
   });
-  $(document).on('input', "#search_table", function(){
+    $(document).on('input', "#search_table", '.mdl-textfield__input', function(){
       var oTable = $('.dataTable').dataTable();
       oTable.fnFilter($(this).val());
-  });
+    });
 
 </script>

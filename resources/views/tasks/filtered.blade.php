@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.dashboard')
 
 @php
 
@@ -61,17 +61,17 @@
 
 @section('breadcrumbs')
 
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="{{url('/')}}">
             <span itemprop="name">
-                {{ Lang::get('titles.app') }}
+                {{ trans('titles.app') }}
             </span>
         </a>
         <i class="material-icons">chevron_right</i>
         <meta itemprop="position" content="1" />
     </li>
 
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="{{url('/tasks-all')}}">
             <span itemprop="name">
                 My Tasks
@@ -81,7 +81,7 @@
         <meta itemprop="position" content="2" />
     </li>
 
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
         <a itemprop="item" href="">
             <span itemprop="name">
                 {{ $current_view }}
@@ -124,7 +124,7 @@
 
 @endsection
 
-@section('template_scripts')
+@section('footer_scripts')
 
     @if (count($tasks) > 0)
 

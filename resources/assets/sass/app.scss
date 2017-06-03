@@ -1,4 +1,7 @@
 @import 'partials/variables';
+
+@import "node_modules/material-design-lite/src/material-design-lite.scss";
+
 @import 'partials/mixins';
 @import 'partials/helpers';
 @import 'partials/base';
@@ -16,8 +19,10 @@
 @import 'components/social-icons';
 @import 'components/breadcrumbs';
 @import 'components/badges';
+@import 'components/chips';
 @import 'components/mdl-selectfield';
 @import 'components/mdl-tabs';
+@import 'components/weather-card';
 
 @import 'components/weather-icons/weather-icons';
 

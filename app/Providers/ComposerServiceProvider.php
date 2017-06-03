@@ -2,45 +2,53 @@
 
 namespace App\Providers;
 
-use Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Register bindings in the container.
      *
      * @return void
      */
     public function boot()
     {
-        view()->composer(
-            'dashboard',
-            'App\Http\Controllers\TasksController@getAllTasks'
-        );
-        view()->composer(
-            'dashboard',
-            'App\Http\Controllers\TasksController@getCompleteTasks'
-        );
-        view()->composer(
-            'dashboard',
-            'App\Http\Controllers\UsersManagementController@getTotalUsers'
+
+        View::composer([
+                '*'
+            ],
+            'App\Http\ViewComposers\ThemeComposer'
         );
 
-        View::composer('*', function($view) {
-            if(Auth::check()) {
-                view()->composer(
-                    '*',
-                    'App\Http\Controllers\TasksController@getIncompleteTasks'
-                );
-            }
-        });
+        View::composer([
+                '*'
+            ],
+            'App\Http\ViewComposers\UsersComposer'
+        );
+
+        View::composer([
+                '*'
+            ],
+            'App\Http\Controllers\TasksController@getAllTasks'
+        );
+
+        View::composer([
+                '*'
+            ],
+            'App\Http\Controllers\TasksController@getCompleteTasks'
+        );
+
+        View::composer([
+                '*'
+            ],
+            'App\Http\Controllers\TasksController@getIncompleteTasks'
+        );
 
     }
 
     /**
-     * Register the application services.
+     * Register the service provider.
      *
      * @return void
      */

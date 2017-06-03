@@ -16,6 +16,8 @@ Thumbs.db
 
 ### SUBLIMETEXT BOOGERS ###
 *.sublime-workspace
+/.phpintel/*
+.phpintel
 
 ### PHPSTORM BOOGERS ###
 .idea/*
@@ -23,27 +25,16 @@ Thumbs.db
 
 ### DIFFERENT TYPE OF MASTER CONFIGS ###
 .env
-.env-dev
-.env-live
-.env.dev
-.env.production
-.env-*
-/config/blog.php
-/sql
 composer.lock
 
 ### ASSET EXCLUSIONS ###
-/ref
-uploads
-/public/uploads/*
-/public/uploads/
-vendor
-node_modules
 /node_modules
+/public/storage
+/storage/*.key
+/vendor
 Homestead.yaml
 Homestead.json
-/storage/users/*
-
-## IGNORE FOR NOW DUE TO GITHUB CONFLICTS
-README.md
-readme.md
+/storage/debugbar
+/storage/framework
+/storage/logs
+/storage/users

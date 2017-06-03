@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.dashboard')
 
 @section('template_title')
     My Task List
@@ -13,16 +13,16 @@
 
 @section('breadcrumbs')
 
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="{{url('/')}}">
             <span itemprop="name">
-                {{ Lang::get('titles.app') }}
+                {{ trans('titles.app') }}
             </span>
         </a>
         <i class="material-icons">chevron_right</i>
         <meta itemprop="position" content="1" />
     </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
         <a itemprop="item" href="" class="">
             <span itemprop="name">
                 My Tasks
@@ -55,27 +55,27 @@
 
     @else
 
-        <div class="panel panel-default">
+    <div class="mdl-grid full-grid margin-top-0 padding-0">
+        <div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
+            <div class="mdl-color--grey-700 mdl-color-text--white mdl-card mdl-shadow--2dp" style="width:100%;" itemscope itemtype="https://schema.org/Person">
 
-            <div class="panel-heading">
-
-                Create New Task
-
-            </div>
-
-            <div class="panel-body">
+                <div class="mdl-card__title mdl-card--expand mdl-color--primary mdl-color-text--white">
+                    <h4 class="mdl-card__title-text">
+                        Start by creating a task
+                    </h4>
+                </div>
 
                 @include('tasks.partials.create-task')
 
             </div>
-
         </div>
+    </div>
 
     @endif
 
 @endsection
 
-@section('template_scripts')
+@section('footer_scripts')
 
     @if (count($tasks) > 0)
 
@@ -98,6 +98,15 @@
                 $('form#delete_'+taskId).submit();
             });
 
+        </script>
+
+    @else
+
+    @include('scripts.mdl-required-input-fix')
+
+        <script type="text/javascript">
+            mdl_dialog('.dialog-button-save');
+            mdl_dialog('.dialog-button-icon-save');
         </script>
 
     @endif

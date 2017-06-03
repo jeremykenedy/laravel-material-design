@@ -1,0 +1,45 @@
+.mdl-chip {
+    cursor: default;
+    vertical-align: middle;
+
+    &.sm-chip {
+        padding: 0 8px;
+        height: 20px;
+        line-height: 20px;
+
+        .mdl-chip__text {
+            font-size: 12px;
+        }
+        .mdl-chip__contact {
+                height: 20px;
+                line-height: 20px;
+                margin-left: -8px;
+                margin-right: 4px;
+                width: 20px;
+                font-size: 10px;
+
+            .material-icons {
+                font-size: 18px;
+                line-height: 1.1;
+            }
+        }
+    }
+
+    &.md-chip {
+        padding: 0 8px;
+        height: 26px;
+        line-height: 26px;
+
+        .mdl-chip__contact {
+                height: 26px;
+                line-height: 26px;
+                margin-left: -8px;
+                width: 26px;
+
+            .material-icons {
+                font-size: 22px;
+                line-height: 1.1;
+            }
+        }
+    }
+}

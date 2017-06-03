@@ -1,6 +1,6 @@
 {{--
 
-	1. INCLUDE "@include('scripts.mdl-snackbar')" CALL IN "@section('template_scripts')" SECTION:
+	1. INCLUDE "@include('scripts.mdl-snackbar')" CALL IN "@section('footer_scripts')" SECTION:
 
 	2. INCLUDE "@include('partials.mdl-snackbar')" IN YOUR TEMPLATE
 

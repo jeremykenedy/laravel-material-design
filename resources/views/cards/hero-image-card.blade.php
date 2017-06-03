@@ -9,8 +9,3 @@
     <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Read More</a>
   </div>
 </div>
-
-
-
-
-
