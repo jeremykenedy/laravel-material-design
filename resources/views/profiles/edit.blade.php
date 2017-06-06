@@ -43,6 +43,43 @@
 
 @endsection
 
+
+
+
+  <div class="success message dismissible ajax-success" style="display:none;">
+    <i class="material-icons status">warning</i>
+    <h4>
+        <span id="ajax_success_title"></span>
+    </h4>
+    <p>
+        <span id="ajax_success_message"></span>
+    </p>
+  </div>
+
+
+
+  <div class="error message dismissible ajax-error" style="display:none;">
+    <i class="material-icons status">&#xE876;</i>
+    <h4>
+        Error
+    </h4>
+    <p>
+       <div id="ajax_error_message"></div>
+    </p>
+  </div>
+
+
+  <div class="message dismissible ajax-message" style="display:none;">
+    <i class="material-icons status" id="ajax_message_icon">&#xE876;</i>
+    <h4>
+        <span id="ajax_message_title"></span>
+    </h4>
+    <p>
+        <span id="ajax_message_message"></span>
+    </p>
+  </div>
+
+
 @section('content')
 
 
@@ -50,124 +87,38 @@
 
 
 
-<div id="color_select_panel">
-
-<div id="style_plug"></div>
-
-  <div class="image-preloader"></div>
-  <div class="docs-layout mdl-layout mdl-js-layout">
 
 
 
 
 
-    <main class="docs-layout-content mdl-layout__content mdl-color-text--grey-600">
-      <div class="content mdl-grid mdl-grid--no-spacing" id="content">
-
-
-
-
-
-
-          <div class="mdl-gen mdl-cell mdl-cell--12-col">
-            <div class="mdl-grid">
-              <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
-                <div id="wheel">
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <defs>
-                      <filter id="drop-shadow">
-                        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2" />
-                        <feOffset dx="0" dy="0" result="offsetblur" />
-                        <feFlood flood-color="rgba(0,0,0,1)" />
-                        <feComposite in2="offsetblur" operator="in" />
-                        <feMerge>
-                          <feMergeNode />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-                    <g class="wheel--maing"></g>
-                  </svg>
-                  <div class="mdl-gen-download">
-                    <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
-                <div class="mdl-gen__desc docs-text-styling">
-                  <strong>Custom CSS theme builder</strong>
-                  <p>Click on the color wheel to choose a primary (1) and accent (2) color to preview the theme below. When you’ve selected a color combination you like, either reference our <a href="#cdn-code">hosted CSS</a> or download the CSS by clicking the white button in the middle. You will need to include MDL’s JavaScript alongside your customised CSS to get the full experience. This is included in our default Download from the <a href="../started/index.html#download">Getting Started guide</a>.</p>
-                </div>
-                <div class="mdl-gen__preview">
-                  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-                    <header class="mdl-layout__header">
-                      <div class="mdl-layout__header-row">
-                        <span class="mdl-layout-title">Theme Preview</span>
-                      </div>
-                    </header>
-                    <div class="mdl-layout__drawer">
-                      <span class="mdl-layout-title">Theme Preview</span>
-                      <nav class="mdl-navigation">
-                        <a class="mdl-navigation__link" href="#">Some</a>
-                        <a class="mdl-navigation__link" href="#">Links</a>
-                        <a class="mdl-navigation__link" href="#">Here</a>
-                      </nav>
-                    </div>
-                    <main class="mdl-layout__content">
-                      <h3>Try it out</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet.
-                      </p>
-                      <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">BUTTON</button>
-                      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">
-                        <i class="material-icons">email</i>
-                      </button>
-                    </main>
-                  </div>
-                </div>
-              </div>
-              <div class="mdl-gen__cdn mdl-cell mdl-cell--12-col">
-                <div class="code-with-text" id="cdn-code">
-
-                  MDL CSS Theme File:
-
-                  <pre class="demo-code language-markup codepen-button-disabled"><code class="language-markup mdl-gen__cdn-link" data-language="markup">material.$primary-$accent.min.css</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-      </div>
-
-
-
-
-
-
-
-
-
-    </main>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-{{--
 
 	@if (Auth::user()->id == $user->id)
 
 		<div class="mdl-grid full-grid margin-top-0 padding-0">
 			<div class="mdl-cell mdl-cell mdl-cell--12-col mdl-cell--12-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop mdl-card mdl-shadow--3dp margin-top-0 padding-top-0">
 
-				{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
+
+
+
+
+
+
+
+
+
+
+
+	{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'id' => 'edit_profile_form', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
+
+
+
+
+
+
+
+
+
 					<div class="mdl-card card-wide" style="width:100%;" itemscope itemtype="http://schema.org/Person">
 
 						<div class="mdl-user-avatar">
@@ -196,8 +147,23 @@
 							</h3>
 						</div>
 						<div class="mdl-card__supporting-text">
-							<div class="mdl-grid full-grid padding-0">
-								<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
+
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#profile-panel" class="mdl-tabs__tab is-active">Profile</a>
+      <a href="#theme-panel" class="mdl-tabs__tab">Theme</a>
+     {{--  <a href="#location-panel" class="mdl-tabs__tab">Location</a> --}}
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="profile-panel">
+
+
+
+
+
+
+
 
 									<div class="mdl-grid ">
 
@@ -251,7 +217,7 @@
 										</div>
 
 									</div>
-								</div>
+
 
 								<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
 									<div class="mdl-grid ">
@@ -277,33 +243,61 @@
 													</div>
 												</div>
 											</div>
-		<div class="mdl-cell mdl-cell--12-col">
+											<div class="mdl-cell mdl-cell--12-col">
 
-														<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
-															{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
-															<div class="col-sm-6">
+																							<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
+																								{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
+																								<div class="col-sm-6">
 
-																<select class="form-control" name="theme_id" id="theme_id">
-																	@if ($themes->count())
-																		@foreach($themes as $theme)
-																		  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }}>{{ $theme->name }}</option>
-																		@endforeach
-																	@endif
-																</select>
+																									<select class="form-control" name="theme_id" id="theme_id">
+																										@if ($themes->count())
+																											@foreach($themes as $theme)
+																											  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }}>{{ $theme->name }}</option>
+																											@endforeach
+																										@endif
+																									</select>
 
-																<span class="glyphicon {{ $errors->has('theme') ? ' glyphicon-asterisk ' : ' ' }} form-control-feedback" aria-hidden="true"></span>
+																									<span class="glyphicon {{ $errors->has('theme') ? ' glyphicon-asterisk ' : ' ' }} form-control-feedback" aria-hidden="true"></span>
 
-														        @if ($errors->has('theme'))
-														            <span class="help-block">
-														                <strong>{{ $errors->first('theme') }}</strong>
-														            </span>
-														        @endif
+																							        @if ($errors->has('theme'))
+																							            <span class="help-block">
+																							                <strong>{{ $errors->first('theme') }}</strong>
+																							            </span>
+																							        @endif
 
-															</div>
-														</div>
+																								</div>
+																							</div>
 
 
-		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+											</div>
 
 
 
@@ -334,7 +328,193 @@
 									</div>
 								</div>
 
-							</div>
+
+
+
+
+
+
+
+
+  </div>
+  <div class="mdl-tabs__panel" id="theme-panel">
+
+
+
+
+
+
+
+
+
+
+
+				<div id="color_select_panel">
+
+
+
+
+
+
+
+
+
+
+
+				          <div class="mdl-gen mdl-cell mdl-cell--12-col">
+				            <div class="mdl-grid">
+				              <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+				                <div id="wheel">
+				                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				                    <defs>
+				                      <filter id="drop-shadow">
+				                        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2" />
+				                        <feOffset dx="0" dy="0" result="offsetblur" />
+				                        <feFlood flood-color="rgba(0,0,0,1)" />
+				                        <feComposite in2="offsetblur" operator="in" />
+				                        <feMerge>
+				                          <feMergeNode />
+				                          <feMergeNode in="SourceGraphic" />
+				                        </feMerge>
+				                      </filter>
+				                    </defs>
+				                    <g class="wheel--maing"></g>
+				                  </svg>
+				                  <div class="mdl-gen-download">
+				                    <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"><i class="material-icons">file_download</i></a>
+				                  </div>
+				                </div>
+				              </div>
+				              <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+				                <div class="mdl-gen__desc docs-text-styling">
+				                  <strong>Custom CSS theme builder</strong>
+				                  <p>
+				                  	Click on the color wheel to choose a primary (1) and accent (2) color to preview the theme below.
+				                  	When you’ve selected a color combination you like, simply click save.
+				                 </p>
+				                </div>
+				                <div class="mdl-gen__preview">
+				                  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+				                    <header class="mdl-layout__header">
+				                      <div class="mdl-layout__header-row">
+				                        <span class="mdl-layout-title">Theme Preview</span>
+				                      </div>
+				                    </header>
+				                    <div class="mdl-layout__drawer">
+				                      <span class="mdl-layout-title">Theme Preview</span>
+				                      <nav class="mdl-navigation">
+				                        <a class="mdl-navigation__link" href="#">Some</a>
+				                        <a class="mdl-navigation__link" href="#">Links</a>
+				                        <a class="mdl-navigation__link" href="#">Here</a>
+				                      </nav>
+				                    </div>
+				                    <main class="mdl-layout__content">
+				                      <h3>Try it out</h3>
+				                      <p>
+				                        Lorem ipsum dolor sit amet.
+				                      </p>
+
+
+
+
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+									  Button
+									</button>
+
+				                      <button class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">BUTTON</button>
+				                      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">
+				                        <i class="material-icons">email</i>
+				                      </button>
+
+
+
+
+
+										<button class="mdl-button mdl-js-button mdl-button--primary">
+										  Button
+										</button>
+
+										<button class="mdl-button mdl-js-button mdl-button--accent">
+										  Button
+										</button>
+
+
+
+
+
+										<!-- Colored mini FAB button -->
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+										  <i class="material-icons">add</i>
+										</button>
+
+
+
+										<!-- Colored FAB button with ripple -->
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+										  <i class="material-icons">add</i>
+										</button>
+
+
+
+
+
+
+
+
+				                    </main>
+				                  </div>
+				                </div>
+				              </div>
+
+
+
+
+
+				            </div>
+
+
+				              <div class="mdl-gen__cdn mdl-cell mdl-cell--12-col">
+				                <div class="code-with-text" id="cdn-code">
+				                  <pre class="demo-code language-markup codepen-button-disabled"><code class="language-markup mdl-gen__cdn-link" data-language="markup" id="color_selected">material.$primary-$accent.min.css</code></pre>
+				                </div>
+				              </div>
+
+
+				          </div>
+
+
+
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+{{--
+  <div class="mdl-tabs__panel" id="location-panel">
+
+
+
+
+
+
+  </div>
+ --}}
+</div>
+
 						</div>
 
 					    <div class="mdl-card__actions padding-top-0">
@@ -356,7 +536,38 @@
 					    </div>
 					</div>
 
+{{--
+
+<dialog id="dialog" class="mdl-dialog padding-0 ajax-dialog">
+	<i class="material-icons status mdl-color--white mdl-color-text--green">check</i>
+  	<h3 class="mdl-dialog__title mdl-color--green mdl-color-text--white text-center-only padding-half-1">
+  		{{ trans('dialogs.confirm_modal_title_save_msg') }}
+  	</h3>
+	<div class="mdl-dialog__actions block padding-1-half ">
+		<div class="mdl-grid ">
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				{!! Form::button(trans('dialogs.confirm_modal_button_cancel_text'), array('class' => 'mdl-button mdl-js-button mdl-js-ripple-effect mdl-color--grey-400 mdl-color-text--white dialog-close dialog-delete-close block full-span')) !!}
+			</div>
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				{!! Form::button('<span class="mdl-spinner-text">'.trans('dialogs.confirm_modal_button_save_text').'</span><div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner mdl-color-text--white mdl-color-white"></div>', array('class' => 'mdl-button mdl-js-button mdl-js-ripple-effect center mdl-color--green mdl-color-text--white mdl-button--raised full-span','type' => 'submit','id' => 'submit')) !!}
+			</div>
+		</div>
+  	</div>
+</dialog>
+
+ --}}
+
+
+{{--
 					@include('dialogs.dialog-save')
+
+ --}}
+
+
+@include('dialogs.dialog-save', ['isAjax' => true])
+
+
+
 
 				{!! Form::close() !!}
 
@@ -368,7 +579,7 @@
 	@endif
 
 
---}}
+
 
 
 
@@ -380,14 +591,168 @@
 
 <style type="text/css">
 
-html>body{font-family:'Roboto','Helvetica','Arial',sans-serif!important;background-color:#FAFAFA}.docs-layout .docs-layout-header.mdl-layout__header{height:560px;max-height:50%;-webkit-flex-shrink:0;-ms-flex-negative:0;background-size:auto;background-repeat:no-repeat;background-position:center center;box-shadow:none!important;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;padding:40px;flex-shrink:0;position:relative;display:-webkit-flex!important;display:-ms-flexbox!important;display:flex!important}body.about .docs-layout.is-small-screen .docs-layout-header.mdl-layout__header{height:280px;background-size:auto 58px,cover;background-repeat:no-repeat,no-repeat;background-position:center center,center center}.docs-layout-header .mdl-textfield{padding-top:0}.docs-layout-header>.mdl-layout__header-row{padding:0;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;height:auto}.docs-layout-header .docs-navigation .github,.docs-layout-header .docs-navigation .download{text-transform:none}.docs-layout-title{font-weight:500;text-transform:uppercase;line-height:1.5em;font-size:1rem}.docs-layout .docs-layout-title a{font-weight:inherit;color:#fff}.docs-layout-header .mdl-textfield .mdl-button{right:0}.docs-layout-header .mdl-textfield .mdl-textfield__expandable-holder{margin-right:32px}.docs-layout-header .mdl-textfield label:after{background-color:rgba(255,255,255,.12)}.about .docs-layout-header.mdl-layout__header{background-color:#37474f;background:url('logo.svg'),url('header.jpg');background-size:auto 118px,cover;background-repeat:no-repeat,no-repeat;background-position:center center,center center}@media (max-height:600px){.about .docs-layout-header.mdl-layout__header{background-size:auto 80px,cover}}body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header{background-repeat:no-repeat;background-position:center center}.templates .docs-layout-header.mdl-layout__header{background-color:#263238;background-size:auto 29px}.showcase .docs-layout-header.mdl-layout__header{background-color:#3E82F7;background-size:auto 29px}.started .docs-layout-header.mdl-layout__header,.faq .docs-layout-header.mdl-layout__header{background-color:#2E2E2E;background-size:auto 32px}.components .docs-layout-header.mdl-layout__header{background-color:#C2185B;background-size:auto 34px}.styles .docs-layout-header.mdl-layout__header{background-color:#8E24AA;background-size:auto 41px}.customize .docs-layout-header.mdl-layout__header{background-color:#1A237E;background-size:auto 36px}body:not(.about) .docs-layout .docs-layout-header.mdl-layout__header{box-sizing:border-box;height:144px;background-position:40px 32px}body:not(.about) .docs-layout-title{display:none}.docs-navigation__container{overflow:hidden;position:absolute;height:64px;width:100%;bottom:0;left:0}.docs-navigation{box-shadow:none!important;border:0!important;width:100%;height:85px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;padding:0 16px 0 24px;overflow-x:auto;overflow-y:hidden;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;margin-bottom:-16px}.docs-layout.is-small-screen .docs-navigation{padding:0}.docs-layout.is-small-screen .docs-navigation .mdl-navigation__link .material-icons{display:none}.docs-navigation::-webkit-scrollbar{display:none}body:not(.about) .docs-layout.is-small-screen .docs-layout-header{background-image:none}.docs-layout.mdl-layout.is-small-screen .docs-layout-header.mdl-layout__header{padding:0;height:64px}.docs-layout.is-small-screen .docs-layout-header .docs-layout-title,.docs-layout.is-small-screen .docs-layout-header .mdl-textfield{display:none}.docs-layout.is-small-screen .docs-navigation__container{top:0;bottom:auto;left:48px;width:calc(100% - 2 * 48px);padding:0!important}.docs-layout .scrollindicator{position:absolute;top:0;line-height:64px;height:64px;width:48px;display:none;margin-right:0;text-align:center;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.docs-layout .scrollindicator.disabled{opacity:.12;cursor:default}.docs-layout .scrollindicator.scrollindicator--right{right:0}.docs-layout .scrollindicator.scrollindicator--left{left:0}.docs-layout.is-small-screen .scrollindicator.scrollindicator.scrollindicator{display:block}.mdl-navigation__link--icon>span,.mdl-navigation__link--icon>.material-icons{line-height:64px;margin-right:8px;line-height:inherit}.docs-navigation .mdl-navigation__link{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-user-select:inherit;-moz-user-select:inherit;-ms-user-select:inherit;user-select:inherit;height:64px}.docs-navigation .mdl-navigation__link:hover,.docs-navigation .mdl-navigation__link.download:hover>span,.docs-navigation .mdl-navigation__link.download:hover>.material-icons{background-color:inherit;opacity:1!important}.docs-navigation .mdl-navigation__link:not(.download),.docs-navigation .mdl-navigation__link.download>span,.docs-navigation .mdl-navigation__link.download>.material-icons{opacity:.65}.docs-navigation .mdl-navigation__link,section.download{font-weight:500;font-size:13px;text-transform:uppercase;line-height:64px;padding:0 16px;color:#fff;box-sizing:border-box;border-bottom:3px solid transparent}.docs-layout.is-small-screen .docs-navigation .mdl-navigation__link,.docs-layouy.is-small-screen section.download{padding:0 12px}.about .docs-layout:not(.is-small-screen) .mdl-navigation__link.download>.material-icons,.about .docs-layout.is-small-screen .mdl-navigation__link.download>button,body:not(.about) .mdl-navigation__link.download>button{display:none}.docs-navigation .download button .material-icons{color:#000;opacity:.54}.about .docs-navigation .about,.templates .docs-navigation .templates,.showcase .docs-navigation .showcase,.started .docs-navigation .started,.styles .docs-navigation .styles,.components .docs-navigation .components,.faq .docs-navigation .faq,.customize .docs-navigation .customize{opacity:1;border-bottom-color:#18FFFF}.mdl-layout__content.docs-layout-content{overflow:visible}.docs-layout-content>.download{width:100%;height:6rem;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.docs-layout-content>.download>a{font-weight:500;text-transform:uppercase}.docs-footer.mdl-mini-footer{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch;height:120px}.docs-footer.mdl-mini-footer,.docs-footer.mdl-mini-footer ul{-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}.docs-footer.mdl-mini-footer ul{padding:0;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.docs-footer.mdl-mini-footer ul>li>a{margin:0 8px;font-weight:400;font-size:12px}.docs-footer .docs-link-list li{margin-left:.5em;margin-right:.5em}.about-panel{box-sizing:border-box;width:100%;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1}.about-panel--text{padding:100px}.about-panel--text p{width:640px;margin:0 auto;line-height:2em}.about-panel--text dl{width:100%;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch}.about-panel--text dl dt{text-align:right;vertical-align:top;display:inline-table;margin-right:24px;line-height:2em}.about-panel--text dl dd{text-align:left;line-height:2em;vertical-align:top;width:700px;margin:0 0 0 24px}.docs-layout.is-small-screen .about-panel{padding:40px}.docs-layout.is-small-screen .about-panel--text:not(:first-of-type){display:none}.docs-layout.is-small-screen .about-panel--text dl{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}.docs-layout.is-small-screen .about-panel--text dd,.docs-layout.is-small-screen .about-panel--text dt{margin:0;padding:0;text-align:left;width:100%}.about-panel--components,.about-panel--styles{height:500px}.about-panel--components,.about-panel--styles,.about-panel--customize,.about-panel--templates{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;padding:40px;color:#fff;text-transform:uppercase;font-size:1.4rem;width:auto;background-repeat:no-repeat;background-position:center center;cursor:pointer}.about-panel--templates{height:500px}.docs-layout-content .about-panel--start>p{color:#424242;text-transform:uppercase;font-size:1.6rem;margin-top:20px;margin-bottom:0}.about-panel--templates{background-color:#B3E0E1;background-size:287px auto}.about-panel--templates:hover{}.about-panel--components{background-color:#E90974;background-image:url();background-size:174px auto}.about-panel--components:hover{background-image:url()}.about-panel--styles{background-color:#8F4099;background-image:url(styles.svg);background-size:252px auto}.about-panel--styles:hover{background-image:url();background-size:331px auto;background-position-x:calc(50% + 40px)}.about-panel--customize{height:400px;background-color:#191E80;background-image:url(customize.svg);background-size:156px auto}.about-panel--customize:hover{background-image:url()}.image-preloader{position:fixed;visibility:hidden;width:0;height:0;top:-100px;left:-100px;background-image:url(),url(),url(),url()}.templates .content{padding-left:24px!important;max-width:960px}.templates .docs-layout-content .content{padding:40px 0}.templates .docs-layout .template{margin-left:-16px}.showcase .content{padding-left:24px!important;max-width:960px}.showcase .docs-layout-content .content{padding:40px 0}.showcase .docs-layout .template{margin-left:-16px}.template{width:100%;margin-bottom:72px;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}.template>.template__meta{-webkit-align-content:flex-start;-ms-flex-line-pack:start;align-content:flex-start;padding-left:24px}.templates .docs-layout.is-small-screen .template>.template__meta,.showcase .docs-layout.is-small-screen .template>.template__meta{padding-left:0}.template>.template__meta.template__meta>*{margin-bottom:24px}.template>.template__meta>*:last-child{margin-bottom:0}.template>.template__meta a{color:inherit;margin-left:-8px!important}.template>.template__preview{height:auto}.docs-layout-content dd{font-size:13px}.docs-layout-content p{font-size:13px;margin-bottom:32px;max-width:640px}.docs-layout-content p,.docs-text-styling ol li{font-family:'Roboto','Helvetica','Arial',sans-serif}.docs-text-styling h1{color:#c2185b;margin:.67em 0}.docs-text-styling h2{padding-top:48px;line-height:32px;margin-bottom:30px;color:#c2185b}.docs-text-styling h1,.docs-text-styling h2,.docs-text-styling h3,.docs-text-styling h4{font-size:16px;color:rgba(0,0,0,.54);font-weight:500;text-transform:uppercase}.docs-layout-content h2.mdl-card__title-text{padding-top:0;margin-bottom:0}.docs-text-styling a{text-decoration:none}.docs-layout-content .mdl-download{color:#000;font-weight:400}.docs-layout-title a{color:inherit;text-decoration:none}.component-description{max-width:720px;padding:40px}.component-description .mdl-button:first-of-type{margin-top:8px}.docs-footer.mdl-mini-footer .mdl-mini-footer--social-btn{background-color:transparent;margin:0 16px;width:24px;height:24px}.docs-footer.mdl-mini-footer .social-btn{display:block;background-position:center;background-size:contain;background-repeat:no-repeat;width:24px;height:24px;cursor:pointer}.social-btn__twitter{background-image:url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png')}.social-btn__github{background-image:url();width:22px;height:22px}.social-btn__gplus{background-image:url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png')}.subpageheader{margin-top:60px;margin-bottom:40px;display:-webkit-flex;display:-ms-flexbox;display:flex;color:rgba(0,0,0,.54);-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;text-transform:uppercase;font-size:16px;font-weight:500}.about .subpageheader,.components .subpageheader{display:none}.started .subpageheader,.customize .subpageheader,.styles .subpageheader,.faq .subpageheader,.templates .subpageheader,.showcase .subpageheader{width:960px;margin:40px auto}.snippet-group{margin-left:-16px;margin-right:-16px;margin-bottom:84px}.snippet-group .snippet-header{display:table;border-collapse:collapse;border-spacing:0;width:100%}.snippet-group .snippet-demos,.snippet-group .snippet-captions{display:table-row}.snippet-group .snippet-demo .snippet-demo-container{text-align:left;display:inline-block}.snippet-group .snippet-captions{background-color:#fff;height:48px}.snippet-group .snippet-demo{display:table-cell;text-align:center;vertical-align:middle;margin:0}.snippet-group .snippet-demo-padding{text-align:center;padding:0}.snippet-group .snippet-demo-padding,.snippet-group .snippet-caption,.snippet-group .snippet-caption-padding{display:table-cell;vertical-align:middle;margin:0}.snippet-group .snippet-caption-padding{text-align:center;padding:0}.snippet-group .snippet-caption{font-size:13px;padding:0 40px;white-space:nowrap;text-align:center;position:relative}.snippet-group .snippet-demo{padding:0 40px 40px}.snippet-group .snippet-demos .snippet-demo-padding{width:50%}_:-ms-input-placeholder,:root .snippet-group .snippet-demo{width:1px}_:-ms-input-placeholder,:root .snippet-group .snippet-demos .snippet-demo-padding{width:auto}.snippet-group .snippet-code{position:relative;overflow:hidden}.snippet-group .snippet-code pre{margin:0;border-radius:0;display:block;padding:0;overflow:hidden}.snippet-group .snippet-code code{padding:8px 16px;position:relative;max-height:none;width:100%;box-sizing:border-box}.snippet-group .snippet-code pre[class*=language-]>code[data-language]{max-height:none}.snippet-group .snippet-code code:first-of-type{padding-top:16px}.snippet-group .snippet-code code:last-of-type{padding-bottom:16px}.snippet-group .snippet-code code:hover{background-color:rgba(0,0,0,.05)}.snippet-group .snippet-code code:hover:only-of-type{background-color:transparent}.snippet-group .snippet-code code::before,.snippet-group .snippet-code code::after{display:none}.snippet-group .snippet-code code:hover::before{display:inline-block;content:'click to copy';color:rgba(0,0,0,.5);font-size:13px;background-color:rgba(0,0,0,.1);border-top-left-radius:5px;position:absolute;right:0;bottom:0;padding:3px 10px}.snippet-group .snippet-code code:active::before{content:''}.snippet-group .snippet-code code.copied::before{content:'copied';color:rgba(255,255,255,.5);background-color:rgba(0,0,0,.6)}.snippet-group .snippet-code code.nosupport::before{content:"browser not supported :'(";color:rgba(255,255,255,.5);background-color:rgba(0,0,0,.6)}.snippet-group .snippet-code .codepen-extra-css{display:none}@media (max-width:850px){.snippet-group .snippet-demo{padding-left:5px;padding-right:5px}}.snippet-group.is-full-width .snippet-demo-container{width:100%}.snippet-group.is-full-width .snippet-demos>.snippet-demo{width:100%;padding-left:0;padding-right:0}.snippet-group.is-full-width .snippet-demo-padding{width:0;padding:8px;margin:0}.codepen-button{z-index:50;cursor:pointer;background-image:url('codepen-logo.png');background-repeat:no-repeat;background-position:5px center;background-size:26px 26px;position:absolute;top:0;right:-125px;width:165px;height:46px;display:none;opacity:.6;overflow:hidden;box-sizing:border-box;white-space:nowrap;color:#000;padding:13px 15px 5px 50px;transition:right .5s,background-color .5s,opacity .5s,background-size .3s}.codepen-button::after{content:'Open in CodePen'}.codepen-button:hover{opacity:1;right:0;background-size:36px 36px;background-color:#f8f8f8;border-bottom-left-radius:10px}.docs-layout .docs-text-styling pre[class*=language-markup]{max-width:calc(100vw - 32px)}.docs-layout pre[class*=language-markup]{max-width:100vw;box-sizing:border-box;overflow:hidden}.docs-layout pre[class*=language-markup].codepen-button-enabled{padding-right:0}.docs-layout pre[class*=language-markup].codepen-button-enabled code{padding-right:50px}.codepen-button-enabled .codepen-button{display:inline-block}.token.attr-name,.token.builtin,.token.selector,.token.string{color:#E91E63}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#9D1DB3}.token.atrule,.token.attr-value,.token.keyword{color:#00BCD4}.docs-layout code{font-size:85%}.docs-layout code,.docs-layout pre{display:inline-block;background-color:rgba(0,0,0,.06);border-radius:3px;white-space:pre-wrap}.docs-layout pre{padding:16px;font-size:87%;box-sizing:border-box}.docs-layout code:before,.docs-layout code:after{letter-spacing:-.2em;content:"\00a0"}.docs-layout pre>code:before,.docs-layout pre>code:after{letter-spacing:0;content:""}.docs-layout pre>code{background-color:rgba(0,0,0,0);padding:0;font-size:100%;width:100%;box-sizing:border-box;word-break:break-word}.docs-layout pre[class*=language-]>code[data-language]{overflow:hidden}pre[class*=language-]>code[data-language]::before{content:"";background:0 0}.token.cr:before,.token.lf:before{display:none}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#9D1DB3;background:0 0}code[class*=language-],pre[class*=language-]{color:rgba(0,0,0,.87);text-shadow:none}.token.function{color:#009688}.code-with-text{position:relative;width:auto;display:block;border-spacing:0;border-collapse:collapse;background-color:#fff;padding:15px;border-radius:3px;font-size:13px}.code-with-text pre{margin:15px -15px -15px;border-top-left-radius:0;border-top-right-radius:0;display:block;width:auto}.docs-toc ul{border-left:solid 3px #C0EbF1;padding-left:20px;line-height:28px}.docs-toc a{font-weight:400;color:#00BCD4}.docs-toc li{font-size:16px;list-style:none}.started .mdl-tabs__tab-bar{-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;border-bottom:0}.started .download-button-container{text-align:center;margin-bottom:20px}.started .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active{color:#00ACC1}.started .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after{background-color:#00ACC1}.started .docs-layout-content{text-align:center}.started .chapter-toc{display:table}.started .code-with-text{width:640px;box-sizing:border-box}.started .docs-layout .content section{max-width:960px;margin:0 auto}.started a,.about a,.faq a,.customize a{color:#00BCD4}.customize .docs-layout .content{max-width:960px;display:block;margin:0 auto 120px;padding:40px}.started .content h3,.started .content h4{display:table-cell;font-size:15px;padding-right:60px;line-height:25px;text-transform:none}.started .content h3{width:140px}.started .content section{margin-bottom:30px}.started .section-content{display:table-cell}.started .content,.styles .content,.faq .content{padding:40px;display:inline-block;text-align:left;width:100%;box-sizing:border-box}.docs-layout ul{list-style-type:none}.docs-layout li{position:relative}.styles .content li:before,.docs-readme .content li:before{position:absolute;top:2px;left:-28px;content:'•';font-size:32px}.started .content p{margin-top:10px;margin-bottom:15px}.started .mdl-tabs{margin-bottom:22px}.started .content .mdl-tabs__panel{padding-top:10px}.started .caption{font-size:13px;max-width:640px;box-sizing:border-box;margin-top:15px;padding:15px;background-color:#fff;border-radius:3px}.started .caption h4{font-size:13px;font-weight:400;font-style:italic;margin-top:0}.started .use-components pre{margin-top:0}.started .component-example{margin:30px 0}.started ol{padding-left:18px;font-size:13px;max-width:640px;box-sizing:border-box}.started pre{width:640px;box-sizing:border-box;position:relative}.started .snippet-group{max-width:640px;margin:60px 0 40px}@media (max-width:850px){.started .chapter-toc{display:block}.started .content h3,.started .content h4{display:block;width:auto}.started .section-content,.started pre{display:block}.started pre{width:auto}.started pre,.started .caption{margin-left:-40px;margin-right:-40px;max-width:none;box-sizing:content-box;padding:15px 40px}.started .mdl-tabs__tab-bar{margin-left:-40px;margin-right:-40px;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}.started .mdl-tabs__tab{padding:0 3%}.started .content{display:block}.started .snippet-group{margin-left:-40px;margin-right:-40px;max-width:none}.started .snippet-group code{padding-left:40px;padding-right:40px}}.styles a{color:#00BCD4}.styles .styles__content h2{text-transform:none}.styles .typo-styles{margin-bottom:40px}.styles .typo-styles dt{display:block;float:left;color:#fff;background-color:rgba(0,0,0,.24);width:32px;height:32px;border-radius:16px;line-height:32px;text-align:center;font-weight:500;margin-top:5px}.styles .typo-styles dd{display:block;margin-left:60px;margin-bottom:20px}.styles .typo-styles .typo-styles__demo{margin-bottom:8px}.styles .typo-styles .typo-styles__desc{font-weight:300}.styles .typo-styles .typo-styles__desc .typo-styles__name{margin-right:8px;font-weight:400}.styles .download-btn{color:rgba(0,0,0,.54);line-height:20px;display:-webkit-flex;display:-ms-flexbox;display:flex;font-weight:300;margin-bottom:20px}.styles .download-btn.download-btn--customizer .material-icons{margin-top:-2px}.styles .download-btn>*{margin-right:8px}.styles .styles__ribbon{background-color:#4A148C;width:100vw;margin:80px 0 80px -40px;height:320px;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch}.styles .styles__ribbon,.styles .styles__ribbon>.ribbon__imagecontainer{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}.styles .styles__ribbon>.ribbon__imagecontainer{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.styles .styles__ribbon>.ribbon__imagecontainer>.ribbon__image{display:block;margin-bottom:48px;border:0}.styles .styles__ribbon>.ribbon__imagecontainer>.ribbon__caption{color:#fff;text-transform:uppercase;font-size:16px;font-weight:500;height:24px;line-height:24px;text-align:center}.styles .styles__ribbon>.ribbon__imagecontainer>.ribbon__caption.ribbon__caption--split{width:100%;text-align:left}.styles .styles__ribbon>.ribbon__imagecontainer>.ribbon__caption>.material-icons{height:24px;line-height:24px;vertical-align:middle;margin-top:-1px}.styles .styles__ribbon>.ribbon__imagecontainer>.ribbon__caption.ribbon__caption--split>.material-icons{float:right}.styles .content .docs-text-styling h3{text-transform:none;margin:0;font-size:14px;font-weight:700}.styles .content .docs-text-styling p{margin-top:0}.styles img.customizer{max-width:450px}.styles .code-with-text{margin-right:40px}.styles .docs-layout.is-small-screen .code-with-text pre[class*=language-markup]{width:100vw;max-width:none}.styles .content ul,.components .content ul{font-size:13px}.styles .content li:before{font-size:16px}.styles .content .mdl-cell.left-col{padding-right:40px}.styles .content .mdl-cell.right-col{margin-bottom:40px}.styles .code-with-text{margin-bottom:20px}.styles .content .styles__content{max-width:960px;margin:0 auto}.styles .styles__download{display:-webkit-flex;display:-ms-flexbox;display:flex}.styles .styles__download a{font-weight:500;margin-right:16px}.styles .styles__content a .customizer{border:0}@media (max-width:850px){.started .docs-layout .docs-text-styling pre[class*=language-markup]{max-width:none}.docs-layout .code-with-text{width:100%;margin-left:-40px;margin-right:-40px;padding:15px 40px;display:block;box-sizing:content-box}.docs-layout .code-with-text pre{width:auto;padding-left:40px;padding-right:40px;margin-left:-40px;margin-right:-40px}}@media (-webkit-min-device-pixel-ratio:2),(min--moz-device-pixel-ratio:2),(min-resolution:2dppx),(min-resolution:192dpi){.social-btn__twitter{background-image:url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png')}.social-btn__gplus{background-image:url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png')}.templates .docs-layout-header,.showcase .docs-layout-header{background-image:url('templates_2x.png')}.components .docs-layout-header{background-image:url('components_2x.png')}.styles .docs-layout-header{background-image:url('styles_2x.png')}.customize .docs-layout-header{background-image:url('customize_2x.png')}.about .docs-layout-header{background:url('logo.svg'),url('header_2x.jpg');background-size:auto 30%,cover;background-repeat:no-repeat,no-repeat;background-position:center center,center center}}.docs-navigation .spacer{-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1}.components .docs-layout.is-small-screen .docs-text-styling pre{margin:0 -16px;width:100vw;max-width:640px}.docs-text-styling p{margin-top:16px;margin-bottom:16px}.components .content blockquote{font-size:13px;max-width:640px;box-sizing:border-box;margin-top:15px;padding:15px;background-color:#fff;border-radius:3px;margin-left:0}.components .content blockquote:before,.components .content blockquote:after{display:none}.faq .docs-text-styling>section{max-width:960px;margin:0 auto}.faq img{max-width:100%}.faq .mdl-tabs__tab-bar{-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;border-bottom:0}.faq .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active{color:#00ACC1}.faq .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after{background-color:#00ACC1}.faq .docs-layout-content{text-align:center}.faq .chapter-toc{display:table}.faq .content h3{display:table-cell;width:140px;font-size:15px;font-weight:700;padding-right:60px;line-height:25px}.faq .content section{margin-bottom:30px}.faq .section-content{display:table-cell}.faq .content p{margin-top:10px;margin-bottom:15px}.faq .mdl-tabs{margin-bottom:22px}.faq .content h4{font-size:15px;font-weight:700;margin-bottom:5px;margin-top:20px}.faq .content .mdl-tabs__panel{padding-top:10px}.faq .docs-layout.is-small-screen .docs-toc>*{display:block}.faq .caption{font-size:13px;max-width:640px;box-sizing:border-box;margin-top:15px;padding:15px;background-color:#fff;border-radius:3px}.faq .caption h4{font-size:13px;font-weight:400;font-style:italic;margin-top:0}.faq ol{padding-left:18px;font-size:13px;max-width:640px}.faq ol,.faq pre{box-sizing:border-box}.faq pre{width:640px;word-wrap:break-word}.faq .snippet-group{max-width:640px;margin:60px 0 40px}
 
 
-#wheel{position:relative;height:100%;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.is-small-screen .mdl-gen #wheel{min-height:100vw}#wheel svg{width:100%;height:100%}@media (min-width:840px){#wheel svg{max-width:100%;width:100%}}#wheel .mdl-gen-download{position:absolute;left:50%;top:50%}#wheel .mdl-gen-download .mdl-button{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}#wheel g[data-color]{opacity:1;transition:opacity .2s cubic-bezier(.4,0,1,1)}#wheel .selector{opacity:0;transition:opacity .4s cubic-bezier(.4,0,1,1);fill:#BDBDBD}#wheel .selected .selector{opacity:1}#wheel .label{text-anchor:middle;opacity:0;transition:opacity .4s cubic-bezier(.4,0,1,1);fill:#fff;font-size:24px}#wheel .selected--1 .label--1,#wheel .selected--2 .label--2{opacity:1}#wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),#wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),#wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected){opacity:.12}#wheel .selected{opacity:1!important}.mdl-gen>.mdl-grid{max-width:1280px;padding:0}.mdl-gen__preview{position:relative;height:350px}.mdl-gen__preview .mdl-layout__container{height:auto}.mdl-gen__preview .mdl-layout__content{padding:32px;background-color:#EFEFEF;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}.mdl-gen__preview .mdl-layout__content .mdl-button{margin:0}.mdl-gen__preview .mdl-layout__content .mdl-button--fab{-webkit-align-self:flex-end;-ms-flex-item-align:end;align-self:flex-end}.mdl-gen__preview .mdl-layout__content h3{margin-top:0}.mdl-gen__panel--right{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;padding-bottom:0}.mdl-gen__desc strong,.mdl-gen__desc p{display:block;margin-bottom:32px;color:rgba(0,0,0,.54)}.mdl-gen__cdn .demo-code{box-sizing:border-box}.content{margin-left:auto;margin-right:auto;max-width:1280px;margin-bottom:80px}
+	#wheel {
+	    position: relative;
+	    height: 100%;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	    -webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    -webkit-align-items: center;
+	    -ms-flex-align: center;
+	    align-items: center
+	}
 
+	.is-small-screen .mdl-gen #wheel {
+	    min-height: 100vw
+	}
 
+	#wheel svg {
+	    width: 100%;
+	    height: 100%
+	}
 
-code[class*="language-"],pre[class*="language-"]{color:#000;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]::-moz-selection,pre[class*="language-"] ::-moz-selection,code[class*="language-"]::-moz-selection,code[class*="language-"] ::-moz-selection{text-shadow:none;background:#b3d4fc}pre[class*="language-"]::selection,pre[class*="language-"] ::selection,code[class*="language-"]::selection,code[class*="language-"] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number,.token.constant,.token.symbol,.token.deleted{color:#905}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#DD4A68}.token.regex,.token.important,.token.variable{color:#e90}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+	@media (min-width:840px) {
+	    #wheel svg {
+	        max-width: 100%;
+	        width: 100%
+	    }
+	}
+
+	#wheel .mdl-gen-download {
+	    position: absolute;
+	    left: 50%;
+	    top: 50%
+	}
+
+	#wheel .mdl-gen-download .mdl-button {
+	    -webkit-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%)
+	}
+
+	#wheel g[data-color] {
+	    opacity: 1;
+	    transition: opacity .2s cubic-bezier(.4, 0, 1, 1)
+	}
+
+	#wheel .selector {
+	    opacity: 0;
+	    transition: opacity .4s cubic-bezier(.4, 0, 1, 1);
+	    fill: #BDBDBD
+	}
+
+	#wheel .selected .selector {
+	    opacity: 1
+	}
+
+	#wheel .label {
+	    text-anchor: middle;
+	    opacity: 0;
+	    transition: opacity .4s cubic-bezier(.4, 0, 1, 1);
+	    fill: #fff;
+	    font-size: 24px
+	}
+
+	#wheel .selected--1 .label--1,
+	#wheel .selected--2 .label--2 {
+	    opacity: 1
+	}
+
+	#wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
+	#wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
+	#wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
+	    opacity: .12
+	}
+
+	#wheel .selected {
+	    opacity: 1!important
+	}
+
+	.mdl-gen>.mdl-grid {
+	    max-width: 1280px;
+	    padding: 0
+	}
+
+	.mdl-gen__preview {
+	    position: relative;
+	    height: 350px
+	}
+
+	.mdl-gen__preview .mdl-layout__container {
+	    height: auto
+	}
+
+	.mdl-gen__preview .mdl-layout__content {
+	    padding: 32px;
+	    background-color: #EFEFEF;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	    justify-content: flex-start;
+	    -webkit-align-items: flex-start;
+	    -ms-flex-align: start;
+	    align-items: flex-start
+	}
+
+	.mdl-gen__preview .mdl-layout__content .mdl-button {
+	    margin: 0
+	}
+
+	.mdl-gen__preview .mdl-layout__content .mdl-button--fab {
+	    -webkit-align-self: flex-end;
+	    -ms-flex-item-align: end;
+	    align-self: flex-end
+	}
+
+	.mdl-gen__preview .mdl-layout__content h3 {
+	    margin-top: 0
+	}
+
+	.mdl-gen__panel--right {
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	    flex-direction: column;
+	    -webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	    align-items: stretch;
+	    -webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+	    padding-bottom: 0
+	}
+
+	.mdl-gen__desc strong,
+	.mdl-gen__desc p {
+	    display: block;
+	    margin-bottom: 32px;
+	    color: rgba(0, 0, 0, .54)
+	}
+
+	.mdl-gen__cdn .demo-code {
+	    box-sizing: border-box
+	}
+
+	.content {
+	    margin-left: auto;
+	    margin-right: auto;
+	    max-width: 1280px;
+	    margin-bottom: 80px
+	}
 
 
 </style>
@@ -956,6 +1321,129 @@ code[class*="language-"],pre[class*="language-"]{color:#000;text-shadow:0 1px #f
 	--}}
 
 
+
+
+
+ <meta name="_token" content="{!! csrf_token() !!}" />
+
+<script type="text/javascript">
+
+$(".mdl-dialog.ajax-dialog button[type='submit']").click(function(event) {
+	var formData = $('#edit_profile_form').serializeArray();
+	var fadeSpeed = 150;
+    $.ajax({
+		url: '/profile/{{$user->name}}/updateAjax',
+		type: "post",
+		dataType: 'json',
+		data: {'username':'{{ $user->name }}', formData},
+		success: function(request, status, data){
+			dialog.close();
+
+			$('#ajax_message_title').text(request.title);
+			$('#ajax_message_message').text(request.message);
+			$('#ajax_message_icon').text('check');
+			$('.message.ajax-message').addClass('success')
+			$('.message.ajax-message').fadeIn(fadeSpeed, function() {
+				$(this).css({
+					opacity: 1,
+					left: 0
+				});
+			});;
+
+
+
+			$('#user_theme_link').attr('href', '/css/mdl-themes/'+ request.themeLink);
+
+		},
+		error: function (request, status, error) {
+			console.log(error);
+			console.log(request);
+			console.log(status);
+			dialog.close();
+			$('#ajax_error_message').text(request.responseText);
+			$('.ajax-error.message').fadeIn(fadeSpeed, function() {
+				$(this).css({
+					opacity: 1,
+					left: 0
+				});
+			});;
+
+
+		}
+
+    });
+});
+
+
+
+$.ajaxSetup({
+   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+});
+
+
+// var id = 12; // A random variable for this example
+
+// $.ajax({
+//     method: 'POST', // Type of response and matches what we said in the route
+//     url: '/customer/ajaxupdate', // This is the url we gave in the route
+//     data: {'id' : id}, // a JSON object to send back
+//     success: function(response){ // What to do if we succeed
+//         console.log(response);
+//     },
+//     error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+//         console.log(JSON.stringify(jqXHR));
+//         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+//     }
+// });
+
+
+
+//   $('.send-btn').click(function(){
+//     $.ajax({
+//       url: 'login',
+//       type: "post",
+//       data: {'email':$('input[name=email]').val(), '_token': $('input[name=_token]').val()},
+//       success: function(data){
+//         alert(data);
+//       }
+//     });
+//   });
+// });
+
+
+	// var fileInputTextDiv = document.getElementById('file_upload_text_div');
+	// var fileInput = document.getElementById('file_upload_btn');
+	// var fileInputText = document.getElementById('file_upload_text');
+	// fileInput.addEventListener('change', changeInputText);
+	// fileInput.addEventListener('change', changeState);
+
+	// function changeInputText() {
+	//   var str = fileInput.value;
+	//   var i;
+	//   if (str.lastIndexOf('\\')) {
+	//     i = str.lastIndexOf('\\') + 1;
+	//   } else if (str.lastIndexOf('/')) {
+	//     i = str.lastIndexOf('/') + 1;
+	//   }
+	//   fileInputText.value = str.slice(i, str.length);
+	// }
+
+	// function changeState() {
+	//   if (fileInputText.value.length != 0) {
+	//     if (!fileInputTextDiv.classList.contains("is-focused")) {
+	//       fileInputTextDiv.classList.add('is-focused');
+	//     }
+	//   } else {
+	//     if (fileInputTextDiv.classList.contains("is-focused")) {
+	//       fileInputTextDiv.classList.remove('is-focused');
+	//     }
+	//   }
+	// }
+
+</script>
+
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
 
 <script type="text/javascript">
@@ -1212,10 +1700,12 @@ MaterialCustomizer = function() {
 	// style_plug
 
 	$('#wheel').click(function(){
-		// var theText = $('.token.attr-value').text();
-		// alert(theText);
+		var theText = $('#color_selected').text();
+		//alert(theText);
 
-		$('html').addClass('demo_colors');
+
+$('#theme_css_link').attr('href', theText);
+
 
 	});
 

@@ -46,7 +46,7 @@ class ProfilesController extends Controller
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
-            'theme_id'          => '',
+            'theme_id'          => 'required',
             'location'          => '',
             'bio'               => 'max:500',
             'twitter_username'  => 'max:50',
@@ -141,41 +141,90 @@ class ProfilesController extends Controller
      */
     public function update($username, Request $request)
     {
+
+
+$data = $request->formData;
+$info = [];
+
+foreach ($data as $key => $value) {
+    $info[] = [
+        $value['name'] => $value['value']
+    ];
+}
+
+
+$convertedData = call_user_func_array('array_merge', $info);
+
+
+// Log::alert($data);
+
+// Log::debug($request->formData);
+// Log::notice($convertedData);
+
+
+
+
+
+
+////Log::info('Jeremy was there', []);
+
         $user = $this->getUserByUsername($username);
-
-        $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
-
         $ipAddress = new CaptureIpTrait;
 
-        $profile_validator = $this->profile_validator($request->all());
+        if($request->ajax()) {
+            $profile_validator = $this->profile_validator($convertedData);
+        } else {
+            $profile_validator = $this->profile_validator($request->all());
+            $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+        }
 
         if ($profile_validator->fails()) {
-
             $this->throwValidationException(
                 $request, $profile_validator
             );
-
             return redirect('profile/'.$user->name.'/edit')->withErrors($validator)->withInput();
         }
 
         if ($user->profile == null) {
-
             $profile = new Profile;
             $profile->fill($input);
             $user->profile()->save($profile);
-
         } else {
+            if($request->ajax()) {
+                $user->profile->fill($convertedData)->save();
+            } else {
+                $user->profile->fill($input)->save();
+            }
+        }
+        $user->updated_ip_address = $ipAddress->getClientIp();
+        $user->save();
+        if($request->ajax()) {
 
-            $user->profile->fill($input)->save();
+
+
+
+
+//Log::alert($convertedData->theme_id);
+
+$theme = Theme::find($user->profile->theme_id);
+
+Log::alert($theme->link);
+
+$returnData = [
+    'title' => trans('auth.success'),
+    'message' => trans('profile.updateSuccess'),
+    'themeLink' => $theme->link
+];
+
+
+
+
+            return response()->json($returnData, 200);
+
+
 
         }
-
-        $user->updated_ip_address = $ipAddress->getClientIp();
-
-        $user->save();
-
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
-
     }
 
     /**

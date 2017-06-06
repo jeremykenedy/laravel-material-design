@@ -45,3 +45,11 @@
 #wheel svg {
 	cursor: pointer;
 }
+
+
+
+
+
+body .mdl-textfield--expandable .mdl-button--icon {
+    top: 0;
+}

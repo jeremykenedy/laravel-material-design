@@ -3,6 +3,7 @@ function mdl_dialog(trigger,close,dialog) {
   var trigger = trigger || '.dialog-button';
   var close = close || '.dialog-close';
   var dialog = dialog || '#dialog';
+  var ajaxSelectors = document.querySelectorAll(".mdl-dialog.ajax-dialog button[type='submit']")[0];
   if (! document.querySelector(dialog).showModal) {
       dialogPolyfill.registerDialog(document.querySelector(dialog));
   }
@@ -19,4 +20,9 @@ function mdl_dialog(trigger,close,dialog) {
     document.querySelector(dialog).close();
     document.querySelector(dialog).open=false;
   });
+  if (typeof(ajaxSelectors) != "undefined") {
+    ajaxSelectors.addEventListener("click", function(event){
+        event.preventDefault();
+    });
+  }
 }
