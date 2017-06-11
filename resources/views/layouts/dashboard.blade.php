@@ -57,7 +57,7 @@
     </head>
     <body class="mdl-color--grey-100">
 
-        <div id="app" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <div id="app" class="demo-layout dashboard-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
             @include('partials.form-status')
 

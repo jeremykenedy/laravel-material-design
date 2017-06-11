@@ -79,1091 +79,1091 @@ class ThemesTableSeeder extends Seeder
 				'link' => 'material.amber-yellow.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ amber',
+				'name' => 'Blue Grey / Amber',
 				'link' => 'material.blue_grey-amber.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ blue',
+				'name' => 'Blue Grey / Blue',
 				'link' => 'material.blue_grey-blue.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ cyan',
+				'name' => 'Blue Grey / Cyan',
 				'link' => 'material.blue_grey-cyan.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ deep_orange',
+				'name' => 'Blue Grey / Deep Orange',
 				'link' => 'material.blue_grey-deep_orange.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ deep_purple',
+				'name' => 'Blue Grey / Deep Purple',
 				'link' => 'material.blue_grey-deep_purple.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ green',
+				'name' => 'Blue Grey / Green',
 				'link' => 'material.blue_grey-green.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ indigo',
+				'name' => 'Blue Grey / Indigo',
 				'link' => 'material.blue_grey-indigo.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ light_blue',
+				'name' => 'Blue Grey / Light Blue',
 				'link' => 'material.blue_grey-light_blue.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ light_green',
+				'name' => 'Blue Grey / Light Green',
 				'link' => 'material.blue_grey-light_green.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ lime',
+				'name' => 'Blue Grey / Lime',
 				'link' => 'material.blue_grey-lime.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ orange',
+				'name' => 'Blue Grey / Orange',
 				'link' => 'material.blue_grey-orange.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ pink',
+				'name' => 'Blue Grey / Pink',
 				'link' => 'material.blue_grey-pink.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ purple',
+				'name' => 'Blue Grey / Purple',
 				'link' => 'material.blue_grey-purple.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ red',
+				'name' => 'Blue Grey / Red',
 				'link' => 'material.blue_grey-red.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ teal',
+				'name' => 'Blue Grey / Teal',
 				'link' => 'material.blue_grey-teal.min.css',
 			],
 			[
-				'name' => 'Blue Grey/ yellow',
+				'name' => 'Blue Grey / Yellow',
 				'link' => 'material.blue_grey-yellow.min.css',
 			],
 			[
-				'name' => 'Blue / amber',
+				'name' => 'Blue / Amber',
 				'link' => 'material.blue-amber.min.css',
 			],
 			[
-				'name' => 'Blue / cyan',
+				'name' => 'Blue / Cyan',
 				'link' => 'material.blue-cyan.min.css',
 			],
 			[
-				'name' => 'Blue / deep_orange',
+				'name' => 'Blue / Deep Orange',
 				'link' => 'material.blue-deep_orange.min.css',
 			],
 			[
-				'name' => 'Blue / deep_purple',
+				'name' => 'Blue / Deep Purple',
 				'link' => 'material.blue-deep_purple.min.css',
 			],
 			[
-				'name' => 'Blue / green',
+				'name' => 'Blue / Green',
 				'link' => 'material.blue-green.min.css',
 			],
 			[
-				'name' => 'Blue / indigo',
+				'name' => 'Blue / Indigo',
 				'link' => 'material.blue-indigo.min.css',
 			],
 			[
-				'name' => 'Blue / light_blue',
+				'name' => 'Blue / Light Blue',
 				'link' => 'material.blue-light_blue.min.css',
 			],
 			[
-				'name' => 'Blue / light_green',
+				'name' => 'Blue / Light Green',
 				'link' => 'material.blue-light_green.min.css',
 			],
 			[
-				'name' => 'Blue / lime',
+				'name' => 'Blue / Lime',
 				'link' => 'material.blue-lime.min.css',
 			],
 			[
-				'name' => 'Blue / orange',
+				'name' => 'Blue / Orange',
 				'link' => 'material.blue-orange.min.css',
 			],
 			[
-				'name' => 'Blue / pink',
+				'name' => 'Blue / Pink',
 				'link' => 'material.blue-pink.min.css',
 			],
 			[
-				'name' => 'Blue / purple',
+				'name' => 'Blue / Purple',
 				'link' => 'material.blue-purple.min.css',
 			],
 			[
-				'name' => 'Blue / red',
+				'name' => 'Blue / Red',
 				'link' => 'material.blue-red.min.css',
 			],
 			[
-				'name' => 'Blue / teal',
+				'name' => 'Blue / Teal',
 				'link' => 'material.blue-teal.min.css',
 			],
 			[
-				'name' => 'Blue / yellow',
+				'name' => 'Blue / Yellow',
 				'link' => 'material.blue-yellow.min.css',
 			],
 			[
-				'name' => 'Brown / amber',
+				'name' => 'Brown / Amber',
 				'link' => 'material.brown-amber.min.css',
 			],
 			[
-				'name' => 'Brown / blue',
+				'name' => 'Brown / Blue',
 				'link' => 'material.brown-blue.min.css',
 			],
 			[
-				'name' => 'Brown / cyan',
+				'name' => 'Brown / Cyan',
 				'link' => 'material.brown-cyan.min.css',
 			],
 			[
-				'name' => 'Brown / deep_orange',
+				'name' => 'Brown / Deep Orange',
 				'link' => 'material.brown-deep_orange.min.css',
 			],
 			[
-				'name' => 'Brown / deep_purple',
+				'name' => 'Brown / Deep Purple',
 				'link' => 'material.brown-deep_purple.min.css',
 			],
 			[
-				'name' => 'Brown / green',
+				'name' => 'Brown / Green',
 				'link' => 'material.brown-green.min.css',
 			],
 			[
-				'name' => 'Brown / indigo',
+				'name' => 'Brown / Indigo',
 				'link' => 'material.brown-indigo.min.css',
 			],
 			[
-				'name' => 'Brown / light_blue',
+				'name' => 'Brown / Light Blue',
 				'link' => 'material.brown-light_blue.min.css',
 			],
 			[
-				'name' => 'Brown / light_green',
+				'name' => 'Brown / Light Green',
 				'link' => 'material.brown-light_green.min.css',
 			],
 			[
-				'name' => 'Brown / lime',
+				'name' => 'Brown / Lime',
 				'link' => 'material.brown-lime.min.css',
 			],
 			[
-				'name' => 'Brown / orange',
+				'name' => 'Brown / Orange',
 				'link' => 'material.brown-orange.min.css',
 			],
 			[
-				'name' => 'Brown / pink',
+				'name' => 'Brown / Pink',
 				'link' => 'material.brown-pink.min.css',
 			],
 			[
-				'name' => 'Brown / purple',
+				'name' => 'Brown / Purple',
 				'link' => 'material.brown-purple.min.css',
 			],
 			[
-				'name' => 'Brown / red',
+				'name' => 'Brown / Red',
 				'link' => 'material.brown-red.min.css',
 			],
 			[
-				'name' => 'Brown / teal',
+				'name' => 'Brown / Teal',
 				'link' => 'material.brown-teal.min.css',
 			],
 			[
-				'name' => 'Brown / yellow',
+				'name' => 'Brown / Yellow',
 				'link' => 'material.brown-yellow.min.css',
 			],
 			[
-				'name' => 'Cyan / amber',
+				'name' => 'Cyan / Amber',
 				'link' => 'material.cyan-amber.min.css',
 			],
 			[
-				'name' => 'Cyan / blue',
+				'name' => 'Cyan / Blue',
 				'link' => 'material.cyan-blue.min.css',
 			],
 			[
-				'name' => 'Cyan / deep_orange',
+				'name' => 'Cyan / Deep Orange',
 				'link' => 'material.cyan-deep_orange.min.css',
 			],
 			[
-				'name' => 'Cyan / deep_purple',
+				'name' => 'Cyan / Deep Purple',
 				'link' => 'material.cyan-deep_purple.min.css',
 			],
 			[
-				'name' => 'Cyan / green',
+				'name' => 'Cyan / Green',
 				'link' => 'material.cyan-green.min.css',
 			],
 			[
-				'name' => 'Cyan / indigo',
+				'name' => 'Cyan / Indigo',
 				'link' => 'material.cyan-indigo.min.css',
 			],
 			[
-				'name' => 'Cyan / light_blue',
+				'name' => 'Cyan / Light Blue',
 				'link' => 'material.cyan-light_blue.min.css',
 			],
 			[
-				'name' => 'Cyan / light_green',
+				'name' => 'Cyan / Light Green',
 				'link' => 'material.cyan-light_green.min.css',
 			],
 			[
-				'name' => 'Cyan / lime',
+				'name' => 'Cyan / Lime',
 				'link' => 'material.cyan-lime.min.css',
 			],
 			[
-				'name' => 'Cyan / orange',
+				'name' => 'Cyan / Orange',
 				'link' => 'material.cyan-orange.min.css',
 			],
 			[
-				'name' => 'Cyan / pink',
+				'name' => 'Cyan / Pink',
 				'link' => 'material.cyan-pink.min.css',
 			],
 			[
-				'name' => 'Cyan / purple',
+				'name' => 'Cyan / Purple',
 				'link' => 'material.cyan-purple.min.css',
 			],
 			[
-				'name' => 'Cyan / red',
+				'name' => 'Cyan / Red',
 				'link' => 'material.cyan-red.min.css',
 			],
 			[
-				'name' => 'Cyan / teal',
+				'name' => 'Cyan / Teal',
 				'link' => 'material.cyan-teal.min.css',
 			],
 			[
-				'name' => 'Cyan / yellow',
+				'name' => 'Cyan / Yellow',
 				'link' => 'material.cyan-yellow.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Amber',
 				'link' => 'material.deep_orange-amber.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Blue',
 				'link' => 'material.deep_orange-blue.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Cyan',
 				'link' => 'material.deep_orange-cyan.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Deep Purple',
 				'link' => 'material.deep_orange-deep_purple.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Green',
 				'link' => 'material.deep_orange-green.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Indigo',
 				'link' => 'material.deep_orange-indigo.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Light Blue',
 				'link' => 'material.deep_orange-light_blue.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Light Green',
 				'link' => 'material.deep_orange-light_green.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Lime',
 				'link' => 'material.deep_orange-lime.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Orange',
 				'link' => 'material.deep_orange-orange.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Pink',
 				'link' => 'material.deep_orange-pink.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Purple',
 				'link' => 'material.deep_orange-purple.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Red',
 				'link' => 'material.deep_orange-red.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Teal',
 				'link' => 'material.deep_orange-teal.min.css',
 			],
 			[
-				'name' => 'Deep Orange / SECOND',
+				'name' => 'Deep Orange / Yellow',
 				'link' => 'material.deep_orange-yellow.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Amber',
 				'link' => 'material.deep_purple-amber.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Blue',
 				'link' => 'material.deep_purple-blue.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Cyan',
 				'link' => 'material.deep_purple-cyan.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Deep Orange',
 				'link' => 'material.deep_purple-deep_orange.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Green',
 				'link' => 'material.deep_purple-green.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Teal',
 				'link' => 'material.yellow-teal.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Red',
 				'link' => 'material.yellow-red.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Orange',
 				'link' => 'material.yellow-orange.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Pink',
 				'link' => 'material.yellow-pink.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Purple',
 				'link' => 'material.yellow-purple.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Lime',
 				'link' => 'material.yellow-lime.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Light Green',
 				'link' => 'material.yellow-light_green.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Indigo',
 				'link' => 'material.yellow-indigo.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Light Blue',
 				'link' => 'material.yellow-light_blue.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Green',
 				'link' => 'material.yellow-green.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Deep Purple',
 				'link' => 'material.yellow-deep_purple.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Deep Orange',
 				'link' => 'material.yellow-deep_orange.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Cyan',
 				'link' => 'material.yellow-cyan.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Blue',
 				'link' => 'material.yellow-blue.min.css',
 			],
 			[
-				'name' => 'Yellow / SECOND',
+				'name' => 'Yellow / Amber',
 				'link' => 'material.yellow-amber.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Yellow',
 				'link' => 'material.teal-yellow.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Red',
 				'link' => 'material.teal-red.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Purple',
 				'link' => 'material.teal-purple.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Pink',
 				'link' => 'material.teal-pink.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Orange',
 				'link' => 'material.teal-orange.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Lime',
 				'link' => 'material.teal-lime.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Light Green',
 				'link' => 'material.teal-light_green.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Light Blue',
 				'link' => 'material.teal-light_blue.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Indigo',
 				'link' => 'material.teal-indigo.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Green',
 				'link' => 'material.teal-green.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Deep Purple',
 				'link' => 'material.teal-deep_purple.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Deep Orange',
 				'link' => 'material.teal-deep_orange.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Cyan',
 				'link' => 'material.teal-cyan.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Blue',
 				'link' => 'material.teal-blue.min.css',
 			],
 			[
-				'name' => 'Teal / SECOND',
+				'name' => 'Teal / Amber',
 				'link' => 'material.teal-amber.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Yellow',
 				'link' => 'material.red-yellow.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Teal',
 				'link' => 'material.red-teal.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Purple',
 				'link' => 'material.red-purple.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Pink',
 				'link' => 'material.red-pink.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Orange',
 				'link' => 'material.red-orange.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Lime',
 				'link' => 'material.red-lime.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Light Green',
 				'link' => 'material.red-light_green.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Light Blue',
 				'link' => 'material.red-light_blue.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Indigo',
 				'link' => 'material.red-indigo.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Green',
 				'link' => 'material.red-green.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Deep Purple',
 				'link' => 'material.red-deep_purple.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Deep Orange',
 				'link' => 'material.red-deep_orange.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Cyan',
 				'link' => 'material.red-cyan.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Blue',
 				'link' => 'material.red-blue.min.css',
 			],
 			[
-				'name' => 'Red / SECOND',
+				'name' => 'Red / Amber',
 				'link' => 'material.red-amber.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Yellow',
 				'link' => 'material.purple-yellow.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Teal',
 				'link' => 'material.purple-teal.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Pink',
 				'link' => 'material.purple-pink.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Orange',
 				'link' => 'material.purple-orange.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Lime',
 				'link' => 'material.purple-lime.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Light Green',
 				'link' => 'material.purple-light_green.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Light Blue',
 				'link' => 'material.purple-light_blue.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Indigo',
 				'link' => 'material.purple-indigo.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Green',
 				'link' => 'material.purple-green.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Deep Purple',
 				'link' => 'material.purple-deep_purple.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Deep Orange',
 				'link' => 'material.purple-deep_orange.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Cyan',
 				'link' => 'material.purple-cyan.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Blue',
 				'link' => 'material.purple-blue.min.css',
 			],
 			[
-				'name' => 'Purple / SECOND',
+				'name' => 'Purple / Amber',
 				'link' => 'material.purple-amber.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Yellow',
 				'link' => 'material.pink-yellow.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Teal',
 				'link' => 'material.pink-teal.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Red',
 				'link' => 'material.pink-red.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Purple',
 				'link' => 'material.pink-purple.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Orange',
 				'link' => 'material.pink-orange.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Lime',
 				'link' => 'material.pink-lime.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Light Green',
 				'link' => 'material.pink-light_green.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Light Blue',
 				'link' => 'material.pink-light_blue.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Indigo',
 				'link' => 'material.pink-indigo.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Green',
 				'link' => 'material.pink-green.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Deep Purple',
 				'link' => 'material.pink-deep_purple.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Deep Orange',
 				'link' => 'material.pink-deep_orange.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Cyan',
 				'link' => 'material.pink-cyan.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Blue',
 				'link' => 'material.pink-blue.min.css',
 			],
 			[
-				'name' => 'Pink / SECOND',
+				'name' => 'Pink / Amber',
 				'link' => 'material.pink-amber.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Yellow',
 				'link' => 'material.orange-yellow.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Teal',
 				'link' => 'material.orange-teal.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Red',
 				'link' => 'material.orange-red.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Purple',
 				'link' => 'material.orange-purple.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Pink',
 				'link' => 'material.orange-pink.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Lime',
 				'link' => 'material.orange-lime.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Light Green',
 				'link' => 'material.orange-light_green.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Light Blue',
 				'link' => 'material.orange-light_blue.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Indigo',
 				'link' => 'material.orange-indigo.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Green',
 				'link' => 'material.orange-green.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Deep Purple',
 				'link' => 'material.orange-deep_purple.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Deep Orange',
 				'link' => 'material.orange-deep_orange.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Cyan',
 				'link' => 'material.orange-cyan.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Amber',
 				'link' => 'material.orange-amber.min.css',
 			],
 			[
-				'name' => 'Orange / SECOND',
+				'name' => 'Orange / Blue',
 				'link' => 'material.orange-blue.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Yellow',
 				'link' => 'material.lime-yellow.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Teal',
 				'link' => 'material.lime-teal.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Red',
 				'link' => 'material.lime-red.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Purple',
 				'link' => 'material.lime-purple.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Pink',
 				'link' => 'material.lime-pink.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Orange',
 				'link' => 'material.lime-orange.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Light Green',
 				'link' => 'material.lime-light_green.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Light Blue',
 				'link' => 'material.lime-light_blue.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Indigo',
 				'link' => 'material.lime-indigo.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Green',
 				'link' => 'material.lime-green.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Deep Orange',
 				'link' => 'material.lime-deep_orange.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Deep Purple',
 				'link' => 'material.lime-deep_purple.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Cyan',
 				'link' => 'material.lime-cyan.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Blue',
 				'link' => 'material.lime-blue.min.css',
 			],
 			[
-				'name' => 'Lime / SECOND',
+				'name' => 'Lime / Amber',
 				'link' => 'material.lime-amber.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Yellow',
 				'link' => 'material.light_green-yellow.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Teal',
 				'link' => 'material.light_green-teal.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Red',
 				'link' => 'material.light_green-red.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Purple',
 				'link' => 'material.light_green-purple.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Pink',
 				'link' => 'material.light_green-pink.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Orange',
 				'link' => 'material.light_green-orange.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Lime',
 				'link' => 'material.light_green-lime.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Light Blue',
 				'link' => 'material.light_green-light_blue.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Indigo',
 				'link' => 'material.light_green-indigo.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Green',
 				'link' => 'material.light_green-green.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Deep Purple',
 				'link' => 'material.light_green-deep_purple.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Deep Orange',
 				'link' => 'material.light_green-deep_orange.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Cyan',
 				'link' => 'material.light_green-cyan.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Blue',
 				'link' => 'material.light_green-blue.min.css',
 			],
 			[
-				'name' => 'Light Green / SECOND',
+				'name' => 'Light Green / Amber',
 				'link' => 'material.light_green-amber.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Yellow',
 				'link' => 'material.light_blue-yellow.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Teal',
 				'link' => 'material.light_blue-teal.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Red',
 				'link' => 'material.light_blue-red.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Purple',
 				'link' => 'material.light_blue-purple.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Pink',
 				'link' => 'material.light_blue-pink.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Orange',
 				'link' => 'material.light_blue-orange.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Lime',
 				'link' => 'material.light_blue-lime.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Light Green',
 				'link' => 'material.light_blue-light_green.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Indigo',
 				'link' => 'material.light_blue-indigo.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Green',
 				'link' => 'material.light_blue-green.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Deep Purple',
 				'link' => 'material.light_blue-deep_purple.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Deep Orange',
 				'link' => 'material.light_blue-deep_orange.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Cyan',
 				'link' => 'material.light_blue-cyan.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Blue',
 				'link' => 'material.light_blue-blue.min.css',
 			],
 			[
-				'name' => 'Light Blue / SECOND',
+				'name' => 'Light Blue / Amber',
 				'link' => 'material.light_blue-amber.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Yellow',
 				'link' => 'material.indigo-yellow.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Teal',
 				'link' => 'material.indigo-teal.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Red',
 				'link' => 'material.indigo-red.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Purple',
 				'link' => 'material.indigo-purple.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Pink',
 				'link' => 'material.indigo-pink.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Orange',
 				'link' => 'material.indigo-orange.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Lime',
 				'link' => 'material.indigo-lime.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Light Green',
 				'link' => 'material.indigo-light_green.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Light Blue',
 				'link' => 'material.indigo-light_blue.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Green',
 				'link' => 'material.indigo-green.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Deep Purple',
 				'link' => 'material.indigo-deep_purple.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Deep Orange',
 				'link' => 'material.indigo-deep_orange.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Cyan',
 				'link' => 'material.indigo-cyan.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Blue',
 				'link' => 'material.indigo-blue.min.css',
 			],
 			[
-				'name' => 'Indigo / SECOND',
+				'name' => 'Indigo / Amber',
 				'link' => 'material.indigo-amber.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Yellow',
 				'link' => 'material.grey-yellow.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Teal',
 				'link' => 'material.grey-teal.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Red',
 				'link' => 'material.grey-red.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Purple',
 				'link' => 'material.grey-purple.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Pink',
 				'link' => 'material.grey-pink.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Orange',
 				'link' => 'material.grey-orange.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Lime',
 				'link' => 'material.grey-lime.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Light Green',
 				'link' => 'material.grey-light_green.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Light Blue',
 				'link' => 'material.grey-light_blue.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Indigo',
 				'link' => 'material.grey-indigo.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Green',
 				'link' => 'material.grey-green.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Deep Purple',
 				'link' => 'material.grey-deep_purple.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Deep Orange',
 				'link' => 'material.grey-deep_orange.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Cyan',
 				'link' => 'material.grey-cyan.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Blue',
 				'link' => 'material.grey-blue.min.css',
 			],
 			[
-				'name' => 'Grey / SECOND',
+				'name' => 'Grey / Amber',
 				'link' => 'material.grey-amber.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Yellow',
 				'link' => 'material.green-yellow.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Teal',
 				'link' => 'material.green-teal.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Red',
 				'link' => 'material.green-red.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Purple',
 				'link' => 'material.green-purple.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Pink',
 				'link' => 'material.green-pink.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Orange',
 				'link' => 'material.green-orange.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Lime',
 				'link' => 'material.green-lime.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Light Green',
 				'link' => 'material.green-light_green.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Light Blue',
 				'link' => 'material.green-light_blue.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Indigo',
 				'link' => 'material.green-indigo.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Deep Purple',
 				'link' => 'material.green-deep_purple.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Deep Orange',
 				'link' => 'material.green-deep_orange.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Cyan',
 				'link' => 'material.green-cyan.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Blue',
 				'link' => 'material.green-blue.min.css',
 			],
 			[
-				'name' => 'Green / SECOND',
+				'name' => 'Green / Amber',
 				'link' => 'material.green-amber.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Yellow',
 				'link' => 'material.deep_purple-yellow.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Teal',
 				'link' => 'material.deep_purple-teal.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Red',
 				'link' => 'material.deep_purple-red.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Purple',
 				'link' => 'material.deep_purple-purple.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Pink',
 				'link' => 'material.deep_purple-pink.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Orange',
 				'link' => 'material.deep_purple-orange.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Lime',
 				'link' => 'material.deep_purple-lime.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Light Green',
 				'link' => 'material.deep_purple-light_green.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Light Blue',
 				'link' => 'material.deep_purple-light_blue.min.css',
 			],
 			[
-				'name' => 'Deep Purple / SECOND',
+				'name' => 'Deep Purple / Indigo',
 				'link' => 'material.deep_purple-indigo.min.css',
 			],
 

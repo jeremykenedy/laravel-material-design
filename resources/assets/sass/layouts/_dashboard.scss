@@ -41,3 +41,32 @@ body .logo-style {
   margin: 5px auto;
   font-size: 100px;
 }
+
+.dashboard-layout {
+  .mdl-button.dashboard-logo {
+    height: 55px;
+    line-height: 55px;
+    border-radius: 0;
+  }
+  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    display: block;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 16px 40px;
+    margin: 0;
+    color: inherit;
+  }
+  .breadcrumb a {
+    color: inherit !important;
+  }
+  .mdl-tabs__tab-bar {
+    -webkit-justify-content: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+  }
+}
+
+.mdl-menu li a {
+  color: inherit;
+}

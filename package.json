@@ -25,6 +25,7 @@
   "dependencies": {
     "dropzone": "^4.3.0",
     "hideshowpassword": "^2.0.10",
-    "password-strength-meter": "^1.1.2"
+    "password-strength-meter": "^1.1.2",
+    "prismjs": "^1.6.0"
   }
 }
