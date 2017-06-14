@@ -22,7 +22,14 @@
         {{-- Fonts --}}
         @yield('template_linked_fonts')
 
-        {{-- Styles --}}
+        {{-- MDL CSS Library --}}
+        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
+            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}" id="user_theme_link">
+        @else
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/mdl-themes/material.min.css') }}" id="user_theme_link">
+        @endif
+
+        {{-- Custom App Styles --}}
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
         @yield('template_linked_css')
@@ -45,10 +52,6 @@
                 'csrfToken' => csrf_token(),
             ]) !!};
         </script>
-
-        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
-            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}" id="user_theme_link">
-        @endif
 
         @yield('head')
 

@@ -16,7 +16,7 @@ class ThemesTableSeeder extends Seeder
 		$themes = [
 			[
 				'name'	=> 'Default',
-				'link' 	=> 'null',
+				'link' 	=> 'material.min.css',
 			],
 			[
 				'name' => 'Amber / Blue',

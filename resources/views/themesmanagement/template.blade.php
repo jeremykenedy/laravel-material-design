@@ -40,16 +40,3 @@
 #color_select_panel .mdl-layout.is-upgraded .mdl-layout__tab.is-active::after {height: 2px;width: 100%;display: block;content: " ";bottom: 0;left: 0;position: absolute;background: rgb($color-accent);-webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;transition: all 1s cubic-bezier(0.4, 0, 1, 1);}
 #color_select_panel .mdl-layout__tab .mdl-layout__tab-ripple-container .mdl-ripple {background-color: rgb($color-primary-contrast);}
 #color_select_panel .mdl-layout__header {display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;-webkit-flex-wrap: nowrap;-ms-flex-wrap: nowrap;flex-wrap: nowrap;-webkit-justify-content: flex-start;-ms-flex-pack: start;justify-content: flex-start;box-sizing: border-box;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;width: 100%;margin: 0;padding: 0;border: none;min-height: 64px;max-height: 1000px;z-index: 3;background-color: rgb($color-primary);color: rgb($color-primary-contrast);box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);transition-duration: 0.2s;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-property: max-height, box-shadow;}
-
-
-#wheel svg {
-	cursor: pointer;
-}
-
-
-
-
-
-body .mdl-textfield--expandable .mdl-button--icon {
-    top: 0;
-}

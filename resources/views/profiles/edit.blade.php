@@ -95,7 +95,7 @@
 	{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => '', 'id' => 'edit_profile_form', 'role' => 'form', 'enctype' => 'multipart/form-data' ]) !!}
 
 
-
+		<meta name="_token" content="{!! csrf_token() !!}" />
 
 
 
@@ -134,12 +134,12 @@
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
   <div class="mdl-tabs__tab-bar">
-      <a href="#profile-panel" class="mdl-tabs__tab is-active">Profile</a>
-      <a href="#theme-panel" class="mdl-tabs__tab">Theme</a>
+      <a href="#profile-panel" class="mdl-tabs__tab">Profile</a>
+      <a href="#theme-panel" class="mdl-tabs__tab is-active">Theme</a>
      {{--  <a href="#location-panel" class="mdl-tabs__tab">Location</a> --}}
   </div>
 
-  <div class="mdl-tabs__panel is-active" id="profile-panel">
+  <div class="mdl-tabs__panel" id="profile-panel">
 
 
 
@@ -149,7 +149,6 @@
 
 
 									<div class="mdl-grid ">
-
  										<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('name') ? 'is-invalid' :'' }}">
 												{!! Form::text('name', $user->name, array('id' => 'name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z,0-9]*', 'disabled')) !!}
@@ -165,12 +164,12 @@
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
-									        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('first_name') ? 'is-invalid' :'' }}">
-									            {!! Form::text('first_name', $user->first_name, array('id' => 'first_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
-									            {!! Form::label('first_name', trans('auth.first_name') , array('class' => 'mdl-textfield__label')); !!}
-									            <span class="mdl-textfield__error">Letters only</span>
-									        </div>
-									  	</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('first_name') ? 'is-invalid' :'' }}">
+												{!! Form::text('first_name', $user->first_name, array('id' => 'first_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
+												{!! Form::label('first_name', trans('auth.first_name') , array('class' => 'mdl-textfield__label')); !!}
+												<span class="mdl-textfield__error">Letters only</span>
+											</div>
+										</div>
 									  	<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
 										    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('last_name') ? 'is-invalid' :'' }}">
 										        {!! Form::text('last_name', $user->last_name, array('id' => 'last_name', 'class' => 'mdl-textfield__input', 'pattern' => '[A-Z,a-z]*')) !!}
@@ -198,95 +197,27 @@
 										        {!! Form::label('bio', trans('profile.label-bio') , array('class' => 'mdl-textfield__label')); !!}
 										    </div>
 										</div>
-
 									</div>
 
 
 								<div class="mdl-cell mdl-cell--12-col-phone mdl-cell--12-col-tablet mdl-cell--6-col-desktop">
 									<div class="mdl-grid ">
-
-
-
-
-
-
-											<div class="mdl-cell mdl-cell--12-col">
-												<div class="col-sm-5 col-sm-offset-4 margin-bottom-1">
-													<div class="row" data-toggle="buttons">
-														<div class="col-xs-6 right-btn-container">
-															<label class="btn btn-primary @if($user->profile->avatar_status == 0) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne:not(.in), .collapseTwo.in">
-																<input type="radio" name="avatar_status" id="option1" autocomplete="off" value="0" @if($user->profile->avatar_status == 0) checked @endif> Use Gravatar
-															</label>
-														</div>
-														<div class="col-xs-6 left-btn-container">
-															<label class="btn btn-primary @if($user->profile->avatar_status == 1) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne.in, .collapseTwo:not(.in)">
-																<input type="radio" name="avatar_status" id="option2" autocomplete="off" value="1" @if($user->profile->avatar_status == 1) checked @endif> Use My Image
-															</label>
-														</div>
+										<div class="mdl-cell mdl-cell--12-col">
+											<div class="col-sm-5 col-sm-offset-4 margin-bottom-1">
+												<div class="row" data-toggle="buttons">
+													<div class="col-xs-6 right-btn-container">
+														<label class="btn btn-primary @if($user->profile->avatar_status == 0) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne:not(.in), .collapseTwo.in">
+															<input type="radio" name="avatar_status" id="option1" autocomplete="off" value="0" @if($user->profile->avatar_status == 0) checked @endif> Use Gravatar
+														</label>
+													</div>
+													<div class="col-xs-6 left-btn-container">
+														<label class="btn btn-primary @if($user->profile->avatar_status == 1) active @endif btn-block btn-sm" data-toggle="collapse" data-target=".collapseOne.in, .collapseTwo:not(.in)">
+															<input type="radio" name="avatar_status" id="option2" autocomplete="off" value="1" @if($user->profile->avatar_status == 1) checked @endif> Use My Image
+														</label>
 													</div>
 												</div>
 											</div>
-											<div class="mdl-cell mdl-cell--12-col">
-{{--
-																							<div class="form-group has-feedback {{ $errors->has('theme') ? ' has-error ' : '' }}">
-																								{!! Form::label('theme', trans('profile.label-theme') , array('class' => 'col-sm-4 control-label')); !!}
-																								<div class="col-sm-6">
-
-																									<select class="form-control" name="theme_id" id="theme_id">
-																										@if ($themes->count())
-																											@foreach($themes as $theme)
-																											  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }}>{{ $theme->name }}</option>
-																											@endforeach
-																										@endif
-																									</select>
-
-																									<span class="glyphicon {{ $errors->has('theme') ? ' glyphicon-asterisk ' : ' ' }} form-control-feedback" aria-hidden="true"></span>
-
-																							        @if ($errors->has('theme'))
-																							            <span class="help-block">
-																							                <strong>{{ $errors->first('theme') }}</strong>
-																							            </span>
-																							        @endif
-
-																								</div>
-																							</div>
---}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-											</div>
-
-
-
-
-
-
+										</div>
 										<div class="mdl-cell mdl-cell--12-col">
 
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-bottom-1 {{ $errors->has('location') ? 'is-invalid' :'' }}">
@@ -319,7 +250,7 @@
 
 
   </div>
-  <div class="mdl-tabs__panel" id="theme-panel">
+  <div class="mdl-tabs__panel is-active" id="theme-panel">
 
 
 
@@ -329,82 +260,59 @@
 
 
 				<div id="color_select_panel">
-
-
-
-
-
-
-
-
-
-
-
-				          <div class="mdl-gen mdl-cell mdl-cell--12-col">
-
-
-
-
-				            <div class="mdl-grid">
- 				              <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
-
-
-
-									<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
-									    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select mdl-select__fullwidth {{ $errors->has('theme_id') ? 'is-invalid' :'' }}">
-											<select class="mdl-selectfield__select mdl-textfield__input" name="theme_id" id="theme_id">
-												@if ($themes->count())
-													@foreach($themes as $theme)
-													  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }} data-link="{{ $theme->link }}" >{{ $theme->name }}</option>
-													@endforeach
-												@endif
-											</select>
-									        <label for="theme_id">
-									            <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
-									        </label>
-									        {!! Form::label('theme_id', trans('profile.label-theme'), array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--primary')); !!}
-											@if ($errors->has('theme_id'))
-											    <span class="mdl-textfield__error">{{ $errors->first('theme') }}</span>
+				    <div class="mdl-gen mdl-cell mdl-cell--12-col">
+				        <div class="mdl-grid">
+ 				            <div class="mdl-gen__panel mdl-gen__panel--left mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
+								<div class="mdl-cell mdl-cell--4-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-select mdl-select__fullwidth {{ $errors->has('theme_id') ? 'is-invalid' :'' }}">
+										<select class="mdl-selectfield__select mdl-textfield__input" name="theme_id" id="theme_id">
+											@if ($themes->count())
+												@foreach($themes as $theme)
+												  <option value="{{ $theme->id }}"{{ $currentTheme->id == $theme->id ? 'selected="selected"' : '' }} data-link="{{ $theme->link }}" >{{ $theme->name }}</option>
+												@endforeach
 											@endif
-									    </div>
-									</div>
-
-
-
-
-
-
-									<div class="mdl-gen__cdn mdl-cell mdl-cell--12-col sr-only">
+										</select>
+								        <label for="theme_id">
+								            <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
+								        </label>
+								        {!! Form::label('theme_id', trans('profile.label-theme'), array('class' => 'mdl-textfield__label mdl-selectfield__label mdl-color-text--primary')); !!}
+										@if ($errors->has('theme_id'))
+										    <span class="mdl-textfield__error">{{ $errors->first('theme') }}</span>
+										@endif
+								    </div>
+								</div>
+								<div class="mdl-gen__cdn mdl-cell mdl-cell--12-col sr-only">
 									<div class="code-with-text" id="cdn-code">
-									<pre class="demo-code language-markup codepen-button-disabled"><code class="language-markup mdl-gen__cdn-link" data-language="markup" id="color_selected">material.$primary-$accent.min.css</code></pre>
+										<pre class="demo-code language-markup codepen-button-disabled">
+											<code class="language-markup mdl-gen__cdn-link" data-language="markup" id="color_selected">
+												material.$primary-$accent.min.css
+											</code>
+										</pre>
 									</div>
-									</div>
-
-
-
+								</div>
 				                <div id="wheel">
-				                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				                    <defs>
-				                      <filter id="drop-shadow">
-				                        <feGaussianBlur in="SourceAlpha" stdDeviation="3.2" />
-				                        <feOffset dx="0" dy="0" result="offsetblur" />
-				                        <feFlood flood-color="rgba(0,0,0,1)" />
-				                        <feComposite in2="offsetblur" operator="in" />
-				                        <feMerge>
-				                          <feMergeNode />
-				                          <feMergeNode in="SourceGraphic" />
-				                        </feMerge>
-				                      </filter>
-				                    </defs>
-				                    <g class="wheel--maing"></g>
-				                  </svg>
-				                  <div class="mdl-gen-download">
-				                    <a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab">
-				                    	<i class="material-icons">
-				                    		whatshot
-				                    	</i>
-				                    </a>
-				                  </div>
+				                  	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					                    <defs>
+					                      	<filter id="drop-shadow">
+												<feGaussianBlur in="SourceAlpha" stdDeviation="3.2" />
+												<feOffset dx="0" dy="0" result="offsetblur" />
+												<feFlood flood-color="rgba(0,0,0,1)" />
+												<feComposite in2="offsetblur" operator="in" />
+												<feMerge>
+												  	<feMergeNode />
+												  	<feMergeNode in="SourceGraphic" />
+												</feMerge>
+					                      	</filter>
+					                    </defs>
+				                    	<g class="wheel--maing"></g>
+				                  	</svg>
+				                  	<div class="mdl-gen-download">
+				                    	<a href="#" id="download" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab">
+				                    		<i class="material-icons">
+				                    			format_color_fill
+				                    		</i>
+				                    	</a>
+				                  	</div>
 				                </div>
 				              </div>
 				              <div class="mdl-gen__panel--right mdl-gen__panel mdl-cell mdl-cell--6-col-desktop mdl-cell--8-col">
@@ -418,7 +326,7 @@
 				                </div>
 
 
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+<div class="mdl-demo-card mdl-card mdl-shadow--2dp">
 				                <div class="mdl-gen__preview">
 				                  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 				                    <header class="mdl-layout__header">
@@ -434,28 +342,40 @@
 				                        <a class="mdl-navigation__link" href="#">Here</a>
 				                      </nav>
 				                    </div>
-				                    <main class="mdl-layout__content">
-				                      <h3>Try it out</h3>
-
-
-
-
-
-
-
-
+				                    <div class="mdl-layout__content">
+				                      <h4 class="margin-bottom-0">Try it out</h4>
 				                      <p>
 				                        Lorem ipsum dolor sit amet.
 				                      </p>
 
 
 
-
+<p>
 									<a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-									  Button
+									  Accent
 									</a>
 
-				                      <a href="#" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">BUTTON</a>
+			                      	<a href="#" class="mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect">
+			                      		Primary
+			                    	</a>
+</p>
+
+<p>
+										<a href="#" class="mdl-button mdl-js-button mdl-button--primary">
+										  Primary
+										</a>
+
+										<a href="#" class="mdl-button mdl-js-button mdl-button--accent">
+										  Accent
+										</a>
+
+</p>
+
+<p>
+
+
+
+
 				                      <a href="#" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect">
 				                        <i class="material-icons">email</i>
 				                      </a>
@@ -464,30 +384,17 @@
 
 
 
-										<a href="#" class="mdl-button mdl-js-button mdl-button--primary">
-										  Button
-										</a>
-
-										<a href="#" class="mdl-button mdl-js-button mdl-button--accent">
-										  Button
-										</a>
-
-
-
-
-
-
-										<a href="#" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-										  <i class="material-icons">add</i>
-										</a>
-
-
-
 
 										<a href="#" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 										  <i class="material-icons">add</i>
 										</a>
 
+										<a href="#" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+										  <i class="material-icons">person</i>
+										</a>
+
+
+</p>
 
 
 
@@ -495,7 +402,7 @@
 
 
 
-				                    </main>
+				                    </div>
 				                  </div>
 				                </div>
 </div>
@@ -627,40 +534,22 @@
 
 <style type="text/css">
 
-
-
 	#wheel {
 	    position: relative;
-/*	    height: 100%;
-	    display: -webkit-flex;
-	    display: -ms-flexbox;
-	    display: flex;
-	    -webkit-flex-direction: row;
-	    -ms-flex-direction: row;
-	    flex-direction: row;
-	    -webkit-justify-content: center;
-	    -ms-flex-pack: center;
-	    justify-content: center;
-	    -webkit-align-items: center;
-	    -ms-flex-align: center;
-	    align-items: center*/
-
-
-    /* margin: -134px 0 0 0; */
-    /*background: red;*/
-    /* height: auto; */
-    /* position: absolute; */
-    /*margin-top: -100px;*/
-
-	}
-
-	.is-small-screen .mdl-gen #wheel {
-	   /* min-height: 100vw*/
 	}
 
 	#wheel svg {
-	    width: 100%;
-	   height: auto;
+		width: 100%;
+		height: auto;
+	}
+
+	#wheel .polygons {
+		cursor: pointer;
+	}
+
+	.mdl-gen-download {
+		pointer-events: none;
+		cursor: default;
 	}
 
 	@media (min-width:840px) {
@@ -703,101 +592,31 @@
 	    fill: #fff;
 	    font-size: 24px
 	}
-
 	#wheel .selected--1 .label--1,
 	#wheel .selected--2 .label--2 {
 	    opacity: 1
 	}
-
 	#wheel svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
 	#wheel svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
 	#wheel svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
 	    opacity: .12
 	}
-
 	#wheel .selected {
-	    opacity: 1!important
+	    opacity: 1 !important
 	}
-
-	.mdl-gen>.mdl-grid {
-	    max-width: 1280px;
-	    padding: 0
-	}
-
 	.mdl-gen__preview {
 	    position: relative;
 	    height: 350px
 	}
-
-	.mdl-gen__preview .mdl-layout__container {
-	    height: auto
+	.mdl-demo-card .mdl-layout__content {
+	 	margin: 0 1em;
 	}
-
-/*	.mdl-gen__preview .mdl-layout__content {
-	    padding: 32px;
-	    background-color: #EFEFEF;
-	    display: -webkit-flex;
-	    display: -ms-flexbox;
-	    display: flex;
-	    -webkit-flex-direction: column;
-	    -ms-flex-direction: column;
-	    flex-direction: column;
-	    -webkit-justify-content: flex-start;
-	    -ms-flex-pack: start;
-	    justify-content: flex-start;
-	    -webkit-align-items: flex-start;
-	    -ms-flex-align: start;
-	    align-items: flex-start
+	.demo-layout .mdl-layout__header .mdl-layout__drawer-button i {
+	    margin-top: 12px;
 	}
-
-	.mdl-gen__preview .mdl-layout__content .mdl-button {
-	    margin: 0
+	.mdl-demo-card .mdl-layout__header .mdl-layout__drawer-button i {
+	    color: #ffffff;
 	}
-
-	.mdl-gen__preview .mdl-layout__content .mdl-button--fab {
-	    -webkit-align-self: flex-end;
-	    -ms-flex-item-align: end;
-	    align-self: flex-end
-	}
-
-	.mdl-gen__preview .mdl-layout__content h3 {
-	    margin-top: 0
-	}
-
-	.mdl-gen__panel--right {
-	    display: -webkit-flex;
-	    display: -ms-flexbox;
-	    display: flex;
-	    -webkit-flex-direction: column;
-	    -ms-flex-direction: column;
-	    flex-direction: column;
-	    -webkit-align-items: stretch;
-	    -ms-flex-align: stretch;
-	    align-items: stretch;
-	    -webkit-justify-content: center;
-	    -ms-flex-pack: center;
-	    justify-content: center;
-	    padding-bottom: 0
-	}
-
-	.mdl-gen__desc strong,
-	.mdl-gen__desc p {
-	    display: block;
-	    margin-bottom: 32px;
-	    color: rgba(0, 0, 0, .54)
-	}
-
-	.mdl-gen__cdn .demo-code {
-	    box-sizing: border-box
-	}
-
-	.content {
-	    margin-left: auto;
-	    margin-right: auto;
-	    max-width: 1280px;
-	    margin-bottom: 80px
-	}
-*/
 
 </style>
 
@@ -1260,6 +1079,8 @@
 
 	</script>
 
+
+
 	{{--
 		@include('scripts.form-modal-script')
 		@include('scripts.gmaps-address-lookup-api3')
@@ -1368,61 +1189,52 @@
 
 
 
- <meta name="_token" content="{!! csrf_token() !!}" />
+
 
 <script type="text/javascript">
 
-$(".mdl-dialog.ajax-dialog button[type='submit']").click(function(event) {
-	var formData = $('#edit_profile_form').serializeArray();
-	var fadeSpeed = 150;
-    $.ajax({
-		url: '/profile/{{$user->name}}/updateAjax',
-		type: "post",
-		dataType: 'json',
-		data: {'username':'{{ $user->name }}', formData},
-		success: function(request, status, data){
-			dialog.close();
+	$(".mdl-dialog.ajax-dialog button[type='submit']").click(function(event) {
+		var formData = $('#edit_profile_form').serializeArray();
+		var fadeSpeed = 150;
+	    $.ajax({
+			url: '/profile/{{$user->name}}/updateAjax',
+			type: "post",
+			dataType: 'json',
+			data: {'username':'{{ $user->name }}', formData},
+			success: function(request, status, data){
+				dialog.close();
 
-			$('#ajax_message_title').text(request.title);
-			$('#ajax_message_message').text(request.message);
-			$('#ajax_message_icon').text('check');
-			$('.message.ajax-message').addClass('success')
-			$('.message.ajax-message').fadeIn(fadeSpeed, function() {
-				$(this).css({
-					opacity: 1,
-					left: 0
-				});
-			});;
+				$('#ajax_message_title').text(request.title);
+				$('#ajax_message_message').text(request.message);
+				$('#ajax_message_icon').text('check');
+				$('.message.ajax-message').addClass('success')
+				$('.message.ajax-message').fadeIn(fadeSpeed, function() {
+					$(this).css({
+						opacity: 1,
+						left: 0
+					});
+				});;
+				$('#user_theme_link').attr('href', '/css/mdl-themes/'+ request.themeLink);
+			},
+			error: function (request, status, error) {
+				console.log(error);
+				console.log(request);
+				console.log(status);
+				dialog.close();
+				$('#ajax_error_message').text(request.responseText);
+				$('.ajax-error.message').fadeIn(fadeSpeed, function() {
+					$(this).css({
+						opacity: 1,
+						left: 0
+					});
+				});;
+			}
+	    });
+	});
 
-
-
-			$('#user_theme_link').attr('href', '/css/mdl-themes/'+ request.themeLink);
-
-		},
-		error: function (request, status, error) {
-			console.log(error);
-			console.log(request);
-			console.log(status);
-			dialog.close();
-			$('#ajax_error_message').text(request.responseText);
-			$('.ajax-error.message').fadeIn(fadeSpeed, function() {
-				$(this).css({
-					opacity: 1,
-					left: 0
-				});
-			});;
-
-
-		}
-
-    });
-});
-
-
-
-$.ajaxSetup({
-   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
-});
+	$.ajaxSetup({
+	   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+	});
 
 
 
@@ -1456,10 +1268,8 @@ $.ajaxSetup({
 	//   }
 	// }
 
-</script>
 
 
-<script type="text/javascript">
 
 	function init(color1, color2) {
 
@@ -1510,6 +1320,7 @@ $.ajaxSetup({
 	        })
 	    }, i.open("get", "../../material.min.css.template", !0), i.send()
 	}
+
 	MaterialCustomizer = function() {
 	    "use strict";
 
@@ -1600,7 +1411,8 @@ $.ajaxSetup({
 	                    if (this.forbiddenAccents.indexOf(r) !== -1) return;
 	                    this.highlightField(a.getAttribute("data-color")), this.wheel.setAttribute("class", ""), window.requestAnimationFrame(function() {
 	                        this.updateCDN(),
-	                        this.updateStylesheet()
+	                        this.updateStylesheet();
+	                        $('.save-actions').show();
 	                    }.bind(this));
 	                    break;
 	                case 2:
@@ -1701,15 +1513,53 @@ $.ajaxSetup({
 	    }, l
 	}(), "undefined" != typeof module && (module.exports = MaterialCustomizer);
 
+
+
+//need inital colors to load if present.
+
+
+
+var url = $('#user_theme_link').attr('href');
+var filename = url.substring(url.lastIndexOf('/')+1);
+
+if(filename != 'material.min.css'){
+
+// ABSTRACT THIS CHINK INTO A FUNCTION //
+	var nameSplit = filename.split(".");
+	var colorNamesRaw = nameSplit[1].split("-");
+	var color1Raw = colorNamesRaw[0];
+	var color1RawSplit = color1Raw.split("_");
+	var color1 = ucFirstLetter(color1RawSplit[0]);
+
+	if(color1RawSplit.length > 1) {
+		color1 = ucFirstLetter(color1RawSplit[0]).concat(' ' + ucFirstLetter(color1RawSplit[1]));
+	}
+
+	var color2Raw = colorNamesRaw[1];
+	var color2RawSplit = color2Raw.split("_");
+	var color2 = ucFirstLetter(color2RawSplit[0]);
+
+	if(color2RawSplit.length > 1) {
+		color2 = ucFirstLetter(color2RawSplit[0]).concat(' ' + ucFirstLetter(color2RawSplit[1]));
+	}
+// ABSTRACT THIS CHINK INTO A FUNCTION //
+
+
+	init(color1, color2);
+
+} else {
+
+
 	init();
 
-	$('#theme_id').change(function(){
+}
 
+	$('#theme_id').change(function(){
 		var selectedThemeMenu = $(this).find('option:selected').data('link');
 
+// ABSTRACT THIS CHINK INTO A FUNCTION //
 		var nameSplit = selectedThemeMenu.split(".");
 		var colorNamesRaw = nameSplit[1].split("-");
-
 		var color1Raw = colorNamesRaw[0];
 		var color1RawSplit = color1Raw.split("_");
 		var color1 = ucFirstLetter(color1RawSplit[0]);
@@ -1725,6 +1575,8 @@ $.ajaxSetup({
 		if(color2RawSplit.length > 1) {
 			color2 = ucFirstLetter(color2RawSplit[0]).concat(' ' + ucFirstLetter(color2RawSplit[1]));
 		}
+// ABSTRACT THIS CHINK INTO A FUNCTION //
+
 
 		$('.selected--1').removeClass('selected selected--1');
 		$('.selected--2').removeClass('selected selected--2');
@@ -1732,7 +1584,6 @@ $.ajaxSetup({
 		$('.selected--4').removeClass('selected selected--4');
 
 		init(color1, color2);
-
 	});
 
 	function ucFirstLetter(string) {

@@ -46,11 +46,13 @@ class ProfilesController extends Controller
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
+            'first_name'        => 'nullable|alpha',
+            'last_name'         => 'nullable|alpha',
             'theme_id'          => 'required',
-            'location'          => '',
-            'bio'               => 'max:500',
-            'twitter_username'  => 'max:50',
-            'github_username'   => 'max:50',
+            'location'          => 'nullable',
+            'bio'               => 'nullable|max:500',
+            'twitter_username'  => 'nullable|max:50',
+            'github_username'   => 'nullable|max:50',
             'avatar'            => '',
             'avatar_status'     => '',
         ]);
@@ -141,32 +143,14 @@ class ProfilesController extends Controller
      */
     public function update($username, Request $request)
     {
-
-
-$data = $request->formData;
-$info = [];
-
-foreach ($data as $key => $value) {
-    $info[] = [
-        $value['name'] => $value['value']
-    ];
-}
-
-
-$convertedData = call_user_func_array('array_merge', $info);
-
-
-// Log::alert($data);
-
-// Log::debug($request->formData);
-// Log::notice($convertedData);
-
-
-
-
-
-
-////Log::info('Jeremy was there', []);
+        $data = $request->formData;
+        $info = [];
+        foreach ($data as $key => $value) {
+            $info[] = [
+                $value['name'] => $value['value']
+            ];
+        }
+        $convertedData = call_user_func_array('array_merge', $info);
 
         $user = $this->getUserByUsername($username);
         $ipAddress = new CaptureIpTrait;
@@ -175,7 +159,7 @@ $convertedData = call_user_func_array('array_merge', $info);
             $profile_validator = $this->profile_validator($convertedData);
         } else {
             $profile_validator = $this->profile_validator($request->all());
-            $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+            $input = $request->all();
         }
 
         if ($profile_validator->fails()) {
@@ -192,36 +176,27 @@ $convertedData = call_user_func_array('array_merge', $info);
         } else {
             if($request->ajax()) {
                 $user->profile->fill($convertedData)->save();
+                $user->fill($convertedData);
             } else {
                 $user->profile->fill($input)->save();
+                $user->fill($input);
             }
         }
+
         $user->updated_ip_address = $ipAddress->getClientIp();
         $user->save();
+
         if($request->ajax()) {
 
+            $theme = Theme::find($user->profile->theme_id);
 
-
-
-
-//Log::alert($convertedData->theme_id);
-
-$theme = Theme::find($user->profile->theme_id);
-
-Log::alert($theme->link);
-
-$returnData = [
-    'title' => trans('auth.success'),
-    'message' => trans('profile.updateSuccess'),
-    'themeLink' => $theme->link
-];
-
-
-
+            $returnData = [
+                'title' => trans('auth.success'),
+                'message' => trans('profile.updateSuccess'),
+                'themeLink' => $theme->link
+            ];
 
             return response()->json($returnData, 200);
-
-
 
         }
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));

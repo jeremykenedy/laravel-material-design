@@ -23,8 +23,16 @@
         {!! HTML::style('https://fonts.googleapis.com/css?family=Roboto:300italic,400italic,400,100,300,600,700', array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
         {!! HTML::style(asset('https://fonts.googleapis.com/icon?family=Material+Icons'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
 
-        {{-- Styles --}}
+        {{-- MDL CSS Library --}}
+        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/mdl-themes/' . $theme->link) }}" id="user_theme_link">
+        @else
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/mdl-themes/material.min.css') }}" id="user_theme_link">
+        @endif
+
+        {{-- Custom App Styles --}}
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
         @yield('template_styles')
 
         {{-- Head Scripts --}}
