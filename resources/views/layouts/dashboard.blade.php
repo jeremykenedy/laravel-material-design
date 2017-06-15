@@ -55,8 +55,6 @@
             ]) !!};
         </script>
 
-
-
         @yield('head')
 
     </head>
@@ -65,6 +63,7 @@
         <div id="app" class="demo-layout dashboard-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
             @include('partials.form-status')
+            @yield('template-form-status')
 
             <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
                 <div class="mdl-layout__header-row">

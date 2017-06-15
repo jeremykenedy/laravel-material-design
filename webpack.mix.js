@@ -26,7 +26,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
 		mdlCustomDir + 'jQuery.simpleWeather.js',
 		mdlCustomDir + 'jQuery.animate-bg.js',
 		nodeDir + 'mark.js/dist/jquery.mark.js',
-		nodeDir + 'prismjs/prism.js'
+		nodeDir + 'prismjs/prism.js',
+		mdlCustomDir + 'mdl-colorwheel.js'
 	], 'public/js/mdl.js')
 	.copy(mdlNodeDir + '/dist/**.css', 'public/css/mdl-themes/', true)
 	.copy('node_modules/weather-icons/font/**', 'public/fonts/weather-icons/', true)
