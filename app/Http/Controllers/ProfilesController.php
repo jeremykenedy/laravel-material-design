@@ -58,6 +58,19 @@ class ProfilesController extends Controller
     }
 
     /**
+     * Get a validator for an incoming update user request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name'              => 'required|max:255',
+        ]);
+    }
+
+    /**
      * Fetch user
      * (You can extract this to repository method)
      *
@@ -199,17 +212,22 @@ class ProfilesController extends Controller
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
     }
 
+
     /**
-     * Get a validator for an incoming update user request.
+     * User account admin page
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Http\Response
      */
-    public function validator(array $data)
+    public function account()
     {
-        return Validator::make($data, [
-            'name'              => 'required|max:255',
-        ]);
+        $user = \Auth::user();
+        $username = $user->name;
+
+        $data = [
+            'user' => $user,
+        ];
+
+        return view('profiles.account')->with($data);
     }
 
     /**

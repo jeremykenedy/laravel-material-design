@@ -1,22 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('template_title')
-	{{ $user->name }}'s Profile
+	{{ $user->name }}'s Account
 @endsection
 
 @section('template_fastload_css')
-
-	#map-canvas{
-		min-height: 300px;
-		height: 100%;
-		width: 100%;
-	}
-
 @endsection
 
 @section('header')
 	<small>
-		{{ trans('profile.showProfileTitle',['username' => $user->name]) }}
+		{{ trans('profile.accountTitle',['username' => $user->name]) }}
 	</small>
 @endsection
 
@@ -33,12 +26,12 @@
 	</li>
 
 	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
-		<a itemprop="item" href="{{ url('/profile/'.Auth::user()->name) }}" class="hidden">
+		<a itemprop="item" href="{{ url('/account/') }}" class="hidden">
 			<span itemprop="name">
-				{{ trans('titles.profile') }}
+				{{ trans('titles.account') }}
 			</span>
 		</a>
-		{{ trans('titles.profile') }}
+		{{ trans('titles.account') }}
 		<meta itemprop="position" content="2" />
 	</li>
 
@@ -46,12 +39,17 @@
 
 @section('content')
 
-	@include('cards.user-profile-card')
+
+
+
+
+
+
+
+
+
 
 @endsection
 
 @section('footer_scripts')
-
-	@include('scripts.google-maps-geocode-and-map')
-
 @endsection

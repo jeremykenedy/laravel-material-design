@@ -89,4 +89,7 @@ return [
 	'submitButton'        => 'Save',
 	'submitChangesButton' => 'Save Changes',
 
+	// User Account
+	'accountTitle' => 'Account Settings for :username\'s',
+
 ];

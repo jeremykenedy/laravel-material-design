@@ -14,6 +14,7 @@ return [
 	'editProfile'	=> 'Edit Profile',
 	'createProfile'	=> 'Create Profile',
 	'dashboard'		=> 'Dashboard',
+	'account' 		=> 'Account',
 
 	'activation'	=> 'Registration Started  | Activation Required',
 	'exceeded'		=> 'Activation Error',

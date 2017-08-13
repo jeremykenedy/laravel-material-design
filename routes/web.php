@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 		'profile',
 		'ProfilesController', [
 			'only' => [
+				'account',
 				'show',
 				'edit',
 				'update',
@@ -99,6 +100,15 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 		'as'   => '{username}',
 		'uses' => 'ProfilesController@deleteUserAccount'
 	]);
+
+
+
+	// Route for user profile background image
+	Route::get('account', [
+		'as'   	=> '{username}',
+		'uses' 	=> 'ProfilesController@account'
+	]);
+
 
 	// Update User Profile Ajax Route
 	Route::post('profile/{username}/updateAjax', [
