@@ -23,7 +23,6 @@ use View;
 
 class ProfilesController extends Controller
 {
-
     protected $idMultiKey     = '618423'; //int
     protected $seperationKey  = '****';
 
@@ -96,7 +95,6 @@ class ProfilesController extends Controller
         ];
 
         return view('profiles.show')->with($data);
-
     }
 
     /**
@@ -131,7 +129,6 @@ class ProfilesController extends Controller
         ];
 
         return view('profiles.edit')->with($data);
-
     }
 
     /**
@@ -224,7 +221,6 @@ class ProfilesController extends Controller
      */
     public function updateUserAccount(Request $request, $id)
     {
-
         $currentUser = \Auth::user();
         $user        = User::findOrFail($id);
         $emailCheck  = ($request->input('email') != '') && ($request->input('email') != $user->email);
@@ -263,9 +259,7 @@ class ProfilesController extends Controller
         $user->save();
 
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
-
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -317,9 +311,9 @@ class ProfilesController extends Controller
      * @param $file
      * @return mixed
      */
-    public function upload() {
+    public function upload()
+    {
         if(Input::hasFile('file')) {
-
             $currentUser  = \Auth::user();
             $avatar       = Input::file('file');
             $filename     = 'avatar.' . $avatar->getClientOriginalExtension();
@@ -340,9 +334,42 @@ class ProfilesController extends Controller
             return response()->json(['path'=> $path], 200);
 
         } else {
-
             return response()->json(false, 200);
+        }
+    }
 
+    /**
+     * Upload and update the user profile background
+     *
+     * @param $file
+     * @return mixed
+     */
+    public function uploadBackground()
+    {
+        if(Input::hasFile('file')) {
+            $currentUser        = \Auth::user();
+            $user_profile_bg    = Input::file('file');
+            $filename           = 'background.' . $user_profile_bg->getClientOriginalExtension();
+            $save_path          = storage_path() . '/users/id/' . $currentUser->id . '/uploads/images/background/';
+            $path               = $save_path . $filename;
+            $public_path        = '/images/profile/' . $currentUser->id . '/background/' . $filename;
+
+            // Make the user a folder and set permissions
+            File::makeDirectory($save_path, $mode = 0755, true, true);
+
+            // Save the file to the server
+            // Image::make($user_profile_bg)->resize(300, 300)->save($save_path . $filename);
+            Image::make($user_profile_bg)->save($save_path . $filename);
+
+
+            // Save the public image path
+            $currentUser->profile->user_profile_bg = $public_path;
+            $currentUser->profile->save();
+
+            return response()->json(['path'=> $path], 200);
+
+        } else {
+            return response()->json(false, 200);
         }
     }
 
@@ -359,6 +386,18 @@ class ProfilesController extends Controller
     }
 
     /**
+     * Show user background image
+     *
+     * @param $id
+     * @param $image
+     * @return string
+     */
+    public function userProfileBackgroundImage($id, $image)
+    {
+        return Image::make(storage_path() . '/users/id/' . $id . '/uploads/images/background/' . $image)->response();
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -367,7 +406,6 @@ class ProfilesController extends Controller
      */
     public function deleteUserAccount(Request $request, $id)
     {
-
         $currentUser = \Auth::user();
         $user        = User::findOrFail($id);
         $ipAddress   = new CaptureIpTrait;
@@ -420,7 +458,6 @@ class ProfilesController extends Controller
         $request->session()->regenerate();
 
         return redirect('/login/')->with('success', trans('profile.successUserAccountDeleted'));
-
     }
 
     /**
@@ -430,7 +467,8 @@ class ProfilesController extends Controller
      * @param string $token
      * @return void
      */
-    public static function sendGoodbyEmail(User $user, $token) {
+    public static function sendGoodbyEmail(User $user, $token)
+    {
         $user->notify(new SendGoodbyeEmail($token));
     }
 
@@ -439,7 +477,8 @@ class ProfilesController extends Controller
      *
      * @return string
      */
-    public function getIdMultiKey() {
+    public function getIdMultiKey()
+    {
         return $this->idMultiKey;
     }
 
@@ -448,8 +487,8 @@ class ProfilesController extends Controller
      *
      * @return string
      */
-    public function getSeperationKey() {
+    public function getSeperationKey()
+    {
         return $this->seperationKey;
     }
-
 }

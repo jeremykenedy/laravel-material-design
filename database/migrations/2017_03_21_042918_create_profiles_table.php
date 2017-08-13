@@ -25,6 +25,7 @@ class CreateProfilesTable extends Migration
             $table->string('github_username')->nullable();
             $table->string('avatar')->nullable();
             $table->boolean('avatar_status')->default(0);
+            $table->string('user_profile_bg')->nullable()->default('/images/default-user-bg.png');
             $table->timestamps();
         });
     }

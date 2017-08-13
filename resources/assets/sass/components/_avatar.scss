@@ -3,6 +3,7 @@
     height: 80px;
     margin: 2em auto;
     display: block;
+    border: 2px solid $theme_color1;
     @include vendor(border-radius, 50%);
     @include draggless();
 }
@@ -15,20 +16,20 @@
     @include vendor(border-radius, 50%);
     @include draggless();
 }
-
+#user_selected_avatar {
+    border: 2px solid $theme_color1;
+}
 #avatar_container {
-
     height: 202px;
-
     .dz-preview{
         display: none;
     }
     .dropzone {
         border: 1px dashed rgba(0,0,0,0.3);
-        background: rgba($white, .05);
+        background: rgba($theme_color1, .05);
         height: 180px;
         padding: 0;
-        @include vendor(border-radius, $standard-radius);
+        @include vendor(border-radius, $standard-border-radius);
     }
     .dz-message {
         margin-top: -20px 1em 0;
@@ -40,9 +41,25 @@
         }
     }
 }
-
 .user-image {
   width: 100px;
   height: 100px;
-  border:2px solid $brand-info;
+  border:2px solid $theme_color1;
+}
+.user-avatar-icon {
+    width: 100px;
+    height: 100px;
+    color: $theme_color1;
+    border: 2px solid $theme_color1;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    @include draggless();
+    @include transitions();
+    @include vendor(border-radius, 50%);
+
+    .material-icons{
+        font-size: 4em;
+        margin-top: 15px;
+    }
 }

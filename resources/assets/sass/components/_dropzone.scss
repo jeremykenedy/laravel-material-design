@@ -1,0 +1,79 @@
+.dz-default.dz-message {
+    color: $theme_color1;
+    top: 0;
+    opacity: 0;
+    z-index: 100;
+    font-size: .75em;
+    margin-left: 20px;
+    position: absolute;
+    @include transitions();
+}
+.dz-preview .dz-image {
+	margin-top: -136px;
+}
+.dz-details {
+	display: none;
+	margin-top: -10px;
+	font-size: .6em;
+	margin-left: 20px;
+	line-height: 1.3;
+	margin-bottom: 15px;
+	padding: 5px 8px;
+	background: rgba($theme_color1, .5);
+	@include vendor(border-radius, 5px);
+}
+.dz-progress,
+.dz-success-mark,
+.dz-error-mark {
+	display: none !important;
+}
+
+// User Profile Dropzone
+#backgroundDropzone {
+	display: block;
+	position: absolute;
+	.dz-preview {
+		display: none;
+	}
+	.dz-message{
+		opacity: 0;
+	}
+}
+
+// User Avatar Dropzone
+#avatarDropzone {
+    border: 1px dashed $theme_color0;
+    margin-bottom: 20px !important;
+    display: block !important;
+    margin: -1em 7.5em 0;
+    padding-top: 1em;
+    z-index: 200;
+    @include vendor(border-radius, 5px);
+    @include transitions();
+    &:hover {
+        cursor: pointer;
+        border-color: $theme_color3;
+        background-color: rgba($theme_color2, .25);
+        .user-avatar-icon {
+            background: $theme_color1;
+            color: $theme_color3;
+        }
+    }
+    .dz-preview {
+        display: none !important;
+    }
+}
+.avatar-selecter {
+    display: none;
+    &.active-avatar-selecter {
+        display: block;
+    }
+}
+@media(min-width: $tablet) {
+	.dz-details {
+		display: inline-block;
+	}
+	#avatarDropzone:hover .dz-default.dz-message {
+		opacity: 1;
+	}
+}

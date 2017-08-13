@@ -1,30 +1,42 @@
-// COLORS
-$white:						    #FFFFFF;
+// Base Colors
+$white:	#FFFFFF;
+$black: #000000;
+$gray80:  #cccccc;
 
-// THEME COLORS (FOR CONSISTENCY)
-$theme_color0:				transparent;
-$theme_color1:				$white;
+// Theme Colors (FOR CONSISTENCY)
+$theme_color0: transparent;
+$theme_color1: $white;
+$theme_color2: $black;
+$theme_color3: $gray80;
 
-// BREAKPOINTS
-$phone:      				  480px;
-$tablet:      				767px;
-$desktop:      				921px;
+// Social Media Colors
+$facebook: #4863ae;
+$twitter: #46c0fb;
+$google: #DD4B39;
+$github: #4183C4;
+
+// Breakpoints
+$phone: 480px;
+$tablet: 767px;
+$desktop: 921px;
 
 // Dynamic Variables
-$num-of-helper-classes:     4;
+$num-of-helper-classes: 4;
 
 // Border Radius'
-$standard-border-radius:	2px;
+$standard-border-radius: 2px;
+$standard-radius: $standard-border-radius;
 
 // Transitions
-$default-trans-speed:		0.3s;
+$default-trans-speed: 0.3s;
+$transitionSpeed: $default-trans-speed;
 
 // Images
 $image_path: '/images' !default;
 
 // Margin and Padding Classes
 $numOfMarginClasses:    	3;
-$directions:            	('top', 'bottom', 'left', 'right');
+$directions: ('top', 'bottom', 'left', 'right');
 
 // Weather Colors
 $freezing:  #3150B8;

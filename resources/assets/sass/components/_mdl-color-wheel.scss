@@ -1,0 +1,62 @@
+.mdl-gen-download {
+	pointer-events: none;
+	cursor: default;
+}
+#wheel {
+    position: relative;
+	svg {
+		width: 100%;
+		height: auto;
+	}
+	.polygons {
+		cursor: pointer;
+	}
+	.mdl-gen-download {
+	    position: absolute;
+	    left: 50%;
+	    top: 50%
+	}
+	.mdl-gen-download .mdl-button {
+	    -webkit-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%)
+	}
+	g[data-color] {
+	    opacity: 1;
+	    transition: opacity .2s cubic-bezier(.4, 0, 1, 1)
+	}
+	.selector {
+	    opacity: 0;
+	    transition: opacity .4s cubic-bezier(.4, 0, 1, 1);
+	    fill: #BDBDBD
+	}
+	.selected .selector {
+	    opacity: 1
+	}
+	.label {
+	    text-anchor: middle;
+	    opacity: 0;
+	    transition: opacity .4s cubic-bezier(.4, 0, 1, 1);
+	    fill: #fff;
+	    font-size: 24px
+	}
+	.selected--1 .label--1,
+	.selected--2 .label--2 {
+	    opacity: 1
+	}
+	svg.hide-nonaccents g[data-color="Blue Grey"]:not(.selected),
+	svg.hide-nonaccents g[data-color="Brown"]:not(.selected),
+	svg.hide-nonaccents g[data-color="Grey"]:not(.selected) {
+	    opacity: .12
+	}
+	.selected {
+	    opacity: 1 !important
+	}
+
+}
+
+@media (min-width:840px) {
+    #wheel svg {
+        max-width: 100%;
+        width: 100%
+    }
+}

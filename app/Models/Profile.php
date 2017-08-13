@@ -36,6 +36,7 @@ class Profile extends Model {
         'user_profile_bg',
         'avatar',
         'avatar_status',
+        'imageee',
 	];
 
     protected $casts = [

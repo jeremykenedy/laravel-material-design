@@ -19,6 +19,9 @@
 // Authentication Routes
 Auth::routes();
 
+// Public Resource Route
+Route::get('material.min.css.template', 'ThemesManagementController@template');
+
 // Public Routes
 Route::group(['middleware' => 'web'], function () {
 
@@ -57,6 +60,16 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
 		'uses' => 'ProfilesController@show'
 	]);
 
+	// Route to show user avatar
+	Route::get('images/profile/{id}/avatar/{image}', [
+		'uses' => 'ProfilesController@userProfileAvatar'
+	]);
+
+	// Route for user profile background image
+	Route::get('images/profile/{id}/background/{image}', [
+		'uses' 		=> 'ProfilesController@userProfileBackgroundImage'
+	]);
+
 });
 
 // Registered, activated, and is current user routes.
@@ -87,11 +100,6 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 		'uses' => 'ProfilesController@deleteUserAccount'
 	]);
 
-	// Route to show user avatar
-	Route::get('images/profile/{id}/avatar/{image}', [
-		'uses' => 'ProfilesController@userProfileAvatar'
-	]);
-
 	// Update User Profile Ajax Route
 	Route::post('profile/{username}/updateAjax', [
 		'as'   => '{username}',
@@ -100,6 +108,9 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 
 	// Route to upload user avatar.
 	Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
+
+	// Route to uplaod user background image
+	Route::post('background/upload', ['as' => 'background.upload', 'uses' => 'ProfilesController@uploadBackground']);
 
 	// User Tasks Routes
 	Route::resource('/tasks', 'TasksController');
@@ -110,38 +121,28 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
 
 	Route::resource('/users/deleted', 'SoftDeletesController', [
-			'only' => [
-				'index', 'show', 'update', 'destroy',
-			]
-		]);
-
+		'only' => [
+			'index', 'show', 'update', 'destroy',
+		]
+	]);
 	Route::resource('users', 'UsersManagementController', [
-			'names'    => [
-				'index'   => 'users',
-				'create'  => 'create',
-				'destroy' => 'user.destroy'
-			],
-			'except' => [
-				'deleted'
-			]
-		]);
-
+		'names'    => [
+			'index'   => 'users',
+			'create'  => 'create',
+			'destroy' => 'user.destroy'
+		],
+		'except' => [
+			'deleted'
+		]
+	]);
 	Route::resource('themes', 'ThemesManagementController', [
-			'names'    => [
-				'index'   => 'themes',
-				'destroy' => 'themes.destroy'
-			]
-		]);
-
+		'names'    => [
+			'index'   => 'themes',
+			'destroy' => 'themes.destroy'
+		]
+	]);
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 	Route::get('php', 'AdminDetailsController@listPHPInfo');
 	Route::get('routes', 'AdminDetailsController@listRoutes');
 
 });
-
-
-
-// Temp here - Route for profile select theme dynamic preview css
-Route::get('material.min.css.template', 'ThemesManagementController@template');
-
-
