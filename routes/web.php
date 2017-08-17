@@ -23,8 +23,8 @@ Auth::routes();
 Route::get('material.min.css.template', 'ThemesManagementController@template');
 
 // Public Routes
-Route::group(['middleware' => 'web'], function () {
-
+Route::group(['middleware' => 'web'], function ()
+{
 	// Activation Routes
 	Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
 
@@ -38,12 +38,11 @@ Route::group(['middleware' => 'web'], function () {
 
 	// Route to for user to reactivate their user deleted account.
 	Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
-
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated']], function () {
-
+Route::group(['middleware' => ['auth', 'activated']], function ()
+{
 	// Homepage Route
 	Route::get('/', ['as' => 'public.home', 'uses' => 'UserController@index']);
 
@@ -69,12 +68,11 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
 	Route::get('images/profile/{id}/background/{image}', [
 		'uses' 		=> 'ProfilesController@userProfileBackgroundImage'
 	]);
-
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function () {
-
+Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
+{
 	// User Profile and Account Routes
 	Route::resource(
 		'profile',
@@ -101,14 +99,11 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 		'uses' => 'ProfilesController@deleteUserAccount'
 	]);
 
-
-
 	// Route for user profile background image
 	Route::get('account', [
 		'as'   	=> '{username}',
 		'uses' 	=> 'ProfilesController@account'
 	]);
-
 
 	// Update User Profile Ajax Route
 	Route::post('profile/{username}/updateAjax', [
@@ -124,12 +119,11 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 
 	// User Tasks Routes
 	Route::resource('/tasks', 'TasksController');
-
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
-
+Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function ()
+{
 	Route::resource('/users/deleted', 'SoftDeletesController', [
 		'only' => [
 			'index', 'show', 'update', 'destroy',
@@ -154,5 +148,4 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
 	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 	Route::get('php', 'AdminDetailsController@listPHPInfo');
 	Route::get('routes', 'AdminDetailsController@listRoutes');
-
 });
