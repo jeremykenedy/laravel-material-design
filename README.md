@@ -2,8 +2,6 @@
 
 [![License](http://jeremykenedy.com/license-mit.svg)](https://raw.githubusercontent.com/jeremykenedy/laravel-material-design/master/LICENSE) [![License](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-material-design)
 
-#### READY FOR USE!
-
 Laravel 5.4 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
 
 ###### A [Laravel](http://laravel.com/) 5.4.x with [Material Design Lite](https://getmdl.io/) 1.1.3 project.
