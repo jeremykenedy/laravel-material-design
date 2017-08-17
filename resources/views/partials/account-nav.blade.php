@@ -29,11 +29,14 @@
     	</a>
   	</li>
   	<li class="mdl-menu__item mdl-list__item">
-		<a href="{{ url('/auth/logout') }}" title="{{ trans('titles.logout') }}">
+		<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('titles.logout') }}">
 			<span class="mdl-list__item-primary-content">
 				<i class="material-icons mdl-list__item-icon">power_settings_new</i>
 				{{ trans('titles.logout') }}
 			</span>
-    	</a>
+		</a>
+		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+		    {{ csrf_field() }}
+		</form>
   	</li>
 </ul>

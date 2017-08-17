@@ -1,19 +1,17 @@
-#### 5/9/2017 :: Update: I am currently working on re-writing this on Laravel 5.4 along with some NEW features! Stay tuned...
-
-### Laravel Material Admin is a Complete Build of Laravel 5.2 and Google Material Design Lite 1.3 with FULL Email and Social Authentication
+### Laravel Material Admin is a Complete Build of Laravel 5.4 and Google Material Design Lite 1.3 with FULL Email and Social Authentication
 
 [![License](http://jeremykenedy.com/license-mit.svg)](https://raw.githubusercontent.com/jeremykenedy/laravel-material-design/master/LICENSE) [![License](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-material-design)
 
 #### READY FOR USE!
 
-Laravel 5.2 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
+Laravel 5.4 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
 
-###### A [Laravel](http://laravel.com/) 5.2.x with [Material Design Lite](https://getmdl.io/) 1.1.3 project.
+###### A [Laravel](http://laravel.com/) 5.4.x with [Material Design Lite](https://getmdl.io/) 1.1.3 project.
 | Laravel Material Admin Features  |
 | :------------ |
-|Built on [Laravel](http://laravel.com/) 5.2 and [Material Design Lite](https://getmdl.io/) 1.1.3|
+|Built on [Laravel](http://laravel.com/) 5.4 and [Material Design Lite](https://getmdl.io/) 1.1.3|
 |Uses [MySQL](https://github.com/mysql) Database and include migrations and seeds|
-|Uses [Artisan](http://laravel.com/docs/5.2/artisan) to manage database migration, schema creations, and create/publish page controller templates|
+|Uses [Artisan](http://laravel.com/docs/5.4/artisan) to manage database migration, schema creations, and create/publish page controller templates|
 |Dependencies are managed with [COMPOSER](https://getcomposer.org/)|
 |Laravel Scaffolding **User** and **Administrator Authentication**|
 |User Socialite Logins ready to go - See API list used below|
@@ -66,9 +64,9 @@ And thats it with the caveat of setting up and configuring your development envi
 
 ### laravel-material-design URL's (routes)
 * ```/```
-* ```/auth/login```
-* ```/auth/logout```
-* ```/auth/register```
+* ```/login```
+* ```/logout```
+* ```/register```
 * ```/password/email```
 
 ### laravel-material-design Alias Redirect URL's (routes)
@@ -138,7 +136,7 @@ And thats it with the caveat of setting up and configuring your development envi
       ```
   6. Add the social media login link:
       * Example:
-      In file ```/resources/views/auth/login.blade.php``` add ONE of the following:
+      In file ```/resources/views/login.blade.php``` add ONE of the following:
          * Conventional HTML:
       ```
 
@@ -568,10 +566,10 @@ laravel-material-design/
 * http://laravel.com/docs/5.1/authorization
 * http://laravel.com/docs/5.1/routing
 * http://laravel.com/docs/5.0/schema
-* https://laravelcollective.com/docs/5.2/html
-* http://laravel.com/docs/5.2/authentication
-* http://laravel.com/docs/5.2/authorization
-* http://laravel.com/docs/5.2/routing
+* https://laravelcollective.com/docs/5.4/html
+* http://laravel.com/docs/5.4/authentication
+* http://laravel.com/docs/5.4/authorization
+* http://laravel.com/docs/5.4/routing
 
 ---
 
