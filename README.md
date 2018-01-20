@@ -1,6 +1,6 @@
 ### Laravel Material Admin is a Complete Build of Laravel 5.4 and Google Material Design Lite 1.3 with FULL Email and Social Authentication
 
-[![License](http://jeremykenedy.com/license-mit.svg)](https://raw.githubusercontent.com/jeremykenedy/laravel-material-design/master/LICENSE) [![License](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-material-design)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Laravel 5.4 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. This makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Uses laravel ORM modeling and has CRUD (Create Read Update Delete) functionality for all tasks. Quick setup, can be done in 5 minutes. It will take longer to obtain your Facebook, Twitter, and Google Plus API Keys than it will to set this up.
 
