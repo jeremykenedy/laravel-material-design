@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed'   => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     // Titles
@@ -87,6 +87,6 @@ return [
     'roleRequired'      => 'User role is required.',
 
     'emailLoginError'   => 'Please enter a valid E-mail Address.',
-    'pwLoginError'      => 'Please Enter Your Password.'
+    'pwLoginError'      => 'Please Enter Your Password.',
 
 ];
