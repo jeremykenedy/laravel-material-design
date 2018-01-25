@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Models\Task;
 use App\Models\User;
 use Auth;
@@ -12,7 +11,6 @@ use Redirect;
 
 class TasksController extends Controller
 {
-
     protected $rules = [
         'name'          => 'required|max:60',
         'description'   => 'max:155',
@@ -36,17 +34,15 @@ class TasksController extends Controller
      */
     public function index()
     {
-
         $user = Auth::user();
         $data = [
-            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),
+            'tasks'           => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),
             'tasksInComplete' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get(),
-            'tasksComplete' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '1')->get()
+            'tasksComplete'   => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '1')->get(),
         ];
 
         return view('tasks.index', $data);
     }
-
 
     /**
      * Display a listing of the resource.
@@ -57,7 +53,7 @@ class TasksController extends Controller
     {
         $user = Auth::user();
         $data = [
-            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get()
+            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->get(),
         ];
 
         return view('tasks.filtered', $data);
@@ -72,7 +68,7 @@ class TasksController extends Controller
     {
         $user = Auth::user();
         $data = [
-            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get()
+            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '0')->get(),
         ];
 
         return view('tasks.filtered', $data);
@@ -86,8 +82,9 @@ class TasksController extends Controller
     public function index_complete()
     {
         $user = Auth::user();
+
         return view('tasks.filtered', [
-            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '1')->get()
+            'tasks' => Task::orderBy('created_at', 'asc')->where('user_id', $user->id)->where('completed', '1')->get(),
         ]);
     }
 
@@ -104,27 +101,28 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request, $this->rules);
 
-        $user                   = Auth::user();
-        $task                   = $request->all();
-        $task['user_id']        = $user->id;
+        $user = Auth::user();
+        $task = $request->all();
+        $task['user_id'] = $user->id;
 
         Task::create($task);
 
         return redirect('/tasks')->with('status', 'Task created');
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -135,30 +133,33 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $task               = Task::findOrFail($id);
+        $task = Task::findOrFail($id);
+
         return view('tasks.edit')->withTask($task);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, $this->rules);
 
-        $task               = Task::findOrFail($id);
-        $task->name         = $request->input('name');
-        $task->description  = $request->input('description');
-        $task->completed    = $request->input('completed');
+        $task = Task::findOrFail($id);
+        $task->name = $request->input('name');
+        $task->description = $request->input('description');
+        $task->completed = $request->input('completed');
 
         if ($task->completed == '1') {
             $return_msg = 'Task Completed !!!';
@@ -175,40 +176,44 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         Task::findOrFail($id)->delete();
+
         return redirect('/tasks')->with('status', 'Task Deleted');
     }
 
     /**
-     * Return current users tasks using View::Composer
+     * Return current users tasks using View::Composer.
      *
      * @param  \App\Providers\ComposerServiceProvider.php
-     * @param  obj $view
+     * @param obj $view
+     *
      * @return \Illuminate\View\View
      */
     public function getAllTasks(View $view)
     {
-        $user       = Auth::user();
+        $user = Auth::user();
         $queryTasks = Task::orderBy('created_at', 'asc');
-        $Alltasks   = $queryTasks->where('user_id', $user->id)->get();
+        $Alltasks = $queryTasks->where('user_id', $user->id)->get();
         $view->with('allTasks', $Alltasks);
     }
 
     /**
-     * Return current users INCOMPLETE tasks using View::Composer
+     * Return current users INCOMPLETE tasks using View::Composer.
      *
      * @param  \App\Providers\ComposerServiceProvider.php
-     * @param  obj $view
+     * @param obj $view
+     *
      * @return \Illuminate\View\View
      */
     public function getIncompleteTasks(View $view)
     {
-        $user       = Auth::user();
+        $user = Auth::user();
         $queryTasks = Task::orderBy('created_at', 'asc');
         $tasksInComplete = $queryTasks->where([
             ['user_id', '=', $user->id],
@@ -219,15 +224,16 @@ class TasksController extends Controller
     }
 
     /**
-     * Return current users COMPLETE tasks using View::Composer
+     * Return current users COMPLETE tasks using View::Composer.
      *
      * @param  \App\Providers\ComposerServiceProvider.php
-     * @param  obj $view
+     * @param obj $view
+     *
      * @return \Illuminate\View\View
      */
     public function getCompleteTasks(View $view)
     {
-        $user       = Auth::user();
+        $user = Auth::user();
         $queryTasks = Task::orderBy('created_at', 'asc');
         $tasksCompleted = $queryTasks->where([
             ['user_id', '=', $user->id],

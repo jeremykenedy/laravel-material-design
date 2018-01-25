@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App;
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\ActivationTrait;
 use App\Traits\CaptchaTrait;
 use App\Traits\CaptureIpTrait;
-use App\Traits\ActivationTrait;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use jeremykenedy\LaravelRoles\Models\Permission;
+use Illuminate\Support\Facades\Validator;
 use jeremykenedy\LaravelRoles\Models\Role;
 
 class RegisterController extends Controller
@@ -45,19 +43,19 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest', [
-            'except' => 'logout'
+            'except' => 'logout',
         ]);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
-
         $data['captcha'] = $this->captchaCheck();
 
         if (!config('settings.reCaptchStatus')) {
@@ -73,7 +71,7 @@ class RegisterController extends Controller
                 'password'              => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
                 'g-recaptcha-response'  => '',
-                'captcha'               => 'required|min:1'
+                'captcha'               => 'required|min:1',
             ],
             [
                 'name.unique'                   => trans('auth.userNameTaken'),
@@ -86,25 +84,24 @@ class RegisterController extends Controller
                 'password.min'                  => trans('auth.PasswordMin'),
                 'password.max'                  => trans('auth.PasswordMax'),
                 'g-recaptcha-response.required' => trans('auth.captchaRequire'),
-                'captcha.min'                   => trans('auth.CaptchaWrong')
+                'captcha.min'                   => trans('auth.CaptchaWrong'),
             ]
         );
-
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
+        $ipAddress = new CaptureIpTrait();
+        $role = Role::where('name', '=', 'Unverified')->first();
 
-        $ipAddress  = new CaptureIpTrait;
-        $role       = Role::where('name', '=', 'Unverified')->first();
-
-        $user =  User::create([
+        $user = User::create([
             'name'              => $data['name'],
             'first_name'        => $data['first_name'],
             'last_name'         => $data['last_name'],
@@ -112,13 +109,12 @@ class RegisterController extends Controller
             'password'          => bcrypt($data['password']),
             'token'             => str_random(64),
             'signup_ip_address' => $ipAddress->getClientIp(),
-            'activated'         => !config('settings.activation')
+            'activated'         => !config('settings.activation'),
         ]);
 
         $user->attachRole($role);
         $this->initiateEmailActivation($user);
 
         return $user;
-
     }
 }

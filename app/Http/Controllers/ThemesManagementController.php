@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Theme;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Log;
 use Validator;
 
 class ThemesManagementController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -32,7 +28,6 @@ class ThemesManagementController extends Controller
      */
     public function index()
     {
-
         $users = User::all();
 
         $themes = Theme::orderBy('name', 'asc')->get();
@@ -53,18 +48,17 @@ class ThemesManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
         $input = Input::only('name', 'link', 'notes', 'status');
 
         $validator = Validator::make($input, Theme::rules());
 
         if ($validator->fails()) {
-
             $this->throwValidationException(
                 $request, $validator
             );
@@ -78,20 +72,20 @@ class ThemesManagementController extends Controller
             'notes'         => $request->input('notes'),
             'status'        => $request->input('status'),
             'taggable_id'   => 0,
-            'taggable_type' => 'theme'
+            'taggable_type' => 'theme',
         ]);
 
         $theme->taggable_id = $theme->id;
         $theme->save();
 
         return redirect('themes/'.$theme->id)->with('success', trans('themes.createSuccess'));
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -106,15 +100,10 @@ class ThemesManagementController extends Controller
             }
         }
 
-
-
         $data = [
             'mdlTheme'        => $theme,
-            'themeUsers'   => $themeUsers,
+            'themeUsers'      => $themeUsers,
         ];
-
-
-
 
         return view('themesmanagement.show-theme')->with($data);
     }
@@ -122,7 +111,8 @@ class ThemesManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -148,8 +138,9 @@ class ThemesManagementController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -161,7 +152,6 @@ class ThemesManagementController extends Controller
         $validator = Validator::make($input, Theme::rules($id));
 
         if ($validator->fails()) {
-
             $this->throwValidationException(
                 $request, $validator
             );
@@ -172,43 +162,31 @@ class ThemesManagementController extends Controller
         $theme->fill($input)->save();
 
         return redirect('themes/'.$theme->id)->with('success', trans('themes.updateSuccess'));
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-
         $default = Theme::findOrFail(1);
         $theme = Theme::findOrFail($id);
 
         if ($theme->id != $default->id) {
             $theme->delete();
+
             return redirect('themes')->with('success', trans('themes.deleteSuccess'));
         }
+
         return back()->with('error', trans('themes.deleteSelfError'));
-
     }
 
-
-
-
-
-
-
-
-    public function template() {
-
-
+    public function template()
+    {
         return View('themesmanagement.template');
-
-
     }
-
-
 }
