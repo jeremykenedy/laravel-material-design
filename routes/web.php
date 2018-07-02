@@ -13,9 +13,6 @@
 |
  */
 
-// Homepage Route
-//Route::get('/', 'WelcomeController@welcome')->name('welcome');
-
 // Authentication Routes
 Auth::routes();
 
@@ -42,7 +39,7 @@ Route::group(['middleware' => 'web'], function () {
 // Registered and Activated User Routes
 Route::group(['middleware' => ['auth', 'activated']], function () {
     // Homepage Route
-    Route::get('/', ['as' => 'public.home', 'uses' => 'UserController@index']);
+    // Route::get('/', ['as' => 'public.home', 'uses' => 'UserController@index']);
 
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
@@ -145,3 +142,21 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
 });
+
+
+// Route::get('routes', 'AdminDetailsController@listRoutes');
+
+Route::resource('admin/pages', 'FrontEndAdminController', [
+    'except' => [
+        'show',
+    ],
+]);
+
+// Homepage Route
+// Route::get('/', 'WelcomeController@welcome')->name('welcome');
+// Route::get('/', 'FrontEndController@index')->name('welcome');
+
+Route::get('/', 'FrontEndController@index');
+Route::get('/{slug}/', 'FrontEndController@showPage');
+
+

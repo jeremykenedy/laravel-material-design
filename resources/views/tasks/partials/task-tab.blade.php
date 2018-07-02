@@ -18,31 +18,16 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach ($tasks as $task)
-
                         @include('tasks.partials.task-row')
-
                     @endforeach
-
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="mdl-card__menu">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable search-white padding-top-0 hide-mobile">
-            <label class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-button--icon" for="search_table">
-                <i class="material-icons">search</i>
-            </label>
-
-            <div class="mdl-textfield__expandable-holder">
-                <input class="mdl-textfield__input" type="search" id="search_table" placeholder="Search Terms">
-                <label class="mdl-textfield__label" for="search_table">
-                    Search Terms
-                </label>
-            </div>
-        </div>
-        <a href="{{ url('/tasks/create') }}" class="mdl-button mdl-button--icon mdl-inline-expanded mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--white inline-block">
+    <div class="mdl-card__menu" style="top: -5px;">
+        @include('partials.mdl-search')
+        <a href="{{ url('/tasks/create') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--white">
             <i class="material-icons">add</i>
         </a>
     </div>

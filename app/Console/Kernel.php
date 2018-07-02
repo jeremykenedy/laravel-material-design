@@ -29,7 +29,14 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         $schedule->command('activations:clean')
-                 ->daily();
+                ->daily();
+
+        // Run every 5 minutes
+        $schedule->command('queue:work')
+                ->everyFiveMinutes();
+
+        // Run once a minute
+        //$schedule->command('queue:work')->cron('* * * * * *');        // ONCE A MINUTE
     }
 
     /**
