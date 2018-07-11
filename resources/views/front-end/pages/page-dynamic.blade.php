@@ -24,6 +24,6 @@
     </article>
 
   {{-- The Pager --}}
-  @include('front-end.partials.pager-pages')
+  {{-- @include('front-end.partials.pager-pages') --}}
 
 @endsection

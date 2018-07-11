@@ -19,10 +19,11 @@ class FrontEndController extends Controller
     {
         $tag        = $request->get('tag');
         $service    = new FrontEndProcesses($tag);
+
+// dd($service);
+
         $data       = $service->getResponse();
         $layout     = $tag ? Tag::layout($tag) : 'front-end.pages.index-dynamic';
-
-// dd($data);
 
         return view($layout, $data);
     }

@@ -147,9 +147,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
 // Route::get('routes', 'AdminDetailsController@listRoutes');
 
 Route::resource('admin/pages', 'FrontEndAdminController', [
-    // 'names'    => [
-    //     'index'   => 'pages',
-    // ],
+    'names'    => [
+        'index'   => 'pages',
+        'store'   => 'storepage',
+    ],
     'except' => [
         'show',
     ],

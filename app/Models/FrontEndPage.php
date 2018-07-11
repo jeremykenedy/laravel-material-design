@@ -119,7 +119,7 @@ class FrontEndPage extends Model
 
         if (count($tags)) {
             $this->tags()->sync(
-                Tag::whereIn('tag', $tags)->lists('id')->all()
+                Tag::whereIn('tag', $tags)->pluck('id')->all()
             );
             return;
         }

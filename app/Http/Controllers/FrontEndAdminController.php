@@ -6,6 +6,8 @@ use App\Http\Requests;
 
 use App\Services\FrontEndPageFormFields;
 
+use App\Http\Requests\PageCreateRequest;
+
 use App\Models\FrontEndPage;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -27,7 +29,7 @@ class FrontEndAdminController extends Controller
     /**
      * Show the page edit form
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return Response
      */
@@ -40,28 +42,43 @@ class FrontEndAdminController extends Controller
     }
 
     /**
-    * Show the new post form
+    * Show the new page form
     */
     public function create()
     {
         $service = new FrontEndPageFormFields();
         $data    = $service->handle();
 
-        // dd($data);
-        // return view('admin.post.create', $data);
+        return view('pages.admin.front-end-pages.create', $data);
+    }
+
+
+
+
+    /**
+     * Store a newly created page
+     *
+     * @param PageCreateRequest $request
+     */
+    public function store(PageCreateRequest $request)
+    {
+        $page = FrontEndPage::create($request->pageFillData());
+        $page->syncTags($request->get('tags', []));
+
+return redirect()->route('pages')->withSuccess('New Page Successfully Created.');
     }
 
 
 
 
 
-   /**
-    * Remove the specified resource from storage.
-    *
-    * @param  int  $id
-    *
-    * @return Response
-    */
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
     public function destroy($id)
     {
         $page = FrontEndPage::findOrFail($id);

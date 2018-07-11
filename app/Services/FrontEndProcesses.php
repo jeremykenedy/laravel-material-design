@@ -35,6 +35,8 @@ class FrontEndProcesses
             return $this->tagIndexData($this->tag);
         }
 
+
+
         $this->pageData = $this->normalIndexData();
 
         return $this->normalIndexData();
