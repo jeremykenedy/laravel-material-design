@@ -35,8 +35,6 @@ class FrontEndProcesses
             return $this->tagIndexData($this->tag);
         }
 
-
-
         $this->pageData = $this->normalIndexData();
 
         return $this->normalIndexData();
@@ -66,13 +64,13 @@ class FrontEndProcesses
             ->simplePaginate(config('pages.pages_per_page'));
 
         return [
-            'title' => config('pages.title'),
-            'subtitle' => config('pages.subtitle'),
-            'pages' => $pages,
-            'page_image' => config('pages.page_image'),
-            'meta_description' => config('pages.description'),
+            'title'             => config('pages.title'),
+            'subtitle'          => config('pages.subtitle'),
+            'pages'             => $pages,
+            'page_image'        => config('pages.page_image'),
+            'meta_description'  => config('pages.description'),
             'reverse_direction' => false,
-            'tag' => null,
+            'tag'               => null,
         ];
     }
 
@@ -94,19 +92,19 @@ class FrontEndProcesses
             ->where('is_draft', 0)
             ->orderBy('published_at', $reverse_direction ? 'asc' : 'desc')
             ->simplePaginate(config('pages.pages_per_page'));
+
         $pages->addQuery('tag', $tag->tag);
 
         $page_image = $tag->page_image ?: config('pages.page_image');
 
         return [
-            'title' => $tag->title,
-            'subtitle' => $tag->subtitle,
-            'pages' => $pages,
-            'page_image' => $page_image,
-            'tag' => $tag,
+            'title'             => $tag->title,
+            'subtitle'          => $tag->subtitle,
+            'pages'             => $pages,
+            'page_image'        => $page_image,
+            'tag'               => $tag,
             'reverse_direction' => $reverse_direction,
-            'meta_description' => $tag->meta_description ?: \
-                config('pages.description'),
+            'meta_description'  => $tag->meta_description ?: \ config('pages.description'),
         ];
     }
 

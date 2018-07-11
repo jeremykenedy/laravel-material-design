@@ -141,28 +141,23 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+
+    // Dynamic Pages Admin
+    Route::resource('admin/pages', 'FrontEndAdminController', [
+        'names'    => [
+            'index'   => 'pages',
+            'store'   => 'storepage',
+            'update'  => 'updatepage',
+        ],
+        'except' => [
+            'show',
+        ],
+    ]);
+
 });
 
-
-// Route::get('routes', 'AdminDetailsController@listRoutes');
-
-Route::resource('admin/pages', 'FrontEndAdminController', [
-    'names'    => [
-        'index'   => 'pages',
-        'store'   => 'storepage',
-    ],
-    'except' => [
-        'show',
-    ],
-]);
-
-
-
 // Homepage Route
-// Route::get('/', 'WelcomeController@welcome')->name('welcome');
-// Route::get('/', 'FrontEndController@index')->name('welcome');
-
 Route::get('/', 'FrontEndController@index');
+
+// Dynamic Pages Routes
 Route::get('/{slug}/', 'FrontEndController@showPage');
-
-

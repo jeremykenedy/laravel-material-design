@@ -55,34 +55,20 @@
           </div>
           <div class="panel-body">
 
-
-
-            <form class="form-horizontal" role="form" method="POST">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('updatepage', $id) }}">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <input type="hidden" name="_method" value="PUT">
 
-
-
-
-
-
-@include('pages.admin.front-end-pages.partials.page-form')
-
-
-
-
-
+              @include('pages.admin.front-end-pages.partials.page-form')
 
               <div class="col-md-8">
                 <div class="form-group">
                   <div class="col-md-10 col-md-offset-2">
-                    <button type="submit" class="btn btn-primary btn-lg"
-                            name="action" value="continue">
+                    <button type="submit" class="btn btn-primary btn-lg" name="action" value="continue">
                       <i class="fa fa-floppy-o"></i>
                       Save - Continue
                     </button>
-                    <button type="submit" class="btn btn-success btn-lg"
-                            name="action" value="finished">
+                    <button type="submit" class="btn btn-success btn-lg" name="action" value="finished">
                       <i class="fa fa-floppy-o"></i>
                       Save - Finished
                     </button>
@@ -114,10 +100,14 @@
 
     <script type="text/javascript">
 
-        CKEDITOR.replace( 'content' );
+        // CKEDITOR.replace( 'content' );
 
     </script>
 
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/picker.js"></script>
 
 
     <script src="/assets/pickadate/picker.js"></script>

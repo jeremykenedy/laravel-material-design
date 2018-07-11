@@ -7,6 +7,9 @@ use App\Http\Requests;
 use App\Services\FrontEndPageFormFields;
 
 use App\Http\Requests\PageCreateRequest;
+use App\Http\Requests\PageUpdateRequest;
+
+
 
 use App\Models\FrontEndPage;
 use App\Models\Tag;
@@ -16,6 +19,8 @@ class FrontEndAdminController extends Controller
 {
     /**
      * Display a listing of the pages.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -24,21 +29,6 @@ class FrontEndAdminController extends Controller
         ];
 
         return view('pages.admin.front-end-pages.index')->with($data);
-    }
-
-    /**
-     * Show the page edit form
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $service = new FrontEndPageFormFields($id);
-        $data    = $service->handle();
-
-        return view('pages.admin.front-end-pages.edit')->with($data);
     }
 
     /**
@@ -52,24 +42,57 @@ class FrontEndAdminController extends Controller
         return view('pages.admin.front-end-pages.create', $data);
     }
 
-
-
-
     /**
      * Store a newly created page
      *
      * @param PageCreateRequest $request
+     *
+     * @return \Illuminate\Http\Response
      */
     public function store(PageCreateRequest $request)
     {
         $page = FrontEndPage::create($request->pageFillData());
         $page->syncTags($request->get('tags', []));
 
-return redirect()->route('pages')->withSuccess('New Page Successfully Created.');
+        return redirect()->route('pages')->withSuccess('New Page Successfully Created.');
     }
 
+    /**
+     * Show the page edit form
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $service = new FrontEndPageFormFields($id);
+        $data    = $service->handle();
 
+        return view('pages.admin.front-end-pages.edit')->with($data);
+    }
 
+    /**
+     * Update the Page
+     *
+     * @param PageUpdateRequest $request
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(PageUpdateRequest $request, $id)
+    {
+        $page = FrontEndPage::findOrFail($id);
+        $page->fill($request->pageFillData());
+        $page->save();
+        $page->syncTags($request->get('tags', []));
+
+        if ($request->action === 'continue') {
+            return redirect()->back()->with('success', 'Page saved.');
+        }
+
+        return redirect()->route('pages')->with('success', 'Page saved.');
+    }
 
 
     /**
@@ -77,7 +100,7 @@ return redirect()->route('pages')->withSuccess('New Page Successfully Created.')
      *
      * @param  int  $id
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {

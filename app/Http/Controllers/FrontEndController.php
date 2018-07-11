@@ -19,9 +19,6 @@ class FrontEndController extends Controller
     {
         $tag        = $request->get('tag');
         $service    = new FrontEndProcesses($tag);
-
-// dd($service);
-
         $data       = $service->getResponse();
         $layout     = $tag ? Tag::layout($tag) : 'front-end.pages.index-dynamic';
 
@@ -34,7 +31,7 @@ class FrontEndController extends Controller
      * @param string $slug
      * @param Request $request
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function showPage($slug, Request $request)
     {
@@ -42,6 +39,7 @@ class FrontEndController extends Controller
                                 ->whereSlug($slug)
                                 ->where('is_draft', 0)
                                 ->firstOrFail();
+
         $tag = $request->get('tag');
 
         if ($tag) {

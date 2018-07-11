@@ -104,11 +104,12 @@
 
     </script>
 
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.6/picker.js"></script>
 
     <script src="/assets/pickadate/picker.js"></script>
     <script src="/assets/pickadate/picker.date.js"></script>
     <script src="/assets/pickadate/picker.time.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.5/js/standalone/selectize.min.js"></script>
     <script>
         $(function() {
