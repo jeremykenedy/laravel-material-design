@@ -29,7 +29,21 @@ mix.js('resources/assets/js/app.js', 'public/js')
 		nodeDir + 'prismjs/prism.js',
 		mdlCustomDir + 'mdl-colorwheel.js'
 	], 'public/js/mdl.js')
+
+
+	.scripts([
+	    nodeDir + 'ckeditor/ckeditor.js',
+	    nodeDir + 'selectize/dist/js/standalone/selectize.js',
+		nodeDir + 'pickadate/lib/picker.js',
+		nodeDir + 'pickadate/lib/picker.date.js',
+		nodeDir + 'pickadate/lib/picker.time.js',
+		nodeDir + 'datatables/media/js/jquery.dataTables.js'
+	], 'public/js/front-end-editor.js')
+
+
 	.copy(mdlNodeDir + '/dist/**.css', 'public/css/mdl-themes/', true)
 	.copy('node_modules/weather-icons/font/**', 'public/fonts/weather-icons/', true)
 	.sass('resources/assets/sass/app.scss', 'public/css')
 	.version();
+
+

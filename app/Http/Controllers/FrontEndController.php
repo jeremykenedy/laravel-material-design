@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Jobs\ProcessFrontEnd;
+use App\Services\FrontEndProcesses;
 use App\Models\FrontEndPage;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -17,10 +17,12 @@ class FrontEndController extends Controller
      */
     public function index(Request $request)
     {
-        $tag    = $request->get('tag');
-        $job    = new ProcessFrontEnd($tag);
-        $data   = $job->getResponse();
-        $layout = $tag ? Tag::layout($tag) : 'front-end.pages.index-dynamic';
+        $tag        = $request->get('tag');
+        $service    = new FrontEndProcesses($tag);
+        $data       = $service->getResponse();
+        $layout     = $tag ? Tag::layout($tag) : 'front-end.pages.index-dynamic';
+
+// dd($data);
 
         return view($layout, $data);
     }

@@ -1,11 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('template_title')
-    Pages Listing
+    Listing Front End Pages
 @endsection
 
 @section('header')
-    Pages Listing
+    Listing Front End Pages
 @endsection
 
 @section('breadcrumbs')
@@ -21,7 +21,7 @@
     <li class="active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a itemprop="item" href="/admin/pages" disabled>
             <span itemprop="name">
-                Listing Pages
+                Front End Pages
             </span>
         </a>
         <meta itemprop="position" content="2" />
@@ -50,7 +50,7 @@
                             <th class="mdl-data-table__cell--non-numeric">Published</th>
                             <th class="mdl-data-table__cell--non-numeric">Title</th>
                             <th class="mdl-data-table__cell--non-numeric">Subtitle</th>
-                            <th class="mdl-data-table__cell--non-numeric">Actions</th>
+                            <th class="mdl-data-table__cell--non-numeric no-sort no-search">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,39 +69,45 @@
                                 </td>
 
 
-    <td class="mdl-data-table__cell--non-numeric">
+                                <td class="mdl-data-table__cell--non-numeric">
+                                    <a href="/admin/pages/{{ $page->id }}/edit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                        <i class="material-icons mdl-color-text--orange">edit</i>
+                                        <span class="sr-only">Edit Page</span>
+                                    </a>
 
-        <a href="/admin/pages/{{ $page->id }}/edit" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i class="material-icons mdl-color-text--orange">edit</i>
-            <span class="sr-only">Edit Page</span>
-        </a>
+                                    <a href="/{{ $page->slug }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                        <i class="material-icons mdl-color-text--green-700">remove_red_eye</i>
+                                        <span class="sr-only">Edit Page</span>
+                                    </a>
 
-        <a href="/{{ $page->slug }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i class="material-icons mdl-color-text--green-700">remove_red_eye</i>
-            <span class="sr-only">Edit Page</span>
-        </a>
-
-        {!! Form::open(array('class' => 'inline-block', 'id' => 'delete_'.$page->id, 'method' => 'DELETE', 'route' => array('tasks.destroy', $page->id))) !!}
-            {{ method_field('DELETE') }}
-            <a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$page->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-taskid="{{$page->id}}">
-                <i class="material-icons mdl-color-text--danger">delete_forever</i>
-                <span class="sr-only">Delete Task</span>
-            </a>
-        {!! Form::close() !!}
-
-    </td>
+                                    {!! Form::open(array('class' => 'inline-block', 'id' => 'delete_'.$page->id, 'method' => 'DELETE', 'route' => array('pages.destroy', $page->id))) !!}
+                                        {{ method_field('DELETE') }}
+                                        <a href="#" class="dialog-button dialiog-trigger-delete dialiog-trigger{{$page->id}} mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-pageid="{{$page->id}}">
+                                            <i class="material-icons mdl-color-text--danger">delete_forever</i>
+                                            <span class="sr-only">Delete Page</span>
+                                        </a>
+                                    {!! Form::close() !!}
+                                </td>
 
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
+            @if (count($pages) > 0)
+                @include('dialogs.dialog-delete', ['dialogTitle' => 'Confirm Page Deletion', 'dialogSaveBtnText' => 'Delete'])
+            @endif
+
         </div>
 
         <div class="mdl-card__menu" style="top: -5px;">
 
             @include('partials.mdl-highlighter')
-            @include('partials.mdl-search')
+
+            @if (count($pages) > 0)
+                @include('partials.mdl-search')
+            @endif
 
             <a href="{{ url('/admin/pages/create') }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--white">
                 <i class="material-icons">add</i>
@@ -112,5 +118,32 @@
 @endsection
 
 @section('footer_scripts')
+
+    @include('scripts.highlighter-script')
+
+    @if (count($pages) > 0)
+
+        @include('scripts.mdl-datatables')
+
+        <script type="text/javascript">
+
+            @foreach ($pages as $page)
+                mdl_dialog('.dialiog-trigger{{$page->id}}','','#dialog_delete');
+            @endforeach
+
+            var pageId;
+
+            $('.dialiog-trigger-delete').click(function(event) {
+                event.preventDefault();
+                pageId = $(this).attr('data-pageid');
+            });
+
+            $('#confirm').click(function(event) {
+                $('form#delete_'+pageId).submit();
+            });
+
+        </script>
+
+    @endif
 
 @endsection

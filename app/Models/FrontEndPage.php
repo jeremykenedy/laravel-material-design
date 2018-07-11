@@ -5,9 +5,12 @@ namespace App\Models;
 use App\Services\Markdowner;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FrontEndPage extends Model
 {
+    use SoftDeletes;
+
     /**
      * The database table used by the model.
      *
@@ -22,6 +25,16 @@ class FrontEndPage extends Model
      */
     protected $guarded = [
         'id',
+    ];
+
+    /**
+     * Define the date field.
+     *
+     * @var        array
+     */
+    protected $dates = [
+        'published_at',
+        'deleted_at',
     ];
 
     /**
@@ -119,7 +132,7 @@ class FrontEndPage extends Model
      */
     public function getPublishDateAttribute($value)
     {
-        return $this->published_at->format('M-j-Y');
+        return $this->published_at;
     }
 
     /**
@@ -127,7 +140,7 @@ class FrontEndPage extends Model
     */
     public function getPublishTimeAttribute($value)
     {
-        return $this->published_at->format('g:i A');
+        return $this->published_at;
     }
 
     /**

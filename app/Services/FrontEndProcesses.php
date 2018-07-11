@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Services;
 
 use App\Models\FrontEndPage;
 use App\Models\Tag;
 use Carbon\Carbon;
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 
-class ProcessFrontEnd implements ShouldQueue
+class FrontEndProcesses
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
     protected $tag;
     private $pageData;
 
