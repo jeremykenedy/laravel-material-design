@@ -3,6 +3,7 @@
 ### Laravel Material Design is a Complete Build of Laravel 5.6 and Google Material Design Lite 1.3 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system.
 [![Build Status](https://travis-ci.org/jeremykenedy/laravel-material-design.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-material-design)
 [![StyleCI](https://github.styleci.io/repos/65395310/shield?branch=master)](https://github.styleci.io/repos/65395310)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeremykenedy/laravel-material-design/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/laravel-material-design/?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 #### Table of contents
