@@ -32,31 +32,31 @@ return [
 
     'channels' => [
         'stack' => [
-            'driver' => 'stack',
+            'driver'   => 'stack',
             'channels' => ['single'],
         ],
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
+            'path'   => storage_path('logs/laravel.log'),
+            'level'  => 'debug',
         ],
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
-            'days' => 7,
+            'path'   => storage_path('logs/laravel.log'),
+            'level'  => 'debug',
+            'days'   => 7,
         ],
 
         'syslog' => [
             'driver' => 'syslog',
-            'level' => 'debug',
+            'level'  => 'debug',
         ],
 
         'errorlog' => [
             'driver' => 'errorlog',
-            'level' => 'debug',
+            'level'  => 'debug',
         ],
     ],
 
