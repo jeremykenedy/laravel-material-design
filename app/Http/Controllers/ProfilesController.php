@@ -171,7 +171,8 @@ class ProfilesController extends Controller
 
         if ($profile_validator->fails()) {
             $this->throwValidationException(
-                $request, $profile_validator
+                $request,
+                $profile_validator
             );
 
             return redirect('profile/'.$user->name.'/edit')->withErrors($validator)->withInput();
@@ -257,7 +258,8 @@ class ProfilesController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         }
 
@@ -290,7 +292,8 @@ class ProfilesController extends Controller
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
 
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'password'              => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
@@ -304,7 +307,8 @@ class ProfilesController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         }
 
@@ -426,7 +430,8 @@ class ProfilesController extends Controller
         $user = User::findOrFail($id);
         $ipAddress = new CaptureIpTrait();
 
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'checkConfirmDelete'            => 'required',
             ],
@@ -437,7 +442,8 @@ class ProfilesController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         }
 
