@@ -64,7 +64,8 @@ class Theme extends Model
                 'notes'  => 'max:500',
                 'status' => 'required',
             ],
-            $merge);
+            $merge
+        );
     }
 
     /**

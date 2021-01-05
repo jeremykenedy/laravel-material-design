@@ -59,7 +59,8 @@ class ThemesManagementController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
 
             return redirect('themes/create')->withErrors($validator)->withInput();
@@ -152,7 +153,8 @@ class ThemesManagementController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
 
             return redirect('themes/'.$theme->id.'/edit')->withErrors($validator)->withInput();

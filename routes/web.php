@@ -73,7 +73,8 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     // User Profile and Account Routes
     Route::resource(
         'profile',
-        'ProfilesController', [
+        'ProfilesController',
+        [
             'only' => [
                 'account',
                 'show',

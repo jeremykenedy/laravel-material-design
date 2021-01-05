@@ -60,7 +60,8 @@ class UsersManagementController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'name'                  => 'required|max:255|unique:users',
                 'first_name'            => '',
@@ -86,22 +87,23 @@ class UsersManagementController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         } else {
             $ipAddress = new CaptureIpTrait();
             $profile = new Profile();
 
             $user = User::create([
-                    'name'             => $request->input('name'),
-                    'first_name'       => $request->input('first_name'),
-                    'last_name'        => $request->input('last_name'),
-                    'email'            => $request->input('email'),
-                    'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
-                    'admin_ip_address' => $ipAddress->getClientIp(),
-                    'activated'        => 1,
-                ]);
+                'name'             => $request->input('name'),
+                'first_name'       => $request->input('first_name'),
+                'last_name'        => $request->input('last_name'),
+                'email'            => $request->input('email'),
+                'password'         => bcrypt($request->input('password')),
+                'token'            => str_random(64),
+                'admin_ip_address' => $ipAddress->getClientIp(),
+                'activated'        => 1,
+            ]);
 
             $user->profile()->save($profile);
             $user->attachRole($request->input('role'));
@@ -168,19 +170,20 @@ class UsersManagementController extends Controller
 
         if ($emailCheck) {
             $validator = Validator::make($request->all(), [
-                    'name'     => 'required|max:255',
-                    'email'    => 'email|max:255|unique:users',
-                    'password' => 'present|confirmed|min:6',
-                ]);
+                'name'     => 'required|max:255',
+                'email'    => 'email|max:255|unique:users',
+                'password' => 'present|confirmed|min:6',
+            ]);
         } else {
             $validator = Validator::make($request->all(), [
-                    'name'     => 'required|max:255',
-                    'password' => 'nullable|confirmed|min:6',
-                ]);
+                'name'     => 'required|max:255',
+                'password' => 'nullable|confirmed|min:6',
+            ]);
         }
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         } else {
             $user->name = $request->input('name');
