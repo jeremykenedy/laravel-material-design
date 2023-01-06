@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Image;
 use Validator;
-use View;
 use Webpatser\Uuid\Uuid;
 
 class ProfilesController extends Controller
